@@ -2,11 +2,20 @@
 
 This portfolio is a static website. It does not need a build step, backend, database, or server runtime.
 
+## Current Local Setup
+
+- Local folder: `D:\AI\carrer\portfolio`
+- Git branch: `main`
+- Prepared remote: `https://github.com/leoxin99/xinlei-portfolio.git`
+- First commit: `Initial portfolio site`
+
 ## Recommended Path: GitHub Pages
 
-1. Create a GitHub repository.
-   - Recommended project repo: `xinlei-portfolio`
-   - Recommended user site repo: `<your-github-username>.github.io`
+1. Create this GitHub repository in the browser:
+   - Owner: `leoxin99`
+   - Repository name: `xinlei-portfolio`
+   - Visibility: public
+   - Do not initialize with README, license, or `.gitignore`; this local folder already has the first commit.
 2. Upload everything in this folder to the repository root:
    - `index.html`
    - `cellsam.html`
@@ -14,13 +23,18 @@ This portfolio is a static website. It does not need a build step, backend, data
    - `.nojekyll`
    - `README.md`
    - `DEPLOYMENT.md`
-3. In the GitHub repository, open `Settings -> Pages`.
-4. Set the source to `Deploy from branch`.
-5. Select branch `main` and folder `/root`.
-6. Wait for the Pages build to finish.
-7. Visit the public URL:
-   - Project site: `https://<username>.github.io/xinlei-portfolio/`
-   - User site: `https://<username>.github.io/`
+3. Push the local commit:
+
+```powershell
+git -C D:\AI\carrer\portfolio push -u origin main
+```
+
+4. In the GitHub repository, open `Settings -> Pages`.
+5. Set the source to `Deploy from branch`.
+6. Select branch `main` and folder `/root`.
+7. Wait for the Pages build to finish.
+8. Visit the public URL:
+   - `https://leoxin99.github.io/xinlei-portfolio/`
 
 ## Optional Custom Domain
 
@@ -43,4 +57,3 @@ This portfolio is a static website. It does not need a build step, backend, data
 - Add the Agent / AI developer resume PDF if available.
 - Confirm whether SQL should remain in the Xiaomi internship tags.
 - Add CellSAM metrics, repository link, and thesis or presentation links when ready.
-
