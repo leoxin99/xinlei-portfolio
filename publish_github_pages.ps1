@@ -3,6 +3,9 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $RemoteUrl = "https://github.com/leoxin99/xinlei-portfolio.git"
 
+Write-Host "Trusting this local repository for the current Windows user..."
+git config --global --add safe.directory ($RepoRoot -replace "\\", "/")
+
 Write-Host "Checking local repository..."
 git -C $RepoRoot status --short
 
