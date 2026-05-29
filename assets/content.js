@@ -3,13 +3,14 @@ window.PORTFOLIO_CONTENT = {
     name: "Xin Lei / 雷鑫",
     headline: "AI 产品经理 × Agent / AI 开发",
     summary:
-      "人工智能硕士，具备计算机与商科复合背景。关注如何把复杂 AI 项目拆解为清晰的问题定义、可验证的评估标准和可迭代的工程流程。",
+      "人工智能硕士，具备计算机、AI 实验与商科复合背景。关注如何把复杂 AI 项目拆解为清晰的问题定义、可验证的评估标准和可迭代的工程流程。",
     location: "Leiden / Beijing",
     avatar: "assets/profile_placeholder.png",
     contacts: [
-      { label: "Email", value: "your.email@example.com", href: "mailto:your.email@example.com" },
-      { label: "GitHub", value: "github.com/your-handle", href: "#" },
-      { label: "LinkedIn", value: "linkedin.com/in/your-profile", href: "#" }
+      { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
+      { label: "GitHub", value: "github.com/leoxin99", href: "https://github.com/leoxin99" },
+      { label: "Portfolio", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" },
+      { label: "LinkedIn", value: "待补充", href: "#" }
     ]
   },
   resumeLinks: {
@@ -21,12 +22,12 @@ window.PORTFOLIO_CONTENT = {
   deployment: {
     recommended: "GitHub Pages",
     summary:
-      "当前站点是纯静态 HTML/CSS/JS，入口文件已经放在根目录，可以直接发布到 GitHub Pages、Cloudflare Pages 或 Vercel。",
+      "当前站点是纯静态 HTML/CSS/JS，已推送到 GitHub 仓库 leoxin99/xinlei-portfolio，可通过 GitHub Pages 发布为公网作品集。",
     steps: [
-      "新建 GitHub 仓库，建议命名为 xinlei-portfolio；如果想使用 https://用户名.github.io，则仓库名使用 <github用户名>.github.io。",
-      "把 portfolio 目录内的 index.html、cellsam.html、assets、README.md、.nojekyll 推到仓库根目录。",
+      "确认 GitHub 仓库 https://github.com/leoxin99/xinlei-portfolio 已存在，且 main 分支包含 index.html。",
+      "本地更新后运行 publish_github_pages.ps1，把 portfolio 目录内文件推送到仓库根目录。",
       "在仓库 Settings -> Pages 中选择 Deploy from branch，分支选择 main，目录选择 /root。",
-      "发布完成后访问 https://<github用户名>.github.io/<仓库名>/；用户主页仓库则访问 https://<github用户名>.github.io/。",
+      "发布完成后访问 https://leoxin99.github.io/xinlei-portfolio/。",
       "如需自定义域名，在 Pages 设置里添加域名，并到 DNS 服务商配置 apex 与 www 记录，最后开启 Enforce HTTPS。"
     ],
     alternatives: [
@@ -43,7 +44,7 @@ window.PORTFOLIO_CONTENT = {
   updateChecklist: [
     {
       title: "联系信息",
-      items: ["真实邮箱", "GitHub 主页", "LinkedIn 主页", "所在城市/求职地区"]
+      items: ["LinkedIn 主页", "所在城市/求职地区", "是否公开手机号或微信", "目标岗位地区与远程/线下偏好"]
     },
     {
       title: "个人素材",
@@ -51,7 +52,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       title: "经历核对",
-      items: ["小米实习是否使用 SQL", "CellSAM 量化结果", "CellSAM 仓库/论文/答辩材料链接", "各课程项目仓库或报告链接"]
+      items: ["小米实习使用过的工具和产出", "CellSAM 量化结果", "CellSAM 仓库/论文/答辩材料链接", "各课程项目仓库或报告链接"]
     },
     {
       title: "定位强化",
@@ -90,13 +91,14 @@ window.PORTFOLIO_CONTENT = {
       role: "硕士毕业设计 / 导师实验室项目",
       href: "cellsam.html",
       summary:
-        "面向复杂心肌细胞生物影像场景，基于 CellSAM 进行三通道适配，并结合 DAPI/Actn2 候选生成、CellFinder 微调、统一推理与固定评估协议，推动项目从实验探索走向可复现验证。",
-      tags: ["CellSAM", "Instance Segmentation", "Evaluation", "Inference Pipeline"],
+        "面向复杂心肌细胞生物影像场景，基于 CellSAM 进行三通道适配，并结合 DAPI/Actn2 候选生成、CellFinder 微调、统一推理与固定评估协议，推动项目从实验探索走向可复现验证。下一步应补充关键指标、论文链接和可展示图示。",
+      tags: ["CellSAM", "Instance Segmentation", "Evaluation", "Inference Pipeline", "Metrics 待补充"],
       highlights: [
         "三通道 decoder-only CellSAM 适配",
         "DAPI/Actn2-aware 候选生成",
         "candidate-aware CellFinder 自动框提示",
-        "统一端到端推理与固定协议评估"
+        "统一端到端推理与固定协议评估",
+        "待补充：最终指标、baseline 对比、代表性可视化结果"
       ]
     },
     {
@@ -105,8 +107,8 @@ window.PORTFOLIO_CONTENT = {
       title: "AML / HPO-AutoML",
       role: "搜索策略与配置优化实验",
       summary:
-        "围绕自动化机器学习实验设计、搜索策略和模型配置优化开展比较，形成对 AI 方案选择和性能评估的结构化理解。",
-      tags: ["AutoML", "HPO", "Experiment Design"]
+        "围绕自动化机器学习实验设计、搜索策略和模型配置优化开展比较，形成对 AI 方案选择和性能评估的结构化理解。建议补充任务数据集、搜索空间、baseline、最终排名或指标变化。",
+      tags: ["AutoML", "HPO", "Experiment Design", "Results 待补充"]
     },
     {
       id: "reinforce",
@@ -114,8 +116,8 @@ window.PORTFOLIO_CONTENT = {
       title: "REINFORCE 强化学习实验",
       role: "训练配置与结果分析",
       summary:
-        "完成强化学习训练实验，对训练策略、参数设置和结果表现进行系统比较，并通过复盘分析理解模型行为差异。",
-      tags: ["Reinforcement Learning", "Ablation", "Analysis"]
+        "完成强化学习训练实验，对训练策略、参数设置和结果表现进行系统比较，并通过复盘分析理解模型行为差异。建议补充环境、reward 曲线、关键超参数和失败案例。",
+      tags: ["Reinforcement Learning", "Ablation", "Analysis", "Curves 待补充"]
     },
     {
       id: "xiaomi",
@@ -123,8 +125,8 @@ window.PORTFOLIO_CONTENT = {
       title: "小米手机部门数据分析实习",
       role: "北京小米移动软件有限公司，2022.09 - 2022.11",
       summary:
-        "参与手机业务相关数据整理与基础分析，支持业务理解和结果输出，积累技术、业务与数据之间的连接经验。",
-      tags: ["Data Analysis", "Business Understanding", "SQL 待确认"]
+        "参与手机业务相关数据整理与基础分析，支持业务理解和结果输出，积累技术、业务与数据之间的连接经验。下一步需要补充具体业务问题、使用工具、数据规模和产出形式。",
+      tags: ["Data Analysis", "Business Understanding", "Tools 待确认"]
     }
   ],
   education: [
@@ -204,6 +206,11 @@ window.PORTFOLIO_CONTENT = {
         title: "面试可讲点",
         body:
           "可以围绕问题定义、为什么选择候选感知提示、如何保证不同方案可比较、如何定位瓶颈、以及如何把研究型代码整理成可发布的核心流程展开。具体量化结果和论文指标待补充。"
+      },
+      {
+        title: "待补充资料",
+        body:
+          "建议补充最终指标、baseline 对比、代表性输入输出图、失败案例、论文或答辩链接、公开代码仓库链接，以及你本人在训练、推理、评估和项目管理中的具体贡献边界。"
       }
     ],
     stack: [
