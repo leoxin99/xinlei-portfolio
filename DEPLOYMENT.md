@@ -51,9 +51,9 @@ git -C D:\AI\carrer\portfolio push -u origin main
 
 ## Pre-Launch Checklist
 
-- Replace placeholder email, GitHub, and LinkedIn links in `assets/content.js`.
+- Confirm final public email, GitHub, phone / WeChat, and portfolio URL in `assets/content.js`.
 - Replace `assets/profile_placeholder.png` with a real profile image.
 - Replace `assets/files/xin-lei-ai-pm-resume.pdf` with the final resume.
 - Add the Agent / AI developer resume PDF if available.
-- Confirm whether SQL should remain in the Xiaomi internship tags.
+- Do not add SQL / Python / BI to the Xiaomi internship unless the actual tools are confirmed.
 - Add CellSAM metrics, repository link, and thesis or presentation links when ready.

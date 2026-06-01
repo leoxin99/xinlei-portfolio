@@ -6,9 +6,8 @@
 
 需要补充：
 
-- LinkedIn 主页链接
-- 当前所在城市和目标求职地区
-- 是否公开手机号、微信或备用邮箱
+- 当前所在城市和目标求职地区：已写入北京
+- 是否公开手机号、微信或备用邮箱：已写入手机号/微信 `18957124638`
 - 目标岗位优先级：AI 产品经理、Agent Engineer、AI Application Engineer、Technical PM
 - 求职偏好：全职 / 实习 / 远程 / 线下 / 海外 / 国内
 - 一张正式头像或职业照，替换 `assets/profile_placeholder.png`
@@ -25,7 +24,7 @@
 
 - 最终版 AI PM PDF 简历
 - Agent / AI 开发版 PDF 简历
-- 英文简历是否需要
+- 英文简历是否需要：本轮不需要
 - 作品集源码仓库链接
 - CellSAM 公开代码仓库链接
 - 论文、答辩 PPT、项目报告或可公开摘要
@@ -62,7 +61,7 @@
 可写成简历 bullet：
 
 - Built a unified detector-to-segmenter inference and evaluation pipeline for hiPSC-CM whole-cell instance segmentation, aligning preprocessing, prompting, postprocessing, and fixed split evaluation.
-- Adapted CellSAM to three-channel microscopy inputs `[BF, DAPI, Actn2]` and integrated DAPI/Actn2-aware candidate generation for cardiomyocyte localization.
+- Adapted CellSAM to three-channel microscopy inputs `[BF, Actn2, DAPI]` and integrated DAPI/Actn2-aware candidate generation for cardiomyocyte localization.
 - Designed reproducible evaluation reports to compare detector and segmenter variants, enabling faster bottleneck diagnosis and iteration planning.
 
 ## 4. AML / HPO-AutoML 课程项目
@@ -105,7 +104,7 @@
 需要补充：
 
 - 所属业务线或分析主题，注意不要泄露内部敏感信息
-- 使用工具：Excel、SQL、Python、BI、内部平台等
+- 使用工具：Excel、SQL、Python、BI、内部平台等；当前不要写入 SQL / Python / BI，除非确认实际使用过
 - 数据类型：销售、用户、设备、渠道、质量、运营等
 - 你的产出：报表、分析结论、问题定位、周报、dashboard
 - 影响：节省时间、支持决策、发现异常、提升分析效率
@@ -183,4 +182,3 @@
 - 做复杂登录系统
 - 做过重动画或营销式 hero
 - 放未验证指标或无法解释的夸张描述
-

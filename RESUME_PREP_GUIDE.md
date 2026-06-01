@@ -12,25 +12,37 @@
 这些信息两版都需要：
 
 - 姓名：中文名、英文名、是否使用 `Xin Lei / 雷鑫`
-- 联系方式：邮箱、GitHub、LinkedIn、作品集链接、是否公开手机号或微信
+- 联系方式：邮箱、GitHub、作品集链接、是否公开手机号或微信；本轮不需要 LinkedIn
 - 求职地点：国内 / 海外 / 远程 / 线下，优先城市
 - 目标岗位：每个方向各列 3-5 个岗位标题
 - 教育信息：学校英文名、专业英文名、GPA 是否公开、毕业时间是否确定
 - 语言能力：中文、英文、其他语言，是否有考试成绩
 - 可公开链接：GitHub、论文、答辩材料、项目报告、demo、网站
-- 简历长度：中文 1 页优先；英文 1 页优先；作品集承载更多细节
+- 简历长度：中文 1 页优先；暂不做英文版；作品集承载更多细节
 
 请先准备成这个格式：
 
 ```text
 邮箱：
 GitHub：
-LinkedIn：
 作品集：
 目标城市：
 目标岗位：
 是否需要英文简历：
 是否公开手机号/微信：
+```
+
+### 已确认并写入
+
+```text
+邮箱：leixin.lx99@gmail.com
+GitHub：https://github.com/leoxin99
+LinkedIn：不需要
+作品集：https://leoxin99.github.io/xinlei-portfolio/
+目标城市：北京
+目标岗位：Agent 开发相关、AI 产品经理
+是否需要英文简历：不需要
+是否公开手机号/微信：18957124638
 ```
 
 ## 2. 产品方向需要补什么
@@ -58,7 +70,7 @@ CellSAM：
 
 - 业务问题是什么
 - 你处理了什么数据
-- 用了什么工具
+- 用了什么工具；当前不要写 SQL / Python / BI，除非你确认实际使用过
 - 最终产出是报表、分析结论、周报还是 dashboard
 - 对团队决策有什么支持
 
@@ -92,19 +104,19 @@ CellSAM：
 
 - 代码仓库链接
 - 你写过或改过的模块：训练、检测、推理、评估、metrics、postprocess
-- 输入输出格式：`[BF, DAPI, Actn2]`、mask、box、JSON/Markdown report
+- 输入输出格式已统一为：`[BF, Actn2, DAPI]`、mask、box、JSON/Markdown report
 - 自动化程度：训练命令、评估脚本、固定 split、结果文件
 - 测试/验证：有哪些 regression test、py_compile、bash syntax check、formal eval
 - 工程难点：统一推理路径、冲突处理、后处理、candidate-aware prompting
 - 结果指标：最终性能、baseline 对比、失败案例
 
-Agent/LLM 项目：
+Agent/LLM 项目（后续计划，不写入当前正式经历）：
 
 - 简历 / CellSAM QA Agent 是否已经开始
 - 使用框架：OpenAI Agents SDK、PydanticAI、LangGraph、CrewAI 等
 - RAG 数据源：简历、README、论文、报告
 - 评估集：问题数量、引用命中率、准确率、unsupported-answer rate
-- serving 后端：hosted API、vLLM、SGLang、Ollama 等
+- serving 后端：hosted API、vLLM、SGLang、Ollama 等；完成 demo 和评估后再写入简历
 - 部署方式：本地、Vercel、Cloudflare Workers、Docker、GPU server
 
 ### 开发版 bullet 写法
@@ -160,9 +172,9 @@ Summary: 2-3 行，强调 AI workflow、evaluation、Python、LLM/Agent
 Education
 Technical Projects
   1. CellSAM inference/evaluation pipeline
-  2. Portfolio / CellSAM QA Agent
-  3. LLM serving evaluation with vLLM/SGLang
-  4. AutoML/HPO or REINFORCE
+  2. AutoML/HPO experiment design
+  3. REINFORCE policy-gradient experiment
+  4. Xiaomi data analysis internship
 Experience
 Skills
 ```
@@ -170,10 +182,32 @@ Skills
 重点排序：
 
 1. CellSAM 工程化流程
-2. Portfolio / CellSAM QA Agent
-3. vLLM/SGLang serving benchmark
-4. AutoML/HPO
-5. 小米实习
+2. AutoML/HPO
+3. REINFORCE
+4. 小米实习
+5. Portfolio / CellSAM QA Agent 作为后续计划，完成 demo 后再升为主项目
+
+### CellSAM 已写入事实边界
+
+- 任务：hiPSC-CM whole-cell instance segmentation。
+- 方法：CellSAM ViT-B backbone，冻结 image encoder / prompt encoder，采用 decoder-focused 三通道适配。
+- 通道顺序：`[BF, Actn2, DAPI]`。
+- 数据：Allen hiPSC-CM，固定 split 为 `334 train / 71 val / 73 test`。
+- 评估：明确区分 `GT-box Oracle` 与 `fully automatic E2E`。
+- Oracle test73：`PQ 0.691 / BM-Dice 0.819 / AJI 0.698 / F1 0.981`。
+- E2E DAPI-CM：`F1 0.617 / PQ 0.398`。
+- 风险边界：不写临床可用、不写跨物种泛化、不把 Oracle F1 当成自动部署结果、不声称 full encoder fine-tuning。
+
+## 4.5 当前中文简历草稿
+
+当前已生成两份中文草稿：
+
+```text
+resume_ai_product_manager_cn.md
+resume_ai_agent_developer_cn.md
+```
+
+两份草稿只写已完成经历：CellSAM、小米实习、AutoML/HPO、REINFORCE。vLLM、SGLang、多 Agent 项目只保留在后续计划文档中，避免把计划误写成已完成经历。
 
 ## 5. 一步步准备顺序
 
@@ -252,8 +286,8 @@ reward 曲线：
 先不要同时做太多。推荐优先级：
 
 1. 简历 / CellSAM QA Agent
-2. vLLM vs SGLang serving benchmark
-3. 糖尿病动物记录 App
+2. CellSAM Experiment Review Copilot
+3. vLLM / SGLang serving benchmark
 
 每个新增项目必须至少有：
 
@@ -282,4 +316,3 @@ reward 曲线：
 xin-lei-ai-product-manager-resume-2026.pdf
 xin-lei-ai-agent-engineer-resume-2026.pdf
 ```
-

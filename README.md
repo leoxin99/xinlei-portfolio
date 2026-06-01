@@ -35,12 +35,14 @@ assets/content.js
 Already filled:
 
 - `leixin.lx99@gmail.com`
+- `18957124638`
 - `github.com/leoxin99`
 - `leoxin99.github.io/xinlei-portfolio`
+- Beijing as target location
+- No LinkedIn
 
 Replace or add these before publishing widely:
 
-- LinkedIn URL
 - `assets/profile_placeholder.png`
 - `assets/files/xin-lei-ai-pm-resume.pdf`
 - Agent / AI developer resume PDF
@@ -61,6 +63,13 @@ For step-by-step resume preparation across AI Product and AI Agent Developer tra
 
 ```text
 RESUME_PREP_GUIDE.md
+```
+
+Current Chinese resume drafts:
+
+```text
+resume_ai_product_manager_cn.md
+resume_ai_agent_developer_cn.md
 ```
 
 ## Deploy

@@ -4,13 +4,13 @@ window.PORTFOLIO_CONTENT = {
     headline: "AI 产品经理 × Agent / AI 开发",
     summary:
       "人工智能硕士，具备计算机、AI 实验与商科复合背景。关注如何把复杂 AI 项目拆解为清晰的问题定义、可验证的评估标准和可迭代的工程流程。",
-    location: "Leiden / Beijing",
+    location: "北京",
     avatar: "assets/profile_placeholder.png",
     contacts: [
       { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
+      { label: "Phone / WeChat", value: "18957124638", href: "tel:+8618957124638" },
       { label: "GitHub", value: "github.com/leoxin99", href: "https://github.com/leoxin99" },
-      { label: "Portfolio", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" },
-      { label: "LinkedIn", value: "待补充", href: "#" }
+      { label: "Portfolio", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" }
     ]
   },
   resumeLinks: {
@@ -44,19 +44,19 @@ window.PORTFOLIO_CONTENT = {
   updateChecklist: [
     {
       title: "联系信息",
-      items: ["LinkedIn 主页", "所在城市/求职地区", "是否公开手机号或微信", "目标岗位地区与远程/线下偏好"]
+      items: ["已确认：北京", "已公开：手机号/微信 18957124638", "目标岗位：Agent 开发相关、AI 产品经理", "不需要 LinkedIn / 英文简历"]
     },
     {
       title: "个人素材",
-      items: ["正式头像或职业照", "最终版 AI PM PDF 简历", "Agent / AI 开发版 PDF 简历"]
+      items: ["正式头像或职业照", "最终版 AI 产品经理 PDF 简历", "最终版 Agent 开发 PDF 简历"]
     },
     {
       title: "经历核对",
-      items: ["小米实习使用过的工具和产出", "CellSAM 量化结果", "CellSAM 仓库/论文/答辩材料链接", "各课程项目仓库或报告链接"]
+      items: ["小米实习使用过的工具和产出", "CellSAM 论文/答辩材料是否可公开", "各课程项目仓库或报告链接"]
     },
     {
       title: "定位强化",
-      items: ["若主攻 Agent，可把 Hero 副标题改为 AI Application Engineer / Agent Engineer", "为每个项目补充截图、demo、评估指标和失败案例复盘"]
+      items: ["后续完成 Portfolio / CellSAM QA Agent", "后续完成 CellSAM Experiment Review Copilot", "为每个项目补充截图、demo、评估指标和失败案例复盘"]
     }
   ],
   tracks: [
@@ -91,14 +91,14 @@ window.PORTFOLIO_CONTENT = {
       role: "硕士毕业设计 / 导师实验室项目",
       href: "cellsam.html",
       summary:
-        "面向复杂心肌细胞生物影像场景，基于 CellSAM 进行三通道适配，并结合 DAPI/Actn2 候选生成、CellFinder 微调、统一推理与固定评估协议，推动项目从实验探索走向可复现验证。下一步应补充关键指标、论文链接和可展示图示。",
-      tags: ["CellSAM", "Instance Segmentation", "Evaluation", "Inference Pipeline", "Metrics 待补充"],
+        "面向 hiPSC-derived cardiomyocytes 密集显微图像，基于 CellSAM ViT-B backbone 做 decoder-focused 三通道适配，并结合 DAPI-CM biology-prior prompt generation、CellFinder refinement、统一推理和固定评估协议，区分 GT-box Oracle 与自动 E2E 部署瓶颈。",
+      tags: ["CellSAM", "Instance Segmentation", "Oracle PQ 0.691", "E2E F1 0.617"],
       highlights: [
-        "三通道 decoder-only CellSAM 适配",
-        "DAPI/Actn2-aware 候选生成",
-        "candidate-aware CellFinder 自动框提示",
-        "统一端到端推理与固定协议评估",
-        "待补充：最终指标、baseline 对比、代表性可视化结果"
+        "使用 [BF, Actn2, DAPI] 三通道输入，冻结 image/prompt encoder，仅微调 mask decoder",
+        "固定 split：334 train / 71 val / 73 test",
+        "Oracle test73：PQ 0.691 / BM-Dice 0.819 / AJI 0.698 / F1 0.981",
+        "自动 E2E DAPI-CM pipeline：F1 0.617 / PQ 0.398",
+        "结论：自动部署主要瓶颈来自 prompt generation / candidate generation"
       ]
     },
     {
@@ -107,8 +107,8 @@ window.PORTFOLIO_CONTENT = {
       title: "AML / HPO-AutoML",
       role: "搜索策略与配置优化实验",
       summary:
-        "围绕自动化机器学习实验设计、搜索策略和模型配置优化开展比较，形成对 AI 方案选择和性能评估的结构化理解。建议补充任务数据集、搜索空间、baseline、最终排名或指标变化。",
-      tags: ["AutoML", "HPO", "Experiment Design", "Results 待补充"]
+        "围绕模型选择与超参数优化搭建实验流程，关注搜索空间、评价指标、配置比较和资源约束，作为 AI 方案评估与自动化实验设计能力的补充项目。",
+      tags: ["AutoML", "HPO", "Experiment Design", "指标待确认"]
     },
     {
       id: "reinforce",
@@ -116,8 +116,8 @@ window.PORTFOLIO_CONTENT = {
       title: "REINFORCE 强化学习实验",
       role: "训练配置与结果分析",
       summary:
-        "完成强化学习训练实验，对训练策略、参数设置和结果表现进行系统比较，并通过复盘分析理解模型行为差异。建议补充环境、reward 曲线、关键超参数和失败案例。",
-      tags: ["Reinforcement Learning", "Ablation", "Analysis", "Curves 待补充"]
+        "实现基于 policy gradient 的 REINFORCE 训练流程，围绕 reward 曲线、训练稳定性、关键超参数和 variance/baseline 问题进行复盘，作为 AI 系统评估能力的补充项目。",
+      tags: ["Reinforcement Learning", "Policy Gradient", "Analysis", "环境待确认"]
     },
     {
       id: "xiaomi",
@@ -125,8 +125,8 @@ window.PORTFOLIO_CONTENT = {
       title: "小米手机部门数据分析实习",
       role: "北京小米移动软件有限公司，2022.09 - 2022.11",
       summary:
-        "参与手机业务相关数据整理与基础分析，支持业务理解和结果输出，积累技术、业务与数据之间的连接经验。下一步需要补充具体业务问题、使用工具、数据规模和产出形式。",
-      tags: ["Data Analysis", "Business Understanding", "Tools 待确认"]
+        "在手机部门担任数据分析实习生，与产品同学沟通数据分析需求，设计分析报告和实施方案，支持 Xiaomi 12 Pro 等产品项目，并关注数据仓库系统运行维护和模块稳定性。",
+      tags: ["Data Analysis", "Product Collaboration", "Data Warehouse"]
     }
   ],
   education: [
@@ -237,27 +237,32 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "技术路线",
         body:
-          "核心路线包括三通道 decoder-only CellSAM 适配，使用 [BF, DAPI, Actn2] 处理输入；通过 DAPI/Actn2-aware 候选生成定位心肌细胞；训练 candidate-aware CellFinder 完成自动框提示；最后采用统一推理核心衔接检测与分割。"
+          "核心路线包括基于 CellSAM ViT-B foundation backbone 的 decoder-focused adaptation：冻结 image encoder 和 prompt encoder，仅微调 mask decoder；使用 [BF, Actn2, DAPI] 三通道输入；通过 DAPI-CM biology-prior prompt generation 定位候选，再交由 CellFinder refinement 生成 box prompts，最后由统一推理核心衔接检测与分割。"
       },
       {
         title: "评估机制",
         body:
-          "项目保留固定 split 协议，并使用统一端到端评估入口进行结果比较。最终推理流程采用官方 CellSAM 预处理链、项目锁定分割路径、概率冲突处理以及受控后处理，避免不同实验路径之间不可比较。"
+          "项目使用固定 split：334 train / 71 val / 73 test，并明确区分 GT-box Oracle 与 fully automatic E2E 两类评估。Oracle 评估用于判断 mask decoder 的分割能力，E2E 评估用于判断自动 prompt generation 与 detector-to-segmenter 部署效果，避免把两类瓶颈混在一起。"
+      },
+      {
+        title: "关键结果",
+        body:
+          "在 locked test73 上，三通道 decoder 在 Oracle 设置下达到 PQ 0.691 / BM-Dice 0.819 / AJI 0.698 / F1 0.981；自动 E2E DAPI-CM pipeline 达到 F1 0.617 / PQ 0.398。论文结论强调：在正确空间提示下分割分支已经较强，自动部署的主要瓶颈转向 prompt generation / candidate generation。"
       },
       {
         title: "产品 / 工程价值",
         body:
-          "对 AI PM 方向，这个项目体现了从模糊研究目标到评估闭环的推进能力；对 Agent / AI 开发方向，它体现了把多阶段 AI 流程工程化、自动化和可复盘化的能力。"
+          "对 AI PM 方向，这个项目体现了从模糊研究目标到任务定义、指标拆解、方案取舍和评估闭环的推进能力；对 Agent / AI 开发方向，它体现了把多阶段 AI workflow 工程化、自动化和可复盘化的能力。"
       },
       {
         title: "面试可讲点",
         body:
-          "可以围绕问题定义、为什么选择候选感知提示、如何保证不同方案可比较、如何定位瓶颈、以及如何把研究型代码整理成可发布的核心流程展开。具体量化结果和论文指标待补充。"
+          "可以围绕为什么 instance segmentation 不能只看 semantic overlap、为什么 Oracle 与 E2E 要拆开评估、为什么 Actn2/DAPI 能作为生物学先验、为什么 DAPI-CM 指标略低但更具 identity control、以及为什么 noisy prompt training 没有解决部署瓶颈来展开。"
       },
       {
-        title: "待补充资料",
+        title: "谨慎表达边界",
         body:
-          "建议补充最终指标、baseline 对比、代表性输入输出图、失败案例、论文或答辩链接、公开代码仓库链接，以及你本人在训练、推理、评估和项目管理中的具体贡献边界。"
+          "不要把 Oracle F1 0.981 写成自动部署结果；不要声称临床/生产可用或跨物种泛化；170 个 Actn2-supported but unlabeled cases 只能作为潜在标注审查线索，不能直接说成确定漏标。论文 PDF、图表和个人贡献边界仍需确认公开范围。"
       }
     ],
     stack: [
