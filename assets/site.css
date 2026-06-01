@@ -465,9 +465,16 @@ ul {
   gap: 16px;
 }
 
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .roadmap-card,
 .info-card,
-.deploy-panel {
+.deploy-panel,
+.contribution-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -476,6 +483,11 @@ ul {
 
 .roadmap-card {
   min-height: 440px;
+  padding: 24px;
+}
+
+.contribution-card {
+  min-height: 520px;
   padding: 24px;
 }
 
@@ -494,7 +506,8 @@ ul {
 
 .roadmap-card h3,
 .info-card h3,
-.deploy-panel h3 {
+.deploy-panel h3,
+.contribution-card h3 {
   margin-top: 16px;
   font-size: 22px;
   line-height: 1.22;
@@ -502,7 +515,8 @@ ul {
 
 .roadmap-card p,
 .info-card p,
-.deploy-panel p {
+.deploy-panel p,
+.contribution-card p {
   margin-top: 12px;
   color: var(--muted);
 }
@@ -701,6 +715,7 @@ ul {
   .project-card-featured,
   .education-grid,
   .roadmap-grid,
+  .contribution-grid,
   .checklist-grid {
     grid-template-columns: 1fr;
   }

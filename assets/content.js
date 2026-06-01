@@ -172,6 +172,53 @@ window.PORTFOLIO_CONTENT = {
       deliverables: ["趋势周报", "项目分类表", "可视化截图", "学习路线"]
     }
   ],
+  contributionTargets: [
+    {
+      title: "糖尿病动物记录 App",
+      type: "自有产品项目",
+      value: "最适合展示 AI PM、数据建模和医疗场景谨慎性。",
+      summary:
+        "做成面向实验动物或宠物慢病管理的记录工具，核心不是替代兽医判断，而是把血糖、体重、饮食、胰岛素/药物、异常事件和复查记录结构化，帮助使用者回顾趋势并生成汇总。",
+      contributions: [
+        "设计动物档案、血糖记录、体重、饮食、用药、异常事件和备注的数据模型",
+        "实现 CRUD、筛选、趋势图、CSV 导出和复查提醒",
+        "增加非医疗建议式的周报摘要，只做记录归纳和异常提示",
+        "补充隐私说明、数据备份和免责声明，避免剂量建议等高风险功能"
+      ],
+      stack: ["Product Design", "React / Static MVP", "Data Model", "Charts", "Privacy"],
+      firstStep: "先做 1 个静态交互原型和 1 份 PRD，再决定是否接数据库。"
+    },
+    {
+      title: "vLLM",
+      type: "开源贡献目标",
+      value: "适合展示 LLM serving、OpenAI-compatible API、structured outputs 和测试文档能力。",
+      summary:
+        "对新贡献者，优先从文档、示例、最小复现、前端/API 测试入手，不建议一开始碰 CUDA kernel 或大型架构改动。",
+      contributions: [
+        "补 structured outputs / tool calling 的可运行示例和常见失败案例说明",
+        "为 OpenAI-compatible server 行为补最小测试或 repro script",
+        "整理 Windows / 单卡 / 低显存部署排错文档",
+        "跟踪 good first issue、新 model request 或文档类 issue，提交小而完整的 PR"
+      ],
+      stack: ["Python", "pytest", "OpenAI API", "Structured Outputs", "Docs"],
+      firstStep: "从 `[Doc]` 或 `[Frontend]` 小 PR 开始，提交时按 vLLM 要求 sign-off，并说明 AI 辅助使用情况。"
+    },
+    {
+      title: "SGLang",
+      type: "开源贡献目标",
+      value: "适合展示高性能推理框架理解、benchmark、unit tests 和 agentic workload 观察。",
+      summary:
+        "SGLang 当前 roadmap 强调生产可靠性、易安装部署、speculative decoding、hierarchical cache、RL 和多模态等方向；新贡献者适合从文档、测试、benchmark 和复现开始。",
+      contributions: [
+        "补从源码安装、最小服务启动、OpenAI-compatible API 的新手文档",
+        "为 Python runtime 组件补 `test/registered/unit` 下的单元测试",
+        "做 agentic workload 的 benchmark/repro，例如长上下文、结构化输出或 speculative decoding",
+        "选择 good first issue 或 help wanted，先 fork、建分支，再开 PR"
+      ],
+      stack: ["Python", "pytest", "pre-commit", "Benchmark", "Serving"],
+      firstStep: "先跑通 Mini-SGLang / Code Walk-through，再选 docs/tests/benchmark 类任务。"
+    }
+  ],
   cellsamDetail: {
     title: "CellSAM：面向 hiPSC-CM 生物影像的实例分割项目",
     intro:

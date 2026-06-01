@@ -51,6 +51,12 @@ For the full list of information to collect and project content to enrich, see:
 CONTENT_INTAKE.md
 ```
 
+For contribution planning around the diabetes animal records app, vLLM, and SGLang, see:
+
+```text
+CONTRIBUTION_PLAN.md
+```
+
 ## Deploy
 
 See `DEPLOYMENT.md`.

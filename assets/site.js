@@ -242,6 +242,40 @@
     });
   }
 
+  function renderContributionTargets() {
+    const list = qs("[data-contribution-targets]");
+    if (!list || !content.contributionTargets) {
+      return;
+    }
+
+    list.innerHTML = "";
+    content.contributionTargets.forEach((target) => {
+      const card = document.createElement("article");
+      card.className = "contribution-card";
+
+      const contributions = document.createElement("ul");
+      contributions.className = "check-list";
+      target.contributions.forEach((text) => {
+        const item = document.createElement("li");
+        item.textContent = text;
+        contributions.appendChild(item);
+      });
+
+      card.innerHTML = `
+        <div class="project-card-head">
+          <span>${target.type}</span>
+          <p>${target.value}</p>
+        </div>
+        <h3>${target.title}</h3>
+        <p>${target.summary}</p>
+        <p class="track-proof">${target.firstStep}</p>
+      `;
+      card.appendChild(contributions);
+      card.appendChild(createTagList(target.stack));
+      list.appendChild(card);
+    });
+  }
+
   function renderCellSamDetail() {
     const detail = content.cellsamDetail;
     if (!detail) {
@@ -301,6 +335,7 @@
     renderChecklist();
     renderDeployment();
     renderAgentRoadmap();
+    renderContributionTargets();
     renderCellSamDetail();
     bindMobileNav();
   });
