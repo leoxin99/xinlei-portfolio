@@ -1,14 +1,13 @@
 # Xin Lei Portfolio
 
-Static interview portfolio for Xin Lei / 雷鑫.
+Static personal portfolio for Xin Lei / 雷鑫.
 
 ## What This Site Contains
 
-- Dual-track positioning for AI Product Manager and Agent / AI Developer roles.
+- Personal AI portfolio homepage.
 - CellSAM project case study.
-- Education and selected project experience.
-- Launch-readiness checklist for replacing placeholder personal information.
-- Agent project roadmap for future resume strengthening.
+- Selected projects, internship, education, and honors.
+- Public contact links.
 
 ## Local Preview
 
@@ -38,46 +37,16 @@ Already filled:
 - `18957124638`
 - `github.com/leoxin99`
 - `leoxin99.github.io/xinlei-portfolio`
-- Beijing as target location
-- No LinkedIn
+- Beijing as location
 
 Replace or add these before publishing widely:
 
 - `assets/profile_placeholder.png`
-- `assets/files/xin-lei-ai-pm-resume.pdf`
-- Agent / AI developer resume PDF
-
-For the full list of information to collect and project content to enrich, see:
-
-```text
-CONTENT_INTAKE.md
-```
-
-For contribution planning around the diabetes animal records app, vLLM, and SGLang, see:
-
-```text
-CONTRIBUTION_PLAN.md
-```
-
-For current multi-agent project recommendations, see:
-
-```text
-MULTI_AGENT_RECOMMENDATIONS.md
-```
-
-For step-by-step resume preparation across AI Product and AI Agent Developer tracks, see:
-
-```text
-RESUME_PREP_GUIDE.md
-```
-
-Current Chinese resume drafts:
-
-```text
-resume_ai_product_manager_cn.md
-resume_ai_agent_developer_cn.md
-```
 
 ## Deploy
 
-See `DEPLOYMENT.md`.
+This repository is deployed through GitHub Pages from the `main` branch root:
+
+```text
+https://leoxin99.github.io/xinlei-portfolio/
+```

@@ -298,40 +298,14 @@ ul {
   font-size: 17px;
 }
 
-.track-layout {
+.capability-grid {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.track-tabs {
-  display: grid;
-  gap: 10px;
-}
-
-.track-tab {
-  width: 100%;
-  min-height: 54px;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--muted);
-  text-align: left;
-  font: inherit;
-  font-weight: 750;
-  cursor: pointer;
-}
-
-.track-tab[aria-selected="true"] {
-  border-color: rgba(31, 118, 110, 0.44);
-  background: #edf6f4;
-  color: var(--ink);
-}
-
-.track-panel {
-  min-height: 300px;
+.capability-card {
+  min-height: 320px;
   padding: 30px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -339,13 +313,19 @@ ul {
   box-shadow: var(--shadow);
 }
 
-.track-panel h3 {
+.capability-card h3 {
   margin-top: 8px;
-  font-size: clamp(24px, 3vw, 34px);
+  color: var(--teal);
+  font-size: 18px;
+}
+
+.capability-card h4 {
+  margin: 8px 0 0;
+  font-size: clamp(22px, 2.5vw, 30px);
   line-height: 1.16;
 }
 
-.track-panel p {
+.capability-card p {
   margin-top: 14px;
   color: var(--muted);
 }
@@ -459,114 +439,34 @@ ul {
   background: var(--green);
 }
 
-.roadmap-grid {
+.education-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-.contribution-grid {
+.honors-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
-.roadmap-card,
-.info-card,
-.deploy-panel,
-.contribution-card {
+.honor-card {
+  min-height: 150px;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 10px 30px rgba(29, 35, 40, 0.05);
 }
 
-.roadmap-card {
-  min-height: 440px;
-  padding: 24px;
-}
-
-.contribution-card {
-  min-height: 520px;
-  padding: 24px;
-}
-
-.roadmap-index {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 34px;
-  border: 1px solid rgba(31, 118, 110, 0.24);
-  border-radius: 8px;
-  background: #edf6f4;
-  color: var(--teal);
-  font-weight: 850;
-}
-
-.roadmap-card h3,
-.info-card h3,
-.deploy-panel h3,
-.contribution-card h3 {
-  margin-top: 16px;
+.honor-card h3 {
   font-size: 22px;
-  line-height: 1.22;
 }
 
-.roadmap-card p,
-.info-card p,
-.deploy-panel p,
-.contribution-card p {
-  margin-top: 12px;
+.honor-card p {
+  margin-top: 10px;
   color: var(--muted);
-}
-
-.roadmap-value {
-  color: var(--ink) !important;
-  font-weight: 750;
-}
-
-.readiness-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 24px;
-  align-items: start;
-}
-
-.checklist-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.info-card {
-  min-height: 220px;
-  padding: 22px;
-}
-
-.deploy-panel {
-  position: sticky;
-  top: 92px;
-  padding: 24px;
-}
-
-.deploy-panel ol {
-  display: grid;
-  gap: 12px;
-  margin: 18px 0 0;
-  padding-left: 20px;
-  color: var(--muted);
-}
-
-.deploy-panel .button {
-  width: 100%;
-  margin-top: 24px;
-}
-
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
 }
 
 .education-item {
@@ -695,10 +595,8 @@ ul {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .track-layout,
   .contact-grid,
-  .detail-shell,
-  .readiness-layout {
+  .detail-shell {
     grid-template-columns: 1fr;
   }
 
@@ -714,9 +612,8 @@ ul {
   .project-grid,
   .project-card-featured,
   .education-grid,
-  .roadmap-grid,
-  .contribution-grid,
-  .checklist-grid {
+  .capability-grid,
+  .honors-grid {
     grid-template-columns: 1fr;
   }
 
@@ -724,8 +621,7 @@ ul {
     grid-column: span 1;
   }
 
-  .detail-aside,
-  .deploy-panel {
+  .detail-aside {
     position: static;
   }
 }
@@ -784,7 +680,7 @@ ul {
     display: none;
   }
 
-  .track-panel,
+  .capability-card,
   .project-card,
   .detail-section {
     padding: 22px;
