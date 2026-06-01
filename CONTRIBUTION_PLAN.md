@@ -92,3 +92,60 @@ Promotion path:
 4. Screenshot, metrics, and README.
 5. Move from "Contribution Targets" to "Selected Work" after there is evidence.
 
+## 5. Later Project: LLM Serving Evaluation for Agentic Portfolio QA
+
+This is the recommended way to apply vLLM and SGLang to the resume without overstating open-source contribution.
+
+### Project Idea
+
+Build a "Portfolio / CellSAM QA Agent" that answers interview-style questions from resume, CellSAM README, thesis notes, and project reports. Then run the same workload with vLLM and SGLang as serving backends.
+
+### What This Demonstrates
+
+- You understand the layer between Agent applications and model APIs.
+- You can deploy an OpenAI-compatible inference service instead of only calling hosted APIs.
+- You can evaluate latency, throughput, context length, structured output reliability, and failure cases.
+- You can connect serving-system choices to product experience and Agent reliability.
+
+### Minimal Architecture
+
+```text
+Portfolio / CellSAM docs
+-> RAG or curated context
+-> Interview QA Agent
+-> vLLM backend and/or SGLang backend
+-> Evaluation set and benchmark report
+```
+
+### Metrics to Track
+
+- TTFT: time to first token
+- TPOT: time per output token
+- End-to-end latency
+- Tokens per second
+- Concurrent requests
+- Context length
+- Citation accuracy
+- Unsupported-answer rate
+- Structured-output validity
+
+### Resume Bullet Drafts
+
+AI Agent version:
+
+- Built a portfolio QA Agent over resume and CellSAM project materials, using local LLM serving backends to compare latency, throughput, citation quality, and structured-output reliability under interview-style workloads.
+- Evaluated vLLM and SGLang as OpenAI-compatible serving backends for agentic QA, documenting trade-offs across concurrency, context length, and response stability.
+
+AI Product version:
+
+- Designed an interview-oriented QA assistant that turns resume and project materials into traceable answers, defining success metrics around factuality, citation quality, latency, and recruiter-facing usefulness.
+- Compared model-serving options for an Agent experience and translated technical trade-offs into product decisions around speed, reliability, and deployment cost.
+
+### First Deliverable
+
+Do not start with a large system. First create:
+
+1. 15 interview questions.
+2. Source passages for each answer.
+3. A small script that sends the same prompts to one backend.
+4. A markdown report with latency, answer quality, and failure cases.

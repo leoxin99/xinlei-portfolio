@@ -57,6 +57,12 @@ For contribution planning around the diabetes animal records app, vLLM, and SGLa
 CONTRIBUTION_PLAN.md
 ```
 
+For step-by-step resume preparation across AI Product and AI Agent Developer tracks, see:
+
+```text
+RESUME_PREP_GUIDE.md
+```
+
 ## Deploy
 
 See `DEPLOYMENT.md`.
