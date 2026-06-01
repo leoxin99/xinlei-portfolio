@@ -63,13 +63,13 @@ window.PORTFOLIO_CONTENT = {
       role: "硕士毕业设计 / 导师实验室项目",
       href: "cellsam.html",
       summary:
-        "面向 hiPSC-derived cardiomyocytes 的全细胞实例分割任务，基于 CellSAM / SAM 系列模型进行三通道适配，结合生物学先验候选生成、CellFinder refinement、统一推理评估和 Agent 辅助科研工作流，展示从模型适配到工程化复盘的完整能力。",
-      tags: ["CellSAM", "SAM", "ViT-B", "Prompt Generation", "Agent Workflow"],
+        "面向 hiPSC-derived cardiomyocytes 的全细胞实例分割任务，基于 Transformer / ViT 架构的 CellSAM / SAM 系列 foundation model 做三通道适配，结合生物学先验候选生成、CellFinder refinement、统一推理评估和 Agent 辅助科研工作流，展示从模型适配到工程化复盘的完整能力。",
+      tags: ["Transformer", "ViT-B", "SAM / CellSAM", "Prompt Generation", "AI Workflow"],
       highlights: [
-        "将通用细胞分割 foundation model 适配到 hiPSC-CM 场景",
+        "将 Transformer-based 视觉 foundation model 适配到 hiPSC-CM 场景",
         "围绕 [BF, Actn2, DAPI] 三通道输入设计模型适配和候选生成流程",
         "构建从候选生成、box prompt、mask decoder 到后处理的推理链路",
-        "用固定评估协议定位分割能力与自动提示生成之间的瓶颈",
+        "用固定评估协议定位模型分割能力、自动提示生成和实际推理链路之间的瓶颈",
         "使用 Agent 辅助科研规划、实验复盘和文档沉淀"
       ]
     },
@@ -79,8 +79,8 @@ window.PORTFOLIO_CONTENT = {
       title: "AML / HPO-AutoML",
       role: "搜索策略与配置优化实验",
       summary:
-        "围绕模型选择与超参数优化搭建实验流程，关注搜索空间、评价指标、配置比较和资源约束，作为 AI 方案评估与自动化实验设计能力的补充项目。",
-      tags: ["AutoML", "HPO", "Experiment Design", "Model Selection"]
+        "围绕模型选择与超参数优化搭建实验流程，关注搜索空间、评价指标、配置比较和资源约束。放到 Agent 方向，可迁移为对 prompt、工具选择、检索参数和 workflow 配置的评估驱动优化能力。",
+      tags: ["AutoML", "HPO", "Agent Eval", "Optimization"]
     },
     {
       id: "reinforce",
@@ -88,8 +88,8 @@ window.PORTFOLIO_CONTENT = {
       title: "REINFORCE 强化学习实验",
       role: "训练配置与结果分析",
       summary:
-        "实现基于 policy gradient 的 REINFORCE 训练流程，围绕 reward 曲线、训练稳定性、关键超参数和 variance/baseline 问题进行复盘，作为 AI 系统评估能力的补充项目。",
-      tags: ["Reinforcement Learning", "Policy Gradient", "Training Stability", "Analysis"]
+        "实现基于 policy gradient 的 REINFORCE 训练流程，围绕 reward、训练稳定性、关键超参数和 variance/baseline 问题进行复盘。放到 Agent 方向，可用于解释 reward design、RLHF/RLAIF、策略优化和反馈闭环的基础概念。",
+      tags: ["Reinforcement Learning", "Policy Gradient", "Reward Design", "RLHF Concepts"]
     },
     {
       id: "xiaomi",
@@ -140,6 +140,11 @@ window.PORTFOLIO_CONTENT = {
           "围绕 CellSAM / SAM 类 foundation model 的场景适配，使用 [BF, Actn2, DAPI] 三通道显微图像作为输入，引入 DAPI / Actn2 生物学先验做候选生成和身份过滤，并把检测、提示、分割、后处理和评估整合成可复盘的工作流。"
       },
       {
+        title: "底层模型理解",
+        body:
+          "CellSAM 继承了 SAM 系列的 Transformer / Vision Transformer 思路：图像编码器用自注意力建模全局上下文，prompt encoder 接收 box 等提示信息，mask decoder 根据图像特征和提示生成分割结果。对非生物 AI 面试官来说，这个项目本质上是一次 Transformer-based 视觉 foundation model 的领域适配与工程落地。"
+      },
+      {
         title: "模型与技术路线",
         body:
           "技术上使用 CellSAM ViT-B backbone，采用 decoder-focused adaptation：冻结 image encoder 和 prompt encoder，重点调优 mask decoder；候选侧结合 DAPI-CM biology-prior prompt generation 与 CellFinder refinement 生成 box prompts，再由统一推理流程输出实例 mask。"
@@ -147,7 +152,7 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "工程、训练与调优能力",
         body:
-          "项目体现了训练配置管理、通道策略对比、prompt source 对比、推理链路统一、后处理规则设计、结果复盘和失败案例分析等能力。重点不是单个指标，而是如何稳定比较方案、定位瓶颈，并把科研探索沉淀为可维护流程。"
+          "项目体现了面向实际应用环境的工程能力：训练配置管理、通道策略对比、prompt source 对比、推理链路统一、后处理规则设计、结果复盘和失败案例分析。重点不是单个指标，而是如何在数据噪声、标注边界、候选质量和部署链路约束下稳定比较方案、定位瓶颈，并把科研探索沉淀为可维护流程。"
       },
       {
         title: "评估设计",
@@ -162,7 +167,7 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "我能展示的能力",
         body:
-          "这个项目可展示计算机视觉模型适配、训练与调优、科研代码工程化、多阶段推理链路设计、指标体系拆解、失败案例复盘，以及使用 Agent 辅助复杂科研任务规划和协作的能力。"
+          "这个项目可展示 Transformer-based 视觉模型适配、训练与调优、科研代码工程化、多阶段推理链路设计、指标体系拆解、失败案例复盘，以及使用 Agent 辅助复杂科研任务规划和协作的能力。面试中可以重点讲如何把模型放进真实问题环境，而不是只讲模型结构。"
       },
       {
         title: "谨慎表达边界",
@@ -173,6 +178,7 @@ window.PORTFOLIO_CONTENT = {
     stack: [
       "Python",
       "PyTorch",
+      "Transformer / ViT",
       "CellSAM",
       "SAM / ViT-B",
       "CellFinder",
