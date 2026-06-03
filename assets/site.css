@@ -298,38 +298,6 @@ ul {
   font-size: 17px;
 }
 
-.capability-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.capability-card {
-  min-height: 320px;
-  padding: 30px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.capability-card h3 {
-  margin-top: 8px;
-  color: var(--teal);
-  font-size: 18px;
-}
-
-.capability-card h4 {
-  margin: 8px 0 0;
-  font-size: clamp(22px, 2.5vw, 30px);
-  line-height: 1.16;
-}
-
-.capability-card p {
-  margin-top: 14px;
-  color: var(--muted);
-}
-
 .track-proof {
   color: var(--ink) !important;
 }
@@ -735,7 +703,6 @@ ul {
   .project-grid,
   .project-card-featured,
   .education-grid,
-  .capability-grid,
   .honors-grid,
   .workflow-strip,
   .agent-role-grid,
@@ -807,7 +774,6 @@ ul {
     display: none;
   }
 
-  .capability-card,
   .project-card,
   .detail-section {
     padding: 22px;

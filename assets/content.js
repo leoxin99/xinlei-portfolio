@@ -13,48 +13,6 @@ window.PORTFOLIO_CONTENT = {
       { label: "Portfolio", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" }
     ]
   },
-  capabilities: [
-    {
-      label: "AI 产品理解",
-      eyebrow: "Product Thinking",
-      headline: "把复杂 AI 项目讲清楚、拆明白、评估好",
-      summary:
-        "能够把研究型或探索型 AI 任务转化为可讨论、可验证、可复盘的项目方案，关注目标定义、约束条件、评估口径和真实使用价值。",
-      strengths: ["问题拆解", "需求抽象", "评估标准", "方案取舍", "实验复盘", "跨角色协作"],
-      proof:
-        "在 CellSAM 和小米实习中，围绕复杂任务梳理问题边界、数据口径和迭代路径，让方案比较和沟通推进更清晰。"
-    },
-    {
-      label: "Agent 与工程实现",
-      eyebrow: "Agent Engineering",
-      headline: "把实验、工具和协作流程沉淀为可复用系统",
-      summary:
-        "能够拆解多阶段 AI workflow，组织数据处理、模型训练、推理验证、自动化评测与 Agent 辅助科研流程，重视可靠性、可维护性和复盘效率。",
-      strengths: ["Python", "AI Workflow", "Evaluation", "Automation", "Agent Skills", "Git"],
-      proof:
-        "在 CellSAM 项目中参与训练、调优、推理与评估流程，并尝试用 Agent skills、workflow 和多 Agent 协作框架加速科研开发。"
-    },
-    {
-      label: "评估与实验设计",
-      eyebrow: "Evaluation",
-      headline: "用评估拆分真实问题，而不是只看单个结果",
-      summary:
-        "关注固定协议、对比实验、失败案例、指标边界和结论可信度。CellSAM 中 Oracle / E2E 的拆分是评估设计能力的核心证据。",
-      strengths: ["Oracle / E2E", "Ablation", "Metrics", "Failure Review", "Reproducibility"],
-      proof:
-        "通过区分模型本身能力与自动部署链路能力，定位 prompt generation / candidate generation 等具体瓶颈。"
-    },
-    {
-      label: "数据分析与协作",
-      eyebrow: "Data Collaboration",
-      headline: "把业务问题转化为数据分析和交付方案",
-      summary:
-        "具备数据分析实习经验，理解产品需求、分析口径、数据链路稳定性和项目交付节奏之间的关系。",
-      strengths: ["需求沟通", "分析报告", "数据链路", "项目支持", "跨角色协作"],
-      proof:
-        "在小米手机部门参与数据分析需求沟通、报告方案设计和产品项目上线支持。"
-    }
-  ],
   projects: [
     {
       id: "cellsam",
@@ -120,8 +78,12 @@ window.PORTFOLIO_CONTENT = {
   ],
   honors: [
     {
-      title: "数学建模竞赛 Honorable Mention",
-      detail: "已确认奖项，可用于展示建模、问题拆解与团队协作基础。"
+      title: "Leiden University Scholarship / 莱顿大学奖学金",
+      detail: "硕士阶段获得莱顿大学奖学金资助，支持人工智能方向学习与研究。"
+    },
+    {
+      title: "2022 美国大学生数学竞赛二等奖",
+      detail: "应用建模类竞赛奖项，体现问题建模、数据分析、方案表达与团队协作能力。"
     }
   ],
   cellsamDetail: {

@@ -55,28 +55,6 @@
     }
   }
 
-  function renderCapabilities() {
-    const list = qs("[data-capability-list]");
-    if (!list || !content.capabilities) {
-      return;
-    }
-
-    list.innerHTML = "";
-    content.capabilities.forEach((capability) => {
-      const card = document.createElement("article");
-      card.className = "capability-card";
-      card.innerHTML = `
-        <p class="eyebrow">${capability.eyebrow}</p>
-        <h3>${capability.label}</h3>
-        <h4>${capability.headline}</h4>
-        <p>${capability.summary}</p>
-        <p class="track-proof">${capability.proof}</p>
-      `;
-      card.appendChild(createTagList(capability.strengths));
-      list.appendChild(card);
-    });
-  }
-
   function renderProjects() {
     const list = qs("[data-project-list]");
     if (!list) {
@@ -273,7 +251,6 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     renderProfile();
-    renderCapabilities();
     renderProjects();
     renderEducation();
     renderHonors();
