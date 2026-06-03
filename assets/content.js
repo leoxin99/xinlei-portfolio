@@ -162,7 +162,7 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "Agent 辅助科研工作流",
         body:
-          "在开发过程中使用 Agent 辅助科研规划、实验复盘、文档整理和问题分解，并逐步把重复性的研究协作动作沉淀为 skills、workflow 与多 Agent 协作框架。公开页面保留方法层面的概述，具体 agent 分工和样例输出会在整理成可公开材料后单独展示。"
+          "在开发过程中，我不是简单让 AI 写代码或写论文，而是把 Agent 当作科研协作和执行系统使用：用于规划实验、审查配置、监控训练、复盘结果、整理论文材料和推进多条技术路线。下面的 workflow 展示这套方法如何把复杂科研项目组织成可执行、可审核、可交付的工程流程。"
       },
       {
         title: "我能展示的能力",
@@ -187,6 +187,94 @@ window.PORTFOLIO_CONTENT = {
       "scikit-image",
       "pycocotools",
       "Agent Skills / Workflows"
-    ]
+    ],
+    agentResearchSystem: {
+      eyebrow: "Agent-assisted Research System",
+      title: "Agent 辅助科研工作流",
+      summary:
+        "这套 workflow 的价值不是“用 AI 代写”，而是把复杂科研项目从零散尝试变成有计划、有证据链、有审核、有交接和有决策记录的研究系统。",
+      resumeLine:
+        "Designed an agent-assisted research workflow for CellSAM, coordinating experiment planning, implementation, training monitoring, multi-agent audit, result consolidation, and paper / portfolio handoff for a complex biomedical segmentation project.",
+      flow: [
+        {
+          title: "Research Question",
+          body: "把模糊问题拆成可验证问题，例如瓶颈在 segmentation decoder，还是 prompt / box generation。"
+        },
+        {
+          title: "Experiment Matrix",
+          body: "把路线组织成实验矩阵，覆盖 segmentation adaptation、detector line、noisy-box adaptation 和 post-processing audit。"
+        },
+        {
+          title: "Implementation",
+          body: "用 Agent 辅助检查代码、配置、训练入口和评估入口，降低实验名正确但配置不一致的风险。"
+        },
+        {
+          title: "Training / Evaluation",
+          body: "跟踪本地与 HPC 训练评估任务，区分 Oracle evaluation 和 End-to-End evaluation。"
+        },
+        {
+          title: "Multi-agent Audit",
+          body: "通过交叉审核检查指标口径、路径一致性、后处理混杂、训练和推理是否对齐。"
+        },
+        {
+          title: "Paper / Portfolio Handoff",
+          body: "把通过审核的结论整理成论文叙事、图表说明和作品集案例。"
+        }
+      ],
+      roles: [
+        {
+          title: "Decision Owner",
+          body: "负责研究问题定义、路线取舍、论文叙事边界、公开范围和最终判断。"
+        },
+        {
+          title: "Research Orchestrator",
+          body: "把想法转成可运行实验，负责实验设计、代码实现、配置检查、评估脚本和结果整理。"
+        },
+        {
+          title: "Experiment Reviewer",
+          body: "审核实验方案、运行训练和评估、回填结果，并检查指标口径或流程不一致问题。"
+        },
+        {
+          title: "Paper Writer",
+          body: "把通过审核的实验结论整合为论文正文、图表说明和 LaTeX 材料。"
+        },
+        {
+          title: "Branch Agents",
+          body: "针对 box refiner、biology-prior detector integration 等子路线并行推进，再通过 handover 汇总。"
+        }
+      ],
+      artifacts: [
+        {
+          title: "Agent Inbox",
+          body: "同步审核意见、实验结论、待办事项和论文写作交接。"
+        },
+        {
+          title: "Project Onboarding",
+          body: "新窗口或新 agent 先读 onboarding、backlog、实验文档和最新 handover，快速恢复上下文。"
+        },
+        {
+          title: "Experiment Docs",
+          body: "记录实验目标、配置、训练入口、评估入口、结果、失败原因和是否进入论文。"
+        },
+        {
+          title: "Handover Bundles",
+          body: "阶段性任务结束后整理交接材料，支持后续 agent 或论文写作继续推进。"
+        },
+        {
+          title: "Audit-first Writing",
+          body: "论文写作先经过实验审核、指标口径确认和对照关系确认，再进入公开叙事。"
+        },
+        {
+          title: "Dry-run Checks",
+          body: "清理、上传、训练提交和配置变更优先使用 dry-run、manifest、hash 和脚本检查。"
+        }
+      ],
+      why: [
+        "展示复杂 AI 项目管理能力：把研究问题拆成可执行路线，并保留决策记录。",
+        "展示工程落地能力：把训练、推理、评估、后处理和文档交接组织成稳定流程。",
+        "展示问题解决能力：通过多 agent audit 定位指标口径、配置、路径和推理链路问题。",
+        "展示交付意识：论文、网站和简历只使用通过审核、适合公开的材料。"
+      ]
+    }
   }
 };

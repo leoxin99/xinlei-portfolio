@@ -579,6 +579,127 @@ ul {
   font-size: 20px;
 }
 
+.section-mini-head {
+  margin-bottom: 16px;
+}
+
+.section-mini-head h3 {
+  margin-top: 8px;
+  font-size: 28px;
+  line-height: 1.16;
+}
+
+.workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.workflow-step,
+.agent-role-card,
+.artifact-card,
+.resume-callout,
+.why-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(29, 35, 40, 0.05);
+}
+
+.workflow-step {
+  min-height: 250px;
+  padding: 18px;
+}
+
+.workflow-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 32px;
+  border: 1px solid rgba(31, 118, 110, 0.24);
+  border-radius: 8px;
+  background: #edf6f4;
+  color: var(--teal);
+  font-weight: 850;
+}
+
+.workflow-step h3 {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.18;
+}
+
+.workflow-step p,
+.agent-role-card p,
+.artifact-card p,
+.resume-callout p,
+.why-panel p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.agent-system-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 18px;
+  align-items: start;
+  margin-top: 36px;
+}
+
+.agent-role-grid,
+.artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.agent-role-card,
+.artifact-card,
+.resume-callout {
+  padding: 20px;
+}
+
+.agent-role-card h4,
+.artifact-card h4 {
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.resume-callout {
+  position: sticky;
+  top: 92px;
+  background: #edf6f4;
+}
+
+.resume-callout p:last-child {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.artifact-block {
+  margin-top: 38px;
+}
+
+.why-panel {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 38px;
+  padding: 24px;
+}
+
+.why-panel h3 {
+  margin-top: 8px;
+  font-size: 28px;
+  line-height: 1.16;
+}
+
+.why-panel .check-list {
+  margin-top: 0;
+}
+
 .site-footer {
   padding: 28px 0;
   color: var(--muted);
@@ -596,7 +717,9 @@ ul {
 @media (max-width: 900px) {
   .hero-grid,
   .contact-grid,
-  .detail-shell {
+  .detail-shell,
+  .agent-system-layout,
+  .why-panel {
     grid-template-columns: 1fr;
   }
 
@@ -613,7 +736,10 @@ ul {
   .project-card-featured,
   .education-grid,
   .capability-grid,
-  .honors-grid {
+  .honors-grid,
+  .workflow-strip,
+  .agent-role-grid,
+  .artifact-grid {
     grid-template-columns: 1fr;
   }
 
@@ -621,7 +747,8 @@ ul {
     grid-column: span 1;
   }
 
-  .detail-aside {
+  .detail-aside,
+  .resume-callout {
     position: static;
   }
 }

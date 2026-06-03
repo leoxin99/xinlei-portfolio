@@ -185,6 +185,71 @@
     }
   }
 
+  function renderCellSamAgentSystem() {
+    const system = content.cellsamDetail && content.cellsamDetail.agentResearchSystem;
+    if (!system) {
+      return;
+    }
+
+    setText("[data-cellsam-agent-eyebrow]", system.eyebrow);
+    setText("[data-cellsam-agent-title]", system.title);
+    setText("[data-cellsam-agent-summary]", system.summary);
+    setText("[data-cellsam-agent-resume]", system.resumeLine);
+
+    const workflow = qs("[data-cellsam-workflow]");
+    if (workflow) {
+      workflow.innerHTML = "";
+      system.flow.forEach((step, index) => {
+        const card = document.createElement("article");
+        card.className = "workflow-step";
+        card.innerHTML = `
+          <span class="workflow-index">${String(index + 1).padStart(2, "0")}</span>
+          <h3>${step.title}</h3>
+          <p>${step.body}</p>
+        `;
+        workflow.appendChild(card);
+      });
+    }
+
+    const roles = qs("[data-cellsam-agent-roles]");
+    if (roles) {
+      roles.innerHTML = "";
+      system.roles.forEach((role) => {
+        const card = document.createElement("article");
+        card.className = "agent-role-card";
+        card.innerHTML = `
+          <h4>${role.title}</h4>
+          <p>${role.body}</p>
+        `;
+        roles.appendChild(card);
+      });
+    }
+
+    const artifacts = qs("[data-cellsam-artifacts]");
+    if (artifacts) {
+      artifacts.innerHTML = "";
+      system.artifacts.forEach((artifact) => {
+        const card = document.createElement("article");
+        card.className = "artifact-card";
+        card.innerHTML = `
+          <h4>${artifact.title}</h4>
+          <p>${artifact.body}</p>
+        `;
+        artifacts.appendChild(card);
+      });
+    }
+
+    const why = qs("[data-cellsam-why]");
+    if (why) {
+      why.innerHTML = "";
+      system.why.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        why.appendChild(li);
+      });
+    }
+  }
+
   function bindMobileNav() {
     const button = qs("[data-nav-toggle]");
     const nav = qs("[data-nav-menu]");
@@ -213,6 +278,7 @@
     renderEducation();
     renderHonors();
     renderCellSamDetail();
+    renderCellSamAgentSystem();
     bindMobileNav();
   });
 })();
