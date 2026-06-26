@@ -33,7 +33,7 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "一个离线优先的 AI 旅行 artifact 生成器 MVP：将自然语言旅行计划转成经过校验的 itinerary JSON，并渲染为可离线打开的交互式 HTML 旅行地图。项目强调 schema-first 数据链路、无运行时 LLM / 地理编码依赖、HTML/SVG artifact 生成、旅行备注本地保存和 GitHub Actions 自动校验。",
+        "面向希望规划、复盘和分享旅行路线的旅行者/内容创作者，将自然语言旅行计划转成结构化 itinerary JSON，并渲染为可离线打开、可分享的交互式 HTML 旅行地图。项目重点验证 AI 如何帮助用户表达真实旅行经历，而不是替用户生成模板内容。",
       tags: [
         "Python",
         "HTML/CSS/JavaScript",
@@ -45,8 +45,9 @@ window.PORTFOLIO_CONTENT = {
         "Offline-first"
       ],
       highlights: [
-        "自然语言旅行计划 -> 结构化 itinerary JSON -> 可离线打开的交互式 HTML 旅行地图",
-        "支持经纬度投影地图、POI、城市详情页、路线距离、比例尺和行程面板",
+        "目标用户：旅行路线规划者、旅行记录者、内容创作者和希望沉淀路线资产的用户",
+        "核心流程：自然语言计划 -> 结构化 itinerary JSON -> 可离线打开的交互式 HTML 旅行地图",
+        "产品亮点：把路线、城市、POI、距离、每日行程和备注转成可看、可改、可分享的 artifact",
         "提供一页式 SVG poster、总行程 poster、每日简报 poster 和旅行记录 poster",
         "旅行中备注保存在浏览器 localStorage，支持全程/每日/地点备注",
         "无需登录和后端服务，可直接在浏览器打开；CI 验证 HTML/SVG 离线 artifact、安全约束和 demo 可重生成"
