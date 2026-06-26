@@ -15,6 +15,44 @@ window.PORTFOLIO_CONTENT = {
   },
   projects: [
     {
+      id: "pixeltravelmap",
+      type: "已发布项目",
+      title: "PixelTravelMap：离线 AI 旅行地图 Artifact 生成器",
+      role: "独立 GitHub 仓库 / 可在线访问 Demo",
+      links: [
+        {
+          label: "打开 Demo",
+          href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
+          external: true,
+          primary: true
+        },
+        {
+          label: "查看代码",
+          href: "https://github.com/leoxin99/PixelTravelMap",
+          external: true
+        }
+      ],
+      summary:
+        "一个离线优先的 AI 旅行 artifact 生成器 MVP：将自然语言旅行计划转成经过校验的 itinerary JSON，并渲染为可离线打开的交互式 HTML 旅行地图。项目强调 schema-first 数据链路、无运行时 LLM / 地理编码依赖、HTML/SVG artifact 生成、旅行备注本地保存和 GitHub Actions 自动校验。",
+      tags: [
+        "Python",
+        "HTML/CSS/JavaScript",
+        "SVG",
+        "JSON Schema",
+        "GitHub Pages",
+        "GitHub Actions",
+        "localStorage",
+        "Offline-first"
+      ],
+      highlights: [
+        "自然语言旅行计划 -> 结构化 itinerary JSON -> 可离线打开的交互式 HTML 旅行地图",
+        "支持经纬度投影地图、POI、城市详情页、路线距离、比例尺和行程面板",
+        "提供一页式 SVG poster、总行程 poster、每日简报 poster 和旅行记录 poster",
+        "旅行中备注保存在浏览器 localStorage，支持全程/每日/地点备注",
+        "无需登录和后端服务，可直接在浏览器打开；CI 验证 HTML/SVG 离线 artifact、安全约束和 demo 可重生成"
+      ]
+    },
+    {
       id: "cellsam",
       type: "主项目",
       title: "CellSAM：hiPSC-CM 全细胞实例分割",
@@ -33,7 +71,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "automl",
-      type: "课程项目",
+      type: "AI 优化项目",
       title: "AML / HPO-AutoML",
       role: "搜索策略与配置优化实验",
       summary:
@@ -42,7 +80,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "reinforce",
-      type: "课程项目",
+      type: "反馈学习项目",
       title: "REINFORCE 强化学习实验",
       role: "训练配置与结果分析",
       summary:

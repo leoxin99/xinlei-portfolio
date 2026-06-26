@@ -66,8 +66,11 @@
       const article = document.createElement("article");
       article.className = project.id === "cellsam" ? "project-card project-card-featured" : "project-card";
 
-      const linkMarkup = project.href
-        ? `<a class="text-link" href="${project.href}">查看详情</a>`
+      const links = project.links || (project.href ? [{ label: "查看详情", href: project.href }] : []);
+      const linkMarkup = links.length
+        ? `<div class="project-links">${links
+            .map((link) => `<a class="text-link${link.primary ? " text-link-primary" : ""}" href="${link.href}" target="${link.external ? "_blank" : "_self"}" rel="${link.external ? "noopener noreferrer" : ""}">${link.label}</a>`)
+            .join("")}</div>`
         : "";
 
       article.innerHTML = `
