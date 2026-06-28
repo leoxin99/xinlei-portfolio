@@ -92,7 +92,7 @@ window.PORTFOLIO_CONTENT = {
       id: "xiaomi",
       type: "实习经历",
       title: "小米手机部门数据分析实习",
-      role: "北京小米移动软件有限公司，2022.09 - 2022.11",
+      role: "北京小米移动软件有限公司，2022.09 - 2023.01",
       summary:
         "在手机部门担任数据分析实习生，与产品同学沟通数据分析需求，设计分析报告和实施方案，支持 Xiaomi 12 Pro 等产品项目，并关注数据仓库系统运行维护和模块稳定性。",
       tags: ["Data Analysis", "Product Collaboration", "Data Warehouse"]
