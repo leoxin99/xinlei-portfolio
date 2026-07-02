@@ -70,7 +70,7 @@ The site includes a lightweight `Product Notes` section for project retrospectiv
 - VLM game companionship: product boundaries for low-interruption AI companions.
 - 糖宠照护记录: information architecture for long-term care.
 - Agent-assisted research: planning, audit, and delivery in complex AI projects.
-- How AI PMs can evaluate RAG, agent, and multimodal applications.
+- AI application evaluation: from impressive demos to deployable systems.
 
 ## Site Structure
 

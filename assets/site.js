@@ -146,10 +146,8 @@
     content.productNotes.forEach((note) => {
       const article = document.createElement("article");
       article.className = "note-card";
-      const status = note.status ? `<span>${note.status}</span>` : "";
       article.innerHTML = `
         <div class="note-card-head">
-          ${status}
           <p>${note.theme}</p>
         </div>
         <h3>${note.title}</h3>

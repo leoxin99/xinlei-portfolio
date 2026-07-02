@@ -159,7 +159,6 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "PixelTravelMap 产品复盘：从旅行计划到离线 AI artifact",
       theme: "AI Artifact / Schema-first",
-      status: "计划撰写",
       summary:
         "复盘为什么旅行 AI 不应只生成文本游记，而应把路线、POI、备注、地图和 poster 组织成可修改、可离线打开、可分享的结构化 artifact。",
       tags: ["PixelTravelMap", "AI Application", "Offline-first"],
@@ -171,7 +170,6 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "VLM 游戏陪伴：低打扰陪伴式 AI 的产品边界",
       theme: "VLM / Game Companion",
-      status: "计划撰写",
       summary:
         "从游戏截图理解、实时上下文、语音回复、打扰感和情绪价值出发，拆解 AI 游戏陪伴为什么不能只做攻略问答。",
       tags: ["VLM", "Multimodal Agent", "Companion"],
@@ -183,7 +181,6 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "糖宠照护记录：长期照护场景下的信息结构",
       theme: "C-end Product / Long-term Care",
-      status: "计划撰写",
       summary:
         "围绕新手宠物家长的焦虑、记录混乱和复诊沟通成本，梳理健康记录类产品如何设置功能边界和风险提示。",
       tags: ["Pet Care", "Health Record", "Risk Boundary"],
@@ -195,7 +192,6 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Agent 辅助科研：复杂 AI 项目的规划、审计与交付",
       theme: "Agent Workflow / Research",
-      status: "计划撰写",
       summary:
         "基于 CellSAM 项目复盘 Agent 如何用于实验规划、配置审查、训练监控、结果审计和论文材料交接。",
       tags: ["Agent Workflow", "CellSAM", "Research Ops"],
@@ -205,11 +201,10 @@ window.PORTFOLIO_CONTENT = {
       ]
     },
     {
-      title: "AI 产品经理如何评估 RAG / Agent / 多模态应用",
-      theme: "AI PM Method",
-      status: "计划撰写",
+      title: "AI 应用评估框架：从 Demo 到可上线系统",
+      theme: "AI Product Evaluation",
       summary:
-        "沉淀一套面试可讲的 AI 产品评估框架：任务成功率、引用质量、延迟、成本、幻觉、安全边界和用户反馈闭环。",
+        "从任务成功率、引用质量、延迟、成本、幻觉、安全边界和用户反馈闭环出发，梳理 AI 应用如何从演示效果走向可迭代、可评估的真实系统。",
       tags: ["AI PM", "Evaluation", "RAG", "Agent"],
       takeaways: [
         "把模型能力、产品体验和业务指标拆开评估",
