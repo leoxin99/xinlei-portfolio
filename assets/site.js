@@ -136,6 +136,42 @@
     });
   }
 
+  function renderProductNotes() {
+    const list = qs("[data-product-note-list]");
+    if (!list || !content.productNotes) {
+      return;
+    }
+
+    list.innerHTML = "";
+    content.productNotes.forEach((note) => {
+      const article = document.createElement("article");
+      article.className = "note-card";
+      const status = note.status ? `<span>${note.status}</span>` : "";
+      article.innerHTML = `
+        <div class="note-card-head">
+          ${status}
+          <p>${note.theme}</p>
+        </div>
+        <h3>${note.title}</h3>
+        <p>${note.summary}</p>
+      `;
+
+      if (note.takeaways) {
+        const listEl = document.createElement("ul");
+        listEl.className = "check-list";
+        note.takeaways.forEach((takeaway) => {
+          const item = document.createElement("li");
+          item.textContent = takeaway;
+          listEl.appendChild(item);
+        });
+        article.appendChild(listEl);
+      }
+
+      article.appendChild(createTagList(note.tags));
+      list.appendChild(article);
+    });
+  }
+
   function renderCellSamDetail() {
     const detail = content.cellsamDetail;
     if (!detail) {
@@ -255,6 +291,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     renderProfile();
     renderProjects();
+    renderProductNotes();
     renderEducation();
     renderHonors();
     renderCellSamDetail();

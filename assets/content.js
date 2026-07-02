@@ -33,7 +33,7 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "面向希望规划、复盘和分享旅行路线的旅行者/内容创作者，将自然语言旅行计划转成结构化 itinerary JSON，并渲染为可离线打开、可分享的交互式 HTML 旅行地图。项目重点验证 AI 如何帮助用户表达真实旅行经历，而不是替用户生成模板内容。",
+        "面向旅行路线规划者、旅行记录者和内容创作者，将自然语言旅行计划转成结构化 itinerary JSON，并渲染为可离线打开、可复用、可分享的交互式 HTML 旅行 atlas。项目重点不是生成一段游记，而是把真实路线、城市、POI、备注和 poster 沉淀成可持续修改的 AI travel artifact。",
       tags: [
         "Python",
         "HTML/CSS/JavaScript",
@@ -47,10 +47,40 @@ window.PORTFOLIO_CONTENT = {
       highlights: [
         "目标用户：旅行路线规划者、旅行记录者、内容创作者和希望沉淀路线资产的用户",
         "核心流程：自然语言计划 -> 结构化 itinerary JSON -> 可离线打开的交互式 HTML 旅行地图",
-        "产品亮点：把路线、城市、POI、距离、每日行程和备注转成可看、可改、可分享的 artifact",
-        "提供一页式 SVG poster、总行程 poster、每日简报 poster 和旅行记录 poster",
+        "产品亮点：schema-first 约束输入输出，把路线、城市、POI、距离、每日行程和备注转成可看、可改、可分享的 artifact",
+        "提供一页式 SVG poster、总行程 poster、每日简报 poster 和旅行记录 poster，用于规划、途中记录和复盘分享",
         "旅行中备注保存在浏览器 localStorage，支持全程/每日/地点备注",
         "无需登录和后端服务，可直接在浏览器打开；CI 验证 HTML/SVG 离线 artifact、安全约束和 demo 可重生成"
+      ]
+    },
+    {
+      id: "vlm-game-companion",
+      type: "产品研究 / 原型设计",
+      title: "VLM 游戏陪伴 Agent：低打扰多模态陪伴原型",
+      role: "自驱产品研究 / 面向 AI 游戏陪伴岗位",
+      summary:
+        "围绕“能看、能听、能聊”的 AI 游戏陪伴场景，设计一个读取游戏截图或视频帧、输出结构化 game_state、再生成短句语音陪伴的 VLM Agent 原型。项目当前定位为产品研究和 MVP 方案设计，重点验证实时多模态理解、低打扰回复策略、情绪价值和用户反馈闭环。",
+      tags: ["VLM", "Multimodal Agent", "Game Companion", "TTS", "Context Engineering"],
+      highlights: [
+        "目标用户：单人游戏玩家、卡关/失败后需要陪伴反馈的玩家，以及希望获得轻提醒而非强攻略的用户",
+        "核心流程：游戏截图/视频帧 -> VLM 识别 -> game_state JSON -> 回复时机判断 -> 陪伴式短回复 -> 语音输出 -> 用户反馈",
+        "MVP 边界：不做外挂式覆盖层、不自动操作游戏、不承诺复杂战术指挥，先验证陪伴体验和多模态链路",
+        "评估重点：识别准确率、回复相关性、打扰感、建议采纳率、负反馈率和次日留存意愿"
+      ]
+    },
+    {
+      id: "pet-diabetes",
+      type: "产品原型",
+      title: "糖宠照护记录：猫狗糖尿病长期照护 Web App",
+      role: "自驱产品探索 / Web 版，后续规划小程序",
+      summary:
+        "面向首次遇到宠物糖尿病、缺少长期照护经验的猫狗家长，设计一套记录血糖、饮食、胰岛素执行、症状、复诊和备注的 Web 工具。产品目标是降低记录混乱和复盘困难，帮助家长把日常照护信息整理成可与兽医沟通的结构化材料。",
+      tags: ["C-end Product", "Health Record", "Long-term Care", "Risk Boundary", "Web App"],
+      highlights: [
+        "核心用户：需要长期照护糖尿病猫狗的新手家长，以及需要整理复诊材料的宠物家庭",
+        "核心场景：每日记录、异常标记、趋势复盘、复诊前报告导出和家庭成员协作查看",
+        "产品边界：只做记录、知识提示和沟通辅助，不做诊断、治疗建议或胰岛素剂量建议",
+        "后续方向：Web 版验证记录闭环和信息结构，再评估小程序提醒、分享和复诊报告能力"
       ]
     },
     {
@@ -123,6 +153,68 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "2022 美国大学生数学竞赛二等奖",
       detail: "应用建模类竞赛奖项，体现问题建模、数据分析、方案表达与团队协作能力。"
+    }
+  ],
+  productNotes: [
+    {
+      title: "PixelTravelMap 产品复盘：从旅行计划到离线 AI artifact",
+      theme: "AI Artifact / Schema-first",
+      status: "计划撰写",
+      summary:
+        "复盘为什么旅行 AI 不应只生成文本游记，而应把路线、POI、备注、地图和 poster 组织成可修改、可离线打开、可分享的结构化 artifact。",
+      tags: ["PixelTravelMap", "AI Application", "Offline-first"],
+      takeaways: [
+        "讲清楚自然语言到 itinerary JSON 的 schema-first 设计",
+        "解释离线 artifact 对分享、复盘和长期保存的价值"
+      ]
+    },
+    {
+      title: "VLM 游戏陪伴：低打扰陪伴式 AI 的产品边界",
+      theme: "VLM / Game Companion",
+      status: "计划撰写",
+      summary:
+        "从游戏截图理解、实时上下文、语音回复、打扰感和情绪价值出发，拆解 AI 游戏陪伴为什么不能只做攻略问答。",
+      tags: ["VLM", "Multimodal Agent", "Companion"],
+      takeaways: [
+        "定义 game_state schema 和回复时机策略",
+        "用打扰感、相关性和负反馈率评估陪伴体验"
+      ]
+    },
+    {
+      title: "糖宠照护记录：长期照护场景下的信息结构",
+      theme: "C-end Product / Long-term Care",
+      status: "计划撰写",
+      summary:
+        "围绕新手宠物家长的焦虑、记录混乱和复诊沟通成本，梳理健康记录类产品如何设置功能边界和风险提示。",
+      tags: ["Pet Care", "Health Record", "Risk Boundary"],
+      takeaways: [
+        "强调记录、提醒、复盘和沟通辅助，不触碰诊断和剂量建议",
+        "把复杂照护动作转成低负担的日常记录流程"
+      ]
+    },
+    {
+      title: "Agent 辅助科研：复杂 AI 项目的规划、审计与交付",
+      theme: "Agent Workflow / Research",
+      status: "计划撰写",
+      summary:
+        "基于 CellSAM 项目复盘 Agent 如何用于实验规划、配置审查、训练监控、结果审计和论文材料交接。",
+      tags: ["Agent Workflow", "CellSAM", "Research Ops"],
+      takeaways: [
+        "展示 Agent 不是代写工具，而是复杂项目协作系统",
+        "强调证据链、交接文档和 audit-first writing"
+      ]
+    },
+    {
+      title: "AI 产品经理如何评估 RAG / Agent / 多模态应用",
+      theme: "AI PM Method",
+      status: "计划撰写",
+      summary:
+        "沉淀一套面试可讲的 AI 产品评估框架：任务成功率、引用质量、延迟、成本、幻觉、安全边界和用户反馈闭环。",
+      tags: ["AI PM", "Evaluation", "RAG", "Agent"],
+      takeaways: [
+        "把模型能力、产品体验和业务指标拆开评估",
+        "用 badcase 和用户反馈驱动迭代，而不是只看 demo 效果"
+      ]
     }
   ],
   cellsamDetail: {

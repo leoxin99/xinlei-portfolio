@@ -439,6 +439,53 @@ ul {
   gap: 16px;
 }
 
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.note-card {
+  min-height: 270px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(29, 35, 40, 0.05);
+}
+
+.note-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.note-card-head span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f1f4f3;
+  color: var(--coral);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.note-card-head p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.note-card h3 {
+  font-size: 21px;
+  line-height: 1.24;
+}
+
+.note-card > p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
 .honor-card {
   min-height: 150px;
   padding: 22px;
@@ -724,6 +771,7 @@ ul {
   .project-card-featured,
   .education-grid,
   .honors-grid,
+  .note-grid,
   .workflow-strip,
   .agent-role-grid,
   .artifact-grid {
