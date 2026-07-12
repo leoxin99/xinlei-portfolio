@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT = {
     summary:
       "人工智能硕士，具备计算机、AI 实验与商科复合背景。关注复杂 AI 项目的问题定义、模型训练、推理评估、工程化流程，以及 Agent 辅助科研与协作式工作流。",
     location: "北京",
-    avatar: "assets/profile_placeholder.png",
+    avatar: "assets/profile.jpg",
     contacts: [
       { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
       { label: "Phone / WeChat", value: "18957124638", href: "tel:+8618957124638" },
