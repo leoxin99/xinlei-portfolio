@@ -1,24 +1,30 @@
 window.PORTFOLIO_CONTENT = {
   profile: {
     name: "Xin Lei / 雷鑫",
-    headline: "AI 项目实践 × Agent 工程探索",
+    headline: "AI 产品经理｜AI 应用与 Agent 工作流",
     summary:
-      "人工智能硕士，具备计算机、AI 实验与商科复合背景。关注复杂 AI 项目的问题定义、模型训练、推理评估、工程化流程，以及 Agent 辅助科研与协作式工作流。",
+      "人工智能硕士、计算机本科，具备 AI 项目实践、手机产品经理实习和产品协作背景。关注 AI 如何进入真实用户场景，能从用户问题、MVP 范围、评估指标与风险边界出发推进 AI 功能设计与落地。",
     location: "北京",
+    focus: "AI 产品 · AI 应用 · Agent 工作流",
     avatar: "assets/profile.jpg",
+    resumeHref: "assets/files/xin-lei-ai-product-manager-resume.pdf",
     contacts: [
       { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
-      { label: "Phone / WeChat", value: "18957124638", href: "tel:+8618957124638" },
       { label: "GitHub", value: "github.com/leoxin99", href: "https://github.com/leoxin99" },
-      { label: "Portfolio", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" }
+      { label: "个人主页", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" },
+      { label: "微信", value: "可通过邮件或招聘平台联系后提供" }
     ]
   },
   projects: [
     {
       id: "pixeltravelmap",
+      category: "featured",
+      featured: true,
       type: "已发布项目",
       title: "PixelTravelMap：离线 AI 旅行地图 Artifact 生成器",
-      role: "独立 GitHub 仓库 / 可在线访问 Demo",
+      role: "独立完成 · 可在线访问 Demo",
+      image: "assets/pixeltravelmap-preview.png",
+      imageAlt: "PixelTravelMap 意大利、法国和瑞士旅行路线交互地图与行程概览",
       links: [
         {
           label: "打开 Demo",
@@ -33,7 +39,7 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "面向旅行路线规划者、旅行记录者和内容创作者，将自然语言旅行计划转成结构化 itinerary JSON，并渲染为可离线打开、可复用、可分享的交互式 HTML 旅行 atlas。项目重点不是生成一段游记，而是把真实路线、城市、POI、备注和 poster 沉淀成可持续修改的 AI travel artifact。",
+        "面向旅行者与内容创作者，将自然语言计划转换为结构化 itinerary JSON，再生成可离线打开、修改和分享的交互地图与旅行 poster。",
       tags: [
         "Python",
         "HTML/CSS/JavaScript",
@@ -45,16 +51,33 @@ window.PORTFOLIO_CONTENT = {
         "Offline-first"
       ],
       highlights: [
-        "目标用户：旅行路线规划者、旅行记录者、内容创作者和希望沉淀路线资产的用户",
-        "核心流程：自然语言计划 -> 结构化 itinerary JSON -> 可离线打开的交互式 HTML 旅行地图",
-        "产品亮点：schema-first 约束输入输出，把路线、城市、POI、距离、每日行程和备注转成可看、可改、可分享的 artifact",
-        "提供一页式 SVG poster、总行程 poster、每日简报 poster 和旅行记录 poster，用于规划、途中记录和复盘分享",
-        "旅行中备注保存在浏览器 localStorage，支持全程/每日/地点备注",
-        "无需登录和后端服务，可直接在浏览器打开；CI 验证 HTML/SVG 离线 artifact、安全约束和 demo 可重生成"
+        "问题：传统旅行 AI 输出是一段难以复用的文本，路线、地点和备注缺少稳定结构",
+        "决策：使用 schema-first 数据链路，把自然语言计划转为可验证的 itinerary JSON",
+        "交付：完成交互地图、离线 HTML、浏览器本地备注、旅行 poster、CI 校验与公开 Demo"
+      ]
+    },
+    {
+      id: "cellsam",
+      category: "featured",
+      featured: true,
+      type: "硕士毕业设计 / 研究项目",
+      title: "CellSAM：hiPSC-CM 全细胞实例分割",
+      role: "Leiden University 实验室 · 复杂 AI 项目实践",
+      href: "cellsam.html",
+      visualFlow: ["显微图像", "候选生成", "CellSAM 分割", "Oracle / E2E 评估", "Agent 审计"],
+      summary:
+        "面向 hiPSC-CM 心肌细胞弱边界、粘连与多通道信息对齐问题，推进视觉 foundation model 的场景适配、候选生成、统一推理评估与实验审计。",
+      tags: ["Transformer / ViT", "SAM / CellSAM", "Prompt Generation", "Evaluation", "AI Workflow"],
+      highlights: [
+        "问题：真实显微图像存在弱边界、细胞粘连、形态差异和标注边界差异",
+        "拆解：分别评估模型分割能力、候选生成质量与完整自动推理链路",
+        "方法：区分 GT-box Oracle 与 fully automatic E2E，定位瓶颈并沉淀 Agent-assisted research workflow"
       ]
     },
     {
       id: "vlm-game-companion",
+      category: "exploration",
+      featured: false,
       type: "产品研究 / 原型设计",
       title: "VLM 游戏陪伴 Agent：低打扰多模态陪伴原型",
       role: "自驱产品研究 / 面向 AI 游戏陪伴岗位",
@@ -62,14 +85,15 @@ window.PORTFOLIO_CONTENT = {
         "围绕“能看、能听、能聊”的 AI 游戏陪伴场景，设计一个读取游戏截图或视频帧、输出结构化 game_state、再生成短句语音陪伴的 VLM Agent 原型。项目当前定位为产品研究和 MVP 方案设计，重点验证实时多模态理解、低打扰回复策略、情绪价值和用户反馈闭环。",
       tags: ["VLM", "Multimodal Agent", "Game Companion", "TTS", "Context Engineering"],
       highlights: [
-        "目标用户：单人游戏玩家、卡关/失败后需要陪伴反馈的玩家，以及希望获得轻提醒而非强攻略的用户",
-        "核心流程：游戏截图/视频帧 -> VLM 识别 -> game_state JSON -> 回复时机判断 -> 陪伴式短回复 -> 语音输出 -> 用户反馈",
-        "MVP 边界：不做外挂式覆盖层、不自动操作游戏、不承诺复杂战术指挥，先验证陪伴体验和多模态链路",
-        "评估重点：识别准确率、回复相关性、打扰感、建议采纳率、负反馈率和次日留存意愿"
+        "MVP：截图/视频帧 -> game_state -> 回复时机判断 -> 陪伴式短回复 -> 语音输出",
+        "边界：不自动操作游戏，不承诺复杂战术指挥，优先验证低打扰陪伴价值",
+        "评估：识别准确率、回复相关性、打扰感、负反馈率与留存意愿"
       ]
     },
     {
       id: "pet-diabetes",
+      category: "exploration",
+      featured: false,
       type: "产品原型",
       title: "糖宠照护记录：猫狗糖尿病长期照护 Web App",
       role: "自驱产品探索 / Web 版，后续规划小程序",
@@ -77,55 +101,49 @@ window.PORTFOLIO_CONTENT = {
         "面向首次遇到宠物糖尿病、缺少长期照护经验的猫狗家长，设计一套记录血糖、饮食、胰岛素执行、症状、复诊和备注的 Web 工具。产品目标是降低记录混乱和复盘困难，帮助家长把日常照护信息整理成可与兽医沟通的结构化材料。",
       tags: ["C-end Product", "Health Record", "Long-term Care", "Risk Boundary", "Web App"],
       highlights: [
-        "核心用户：需要长期照护糖尿病猫狗的新手家长，以及需要整理复诊材料的宠物家庭",
-        "核心场景：每日记录、异常标记、趋势复盘、复诊前报告导出和家庭成员协作查看",
-        "产品边界：只做记录、知识提示和沟通辅助，不做诊断、治疗建议或胰岛素剂量建议",
-        "后续方向：Web 版验证记录闭环和信息结构，再评估小程序提醒、分享和复诊报告能力"
+        "场景：每日记录、异常标记、趋势复盘与复诊前材料整理",
+        "产物：完成 PRD、用户流程、MVP 范围和数据结构设计",
+        "边界：只做记录、知识提示和沟通辅助，不提供诊断、治疗或剂量建议"
       ]
     },
     {
-      id: "cellsam",
-      type: "主项目",
-      title: "CellSAM：hiPSC-CM 全细胞实例分割",
-      role: "硕士毕业设计 / 导师实验室项目",
-      href: "cellsam.html",
+      id: "model-optimization",
+      category: "exploration",
+      featured: false,
+      type: "技术方法实践",
+      title: "AI 模型优化与反馈学习",
+      role: "AutoML / HPO 与 REINFORCE",
       summary:
-        "面向 hiPSC-derived cardiomyocytes 的全细胞实例分割任务，基于 Transformer / ViT 架构的 CellSAM / SAM 系列 foundation model 做三通道适配，结合生物学先验候选生成、CellFinder refinement、统一推理评估和 Agent 辅助科研工作流，展示从模型适配到工程化复盘的完整能力。",
-      tags: ["Transformer", "ViT-B", "SAM / CellSAM", "Prompt Generation", "AI Workflow"],
+        "围绕模型配置优化和反馈学习链路，拆解 baseline、搜索空间、评价指标、资源约束、reward design 与训练稳定性，形成先定义评价口径、再比较方案的迭代方法。",
+      tags: ["AutoML / HPO", "Reinforcement Learning", "Reward Design", "Agent Eval"]
+    }
+  ],
+  experiences: [
+    {
+      organization: "北京小米移动软件有限公司",
+      title: "手机产品经理实习生（数据分析与上线支持方向）",
+      period: "2022.09 - 2023.01",
+      location: "北京",
+      summary:
+        "面向 Xiaomi 12 Pro 等手机产品项目，参与需求沟通与上线支持，梳理业务目标、用户/业务反馈、核心指标、分析口径和交付范围，将模糊问题转化为可执行的分析任务与推进事项。",
       highlights: [
-        "将 Transformer-based 视觉 foundation model 适配到 hiPSC-CM 场景",
-        "围绕 [BF, Actn2, DAPI] 三通道输入设计模型适配和候选生成流程",
-        "构建从候选生成、box prompt、mask decoder 到后处理的推理链路",
-        "用固定评估协议定位模型分割能力、自动提示生成和实际推理链路之间的瓶颈",
-        "使用 Agent 辅助科研规划、实验复盘和文档沉淀"
-      ]
+        "围绕产品效果判断和迭代讨论，输出数据分析材料与实施方案",
+        "协助团队定位问题、对齐优化优先级，积累数据驱动决策、跨团队沟通和项目节奏管理经验"
+      ],
+      tags: ["需求沟通", "指标口径", "数据分析", "上线支持", "跨团队协作"]
     },
     {
-      id: "automl",
-      type: "AI 优化项目",
-      title: "AML / HPO-AutoML",
-      role: "搜索策略与配置优化实验",
+      organization: "Leiden University 实验室",
+      title: "生物图像识别与分割科研实习",
+      period: "2025.09 - 2026.03",
+      location: "荷兰莱顿",
       summary:
-        "围绕模型选择与超参数优化搭建实验流程，关注搜索空间、评价指标、配置比较和资源约束。放到 Agent 方向，可迁移为对 prompt、工具选择、检索参数和 workflow 配置的评估驱动优化能力。",
-      tags: ["AutoML", "HPO", "Agent Eval", "Optimization"]
-    },
-    {
-      id: "reinforce",
-      type: "反馈学习项目",
-      title: "REINFORCE 强化学习实验",
-      role: "训练配置与结果分析",
-      summary:
-        "实现基于 policy gradient 的 REINFORCE 训练流程，围绕 reward、训练稳定性、关键超参数和 variance/baseline 问题进行复盘。放到 Agent 方向，可用于解释 reward design、RLHF/RLAIF、策略优化和反馈闭环的基础概念。",
-      tags: ["Reinforcement Learning", "Policy Gradient", "Reward Design", "RLHF Concepts"]
-    },
-    {
-      id: "xiaomi",
-      type: "实习经历",
-      title: "小米手机部门数据分析实习",
-      role: "北京小米移动软件有限公司，2022.09 - 2023.01",
-      summary:
-        "在手机部门担任数据分析实习生，与产品同学沟通数据分析需求，设计分析报告和实施方案，支持 Xiaomi 12 Pro 等产品项目，并关注数据仓库系统运行维护和模块稳定性。",
-      tags: ["Data Analysis", "Product Collaboration", "Data Warehouse"]
+        "围绕 hiPSC-CM 显微图像识别与实例分割开展实践，理解实验数据、图像质量、标注边界和模型输出之间的关系。",
+      highlights: [
+        "参与 CellSAM / SAM 类模型适配与评估",
+        "梳理数据预处理、候选生成、模型推理、结果复盘与论文材料整理链路"
+      ],
+      tags: ["科研协作", "计算机视觉", "模型评估", "证据整理"]
     }
   ],
   education: [
@@ -157,6 +175,7 @@ window.PORTFOLIO_CONTENT = {
   ],
   productNotes: [
     {
+      featured: true,
       title: "PixelTravelMap 产品复盘：从旅行计划到离线 AI artifact",
       theme: "AI Artifact / Schema-first",
       summary:
@@ -168,6 +187,7 @@ window.PORTFOLIO_CONTENT = {
       ]
     },
     {
+      featured: false,
       title: "VLM 游戏陪伴：低打扰陪伴式 AI 的产品边界",
       theme: "VLM / Game Companion",
       summary:
@@ -179,6 +199,7 @@ window.PORTFOLIO_CONTENT = {
       ]
     },
     {
+      featured: false,
       title: "糖宠照护记录：长期照护场景下的信息结构",
       theme: "C-end Product / Long-term Care",
       summary:
@@ -190,6 +211,7 @@ window.PORTFOLIO_CONTENT = {
       ]
     },
     {
+      featured: true,
       title: "Agent 辅助科研：复杂 AI 项目的规划、审计与交付",
       theme: "Agent Workflow / Research",
       summary:
@@ -201,6 +223,7 @@ window.PORTFOLIO_CONTENT = {
       ]
     },
     {
+      featured: true,
       title: "AI 应用评估框架：从 Demo 到可上线系统",
       theme: "AI Product Evaluation",
       summary:

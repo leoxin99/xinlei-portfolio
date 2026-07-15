@@ -78,8 +78,10 @@ The site includes a lightweight `Product Notes` section for project retrospectiv
 index.html          Portfolio homepage
 cellsam.html        CellSAM case detail page
 assets/content.js   Main content data source
+assets/config.js    Optional analytics configuration
 assets/site.js      Client-side rendering
 assets/site.css     Visual styling
+assets/files/       Public, sanitized resume PDF
 assets/             Images and static assets
 ```
 
@@ -123,6 +125,40 @@ Public URL:
 ```text
 https://leoxin99.github.io/xinlei-portfolio/
 ```
+
+## Public Resume
+
+The website links to the sanitized one-page product-manager resume at:
+
+```text
+assets/files/xin-lei-ai-product-manager-resume.pdf
+```
+
+It intentionally excludes a phone number and public WeChat ID. Private application copies under `local-notes/` are not modified or published.
+
+## Cloudflare Web Analytics
+
+Analytics is disabled by default. With an empty token, the site does not request or load any analytics script.
+
+To enable Cloudflare Web Analytics later, set the token in `assets/config.js`:
+
+```js
+window.PORTFOLIO_CONFIG = {
+  cloudflareAnalyticsToken: "YOUR_TOKEN"
+};
+```
+
+Cloudflare Web Analytics provides aggregate traffic insights. Do not treat it as a visitor identity tool, and review the applicable privacy and disclosure requirements before enabling it.
+
+## Custom Domain Migration
+
+GitHub Pages can continue hosting this site with a custom domain; no migration to another host is required.
+
+1. Buy and configure the domain with the registrar or DNS provider.
+2. Add the custom domain in the repository's GitHub Pages settings and follow GitHub's DNS instructions.
+3. Replace the current GitHub Pages URL in `index.html`, `cellsam.html`, `robots.txt`, `sitemap.xml`, and `assets/content.js`.
+4. Add the resulting `CNAME` file to the repository root.
+5. Wait for DNS validation, enable HTTPS, and verify every canonical and Open Graph URL.
 
 ## Content Principles
 

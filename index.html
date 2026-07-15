@@ -3,32 +3,45 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Xin Lei / 雷鑫 | AI 与 Agent 作品集</title>
-    <meta
-      name="description"
-      content="Xin Lei / 雷鑫的个人作品集，展示 AI 项目、Agent 工程能力、CellSAM 科研项目、教育背景与实习经历。"
-    >
+    <title>雷鑫｜AI 产品经理与 AI 应用作品集</title>
+    <meta name="description" content="雷鑫的 AI 产品经理与 AI 应用作品集：从用户问题、MVP、评估指标和风险边界出发，展示 PixelTravelMap、CellSAM 与 Agent 工作流实践。">
+    <link rel="canonical" href="https://leoxin99.github.io/xinlei-portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="雷鑫｜AI 产品经理与 AI 应用作品集">
+    <meta property="og:description" content="AI 产品经理｜AI 应用与 Agent 工作流。代表项目：PixelTravelMap、CellSAM。">
+    <meta property="og:url" content="https://leoxin99.github.io/xinlei-portfolio/">
+    <meta property="og:image" content="https://leoxin99.github.io/xinlei-portfolio/assets/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="雷鑫 AI 产品经理作品集，代表项目 PixelTravelMap 与 CellSAM">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/favicon-512.png">
     <link rel="stylesheet" href="assets/site.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "雷鑫",
+        "alternateName": "Xin Lei",
+        "url": "https://leoxin99.github.io/xinlei-portfolio/",
+        "image": "https://leoxin99.github.io/xinlei-portfolio/assets/profile.jpg",
+        "email": "mailto:leixin.lx99@gmail.com",
+        "jobTitle": "AI 产品经理",
+        "sameAs": ["https://github.com/leoxin99"],
+        "knowsAbout": ["AI 产品", "AI 应用", "Agent 工作流", "产品评估", "计算机视觉"]
+      }
+    </script>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
         <div class="nav-wrap">
-          <a class="brand" href="index.html" aria-label="Xin Lei homepage">
-            <span class="brand-mark">XL</span>
-            <span>Xin Lei</span>
-          </a>
-          <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-nav-toggle>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <nav class="nav-menu" data-nav-menu data-open="false">
-            <a href="#projects">项目</a>
-            <a href="#notes">思考</a>
-            <a href="#education">教育</a>
-            <a href="#honors">荣誉</a>
-            <a href="#contact">联系</a>
+          <a class="brand" href="index.html" aria-label="雷鑫作品集首页"><span class="brand-mark">XL</span><span>Xin Lei</span></a>
+          <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle><span></span><span></span><span></span></button>
+          <nav class="nav-menu" id="site-navigation" aria-label="主导航" data-nav-menu data-open="false">
+            <a href="#projects">代表项目</a><a href="#explorations">产品探索</a><a href="#experience">实践经历</a><a href="#notes">产品思考</a><a href="#education">教育</a><a href="#contact">联系</a>
           </nav>
         </div>
       </header>
@@ -37,92 +50,76 @@
         <section class="hero">
           <div class="container hero-grid">
             <div class="hero-copy">
-              <p class="eyebrow">AI Portfolio</p>
+              <p class="eyebrow">AI Product Portfolio</p>
               <h1 data-profile-name>Xin Lei / 雷鑫</h1>
-              <h2 data-profile-headline>AI 项目实践 × Agent 工程探索</h2>
-              <p class="hero-summary" data-profile-summary>
-                人工智能硕士，具备计算机、AI 实验与商科复合背景。关注复杂 AI 项目的问题定义、模型训练、推理评估、工程化流程，以及 Agent 辅助科研与协作式工作流。
-              </p>
+              <h2 data-profile-headline>AI 产品经理｜AI 应用与 Agent 工作流</h2>
+              <p class="hero-summary" data-profile-summary>人工智能硕士、计算机本科，具备 AI 项目实践、手机产品经理实习和产品协作背景。关注 AI 如何进入真实用户场景，能从用户问题、MVP 范围、评估指标与风险边界出发推进 AI 功能设计与落地。</p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#projects">查看项目</a>
-                <a class="button" href="#contact">联系我</a>
+                <a class="button button-primary" href="#projects">查看代表项目</a>
+                <a class="button" href="assets/files/xin-lei-ai-product-manager-resume.pdf" target="_blank" rel="noopener" aria-label="查看简历（在新标签页打开）">查看简历 <span class="external-hint" aria-hidden="true">↗</span></a>
+                <a class="button" href="mailto:leixin.lx99@gmail.com">邮件联系</a>
               </div>
             </div>
-            <aside class="hero-visual" aria-label="Profile snapshot">
-              <div class="portrait-panel">
-                <img src="assets/profile.jpg" alt="Xin Lei profile image" data-profile-avatar>
-              </div>
-              <div class="quick-facts">
-                <span>Location</span>
-                <strong data-profile-location>北京</strong>
-                <span>Focus</span>
-                <strong>AI Workflow, Evaluation, Product Thinking</strong>
-              </div>
+            <aside class="hero-visual" aria-label="个人信息摘要">
+              <div class="portrait-panel"><img src="assets/profile.jpg" alt="雷鑫个人照片" data-profile-avatar></div>
+              <div class="quick-facts"><span>Location</span><strong data-profile-location>北京</strong><span>Focus</span><strong data-profile-focus>AI 产品 · AI 应用 · Agent 工作流</strong></div>
             </aside>
           </div>
         </section>
 
         <section class="section section-alt" id="projects">
           <div class="container">
-            <div class="section-head">
-              <p class="eyebrow">Selected Work</p>
-              <h2>核心项目与经历</h2>
-            </div>
-            <div class="project-grid" data-project-list></div>
+            <div class="section-head"><p class="eyebrow">Featured Work</p><h2>代表项目</h2><p>用真实产物和可审计流程展示从问题定义、MVP 到评估的完整思路。</p></div>
+            <div class="project-grid project-grid-featured" data-project-list data-category="featured"></div>
+          </div>
+        </section>
+
+        <section class="section" id="explorations">
+          <div class="container">
+            <div class="section-head"><p class="eyebrow">Product & Prototype</p><h2>产品与原型探索</h2><p>围绕多模态陪伴、长期照护和模型反馈学习，明确用户价值、验证路径与产品边界。</p></div>
+            <div class="project-grid project-grid-compact" data-project-list data-category="exploration"></div>
+          </div>
+        </section>
+
+        <section class="section section-alt" id="experience">
+          <div class="container">
+            <div class="section-head"><p class="eyebrow">Experience</p><h2>实践经历</h2><p>从手机产品协作到 AI 科研实践，持续把模糊问题转化为可执行任务与评估证据。</p></div>
+            <div class="experience-grid" data-experience-list></div>
           </div>
         </section>
 
         <section class="section" id="notes">
           <div class="container">
-            <div class="section-head">
-              <p class="eyebrow">Product Notes</p>
-              <h2>产品思考</h2>
-              <p>围绕 AI 应用、Agent 工作流和真实用户场景沉淀项目复盘与产品观察。</p>
-            </div>
+            <div class="section-head"><p class="eyebrow">Product Notes</p><h2>产品思考</h2><p>首页精选三项：项目复盘、AI 应用评估与 Agent 辅助科研。</p></div>
             <div class="note-grid" data-product-note-list></div>
           </div>
         </section>
 
         <section class="section section-alt" id="education">
           <div class="container">
-            <div class="section-head">
-              <p class="eyebrow">Education</p>
-              <h2>教育背景</h2>
-            </div>
+            <div class="section-head"><p class="eyebrow">Education</p><h2>教育背景</h2></div>
             <div class="education-grid" data-education-list></div>
           </div>
         </section>
 
         <section class="section" id="honors">
           <div class="container">
-            <div class="section-head">
-              <p class="eyebrow">Honors & Funding</p>
-              <h2>荣誉与资助</h2>
-            </div>
+            <div class="section-head"><p class="eyebrow">Honors & Funding</p><h2>荣誉与资助</h2></div>
             <div class="honors-grid" data-honor-list></div>
           </div>
         </section>
 
         <section class="contact-band" id="contact">
           <div class="container contact-grid">
-            <div>
-              <p class="eyebrow">Contact</p>
-              <h2>适合继续展开 AI 产品、AI 应用与评估体系相关机会。</h2>
-              <p>欢迎围绕 AI Agent、AI 应用开发、科研工程化、数据驱动产品等方向交流。</p>
-            </div>
+            <div><p class="eyebrow">Contact</p><h2>寻找国内 AI 产品经理与 AI 应用产品机会。</h2><p>欢迎通过邮件或招聘平台联系；微信可在建立联系后提供。</p></div>
             <ul class="contact-list" data-contact-list></ul>
           </div>
         </section>
       </main>
 
-      <footer class="site-footer">
-        <div class="container">
-          <span>© 2026 Xin Lei</span>
-          <a href="cellsam.html">CellSAM 项目详情</a>
-        </div>
-      </footer>
+      <footer class="site-footer"><div class="container"><span>© 2026 Xin Lei</span><a href="cellsam.html">CellSAM 项目详情</a></div></footer>
     </div>
-
+    <script src="assets/config.js"></script>
     <script src="assets/content.js"></script>
     <script src="assets/site.js"></script>
   </body>
