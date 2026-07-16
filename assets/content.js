@@ -92,18 +92,32 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "pet-diabetes",
-      category: "exploration",
-      featured: false,
-      type: "产品原型",
-      title: "糖宠照护记录：猫狗糖尿病长期照护 Web App",
-      role: "自驱产品探索 / Web 版，后续规划小程序",
+      category: "featured",
+      featured: true,
+      type: "可运行 Web MVP · v0.3",
+      title: "糖宠照护：糖尿病小狗长期照护记录工具",
+      role: "独立产品与工程实现 · local-first Web App",
+      image: "assets/pet-diabetes-preview.png",
+      imageAlt: "糖宠照护今日页，包含今日计划、快捷记录和照护时间线",
+      links: [
+        {
+          label: "打开在线 Demo",
+          href: "pet-diabetes-care-log/index.html",
+          primary: true
+        },
+        {
+          label: "查看产品进展",
+          href: "pet-diabetes.html"
+        }
+      ],
       summary:
-        "面向首次遇到宠物糖尿病、缺少长期照护经验的猫狗家长，设计一套记录血糖、饮食、胰岛素执行、症状、复诊和备注的 Web 工具。产品目标是降低记录混乱和复盘困难，帮助家长把日常照护信息整理成可与兽医沟通的结构化材料。",
-      tags: ["C-end Product", "Health Record", "Long-term Care", "Risk Boundary", "Web App"],
+        "面向首次长期照护糖尿病小狗的宠物家长，将今日计划、进食与已执行注射、血糖、体重和状态观察组织为低负担记录闭环，并生成可打印的复诊沟通报告。",
+      tags: ["React / TypeScript", "Local-first", "Health Record", "Product Safety", "GitHub Pages"],
       highlights: [
-        "场景：每日记录、异常标记、趋势复盘与复诊前材料整理",
-        "产物：完成 PRD、用户流程、MVP 范围和数据结构设计",
-        "边界：只做记录、知识提示和沟通辅助，不提供诊断、治疗或剂量建议"
+        "闭环：首次建档 -> 今日计划 -> 30-60 秒记录 -> 趋势回顾 -> A4 复诊报告",
+        "工程：Zod v0.3 schema、版本化 localStorage、JSON 备份恢复、响应式与打印样式",
+        "验证：12 个单元用例、375/768/1440 三档 9 个 E2E 用例和安全文案扫描通过",
+        "边界：只记录事实和辅助沟通，不提供诊断、治疗或胰岛素剂量建议"
       ]
     },
     {

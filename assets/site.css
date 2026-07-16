@@ -746,6 +746,66 @@ ul {
   font-size: 20px;
 }
 
+.case-preview {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.case-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-facts,
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.case-facts article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.case-facts span {
+  display: block;
+  color: var(--coral);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-facts strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.case-facts p {
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+.progress-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-cta {
+  width: 100%;
+  margin-top: 22px;
+  text-align: center;
+}
+
 .section-mini-head {
   margin-bottom: 16px;
 }
@@ -886,7 +946,9 @@ ul {
   .contact-grid,
   .detail-shell,
   .agent-system-layout,
-  .why-panel {
+  .why-panel,
+  .case-facts,
+  .progress-grid {
     grid-template-columns: 1fr;
   }
 

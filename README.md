@@ -54,13 +54,18 @@ Status: product research / prototype design, not a launched product.
 
 ### 糖宠照护记录
 
-A C-end product prototype for long-term diabetic cat and dog care records.
+A local-first Web MVP for first-time caregivers of diabetic dogs.
 
-- Helps first-time pet caregivers record glucose, diet, insulin execution, symptoms, visits, and notes.
-- Focuses on long-term care, review, family communication, and vet-facing report preparation.
+- Supports user-defined daily plans, factual glucose / meal / administered-insulin / weight / observation records, trends, and printable vet communication reports.
+- Uses Zod schema validation, versioned localStorage, JSON backup and restore, Vitest, Playwright, and safety-copy scanning.
 - Clear boundary: record and communication support only; no diagnosis, treatment advice, or dosage recommendation.
 
-Status: Web prototype direction; mini program version can be explored later.
+Status: runnable Web MVP v0.3. User interviews and veterinary review remain pending validation gates.
+
+Links:
+
+- Demo: https://leoxin99.github.io/xinlei-portfolio/pet-diabetes-care-log/
+- Progress: https://leoxin99.github.io/xinlei-portfolio/pet-diabetes.html
 
 ## Product Notes
 
@@ -77,6 +82,8 @@ The site includes a lightweight `Product Notes` section for project retrospectiv
 ```text
 index.html          Portfolio homepage
 cellsam.html        CellSAM case detail page
+pet-diabetes.html   糖宠照护 product progress page
+pet-diabetes-care-log/  Runnable 糖宠照护 Web MVP
 assets/content.js   Main content data source
 assets/config.js    Optional analytics configuration
 assets/site.js      Client-side rendering
