@@ -94,8 +94,8 @@ window.PORTFOLIO_CONTENT = {
       id: "pet-diabetes",
       category: "featured",
       featured: true,
-      type: "可运行 Web MVP · v0.3",
-      title: "糖宠照护：糖尿病小狗长期照护记录工具",
+      type: "可运行 Web Alpha · v0.7",
+      title: "糖宠照护：犬猫糖尿病长期照护记录工具",
       role: "独立产品与工程实现 · local-first Web App",
       image: "assets/pet-diabetes-preview.png",
       imageAlt: "糖宠照护今日页，包含今日计划、快捷记录和照护时间线",
@@ -111,13 +111,13 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "面向首次长期照护糖尿病小狗的宠物家长，将今日计划、进食与已执行注射、血糖、体重和状态观察组织为低负担记录闭环，并生成可打印的复诊沟通报告。",
-      tags: ["React / TypeScript", "Local-first", "Health Record", "Product Safety", "GitHub Pages"],
+        "面向糖尿病犬猫家长，将今日计划、进食与已执行治疗、血糖、体重和状态观察组织为低负担记录闭环，并生成可打印的复诊沟通报告。",
+      tags: ["React / TypeScript", "Local-first", "Taro Prototype", "Product Safety", "GitHub Pages"],
       highlights: [
-        "闭环：首次建档 -> 今日计划 -> 30-60 秒记录 -> 趋势回顾 -> A4 复诊报告",
-        "工程：Zod v0.3 schema、版本化 localStorage、JSON 备份恢复、响应式与打印样式",
-        "验证：12 个单元用例、375/768/1440 三档 9 个 E2E 用例和安全文案扫描通过",
-        "边界：只记录事实和辅助沟通，不提供诊断、治疗或胰岛素剂量建议"
+        "产品：犬猫多宠数据隔离、已执行治疗确认、记录分析与 A4 复诊报告",
+        "扩展：资料审核门禁、邀请制社区治理原型和 Taro 微信小程序四页原型",
+        "验证：26 个单元测试；5 个场景在三档视口共执行 15 次 E2E；Web 与小程序构建通过",
+        "边界：真实用户测试 0/6、兽医审核 0/2；资料、社区与小程序均未正式上线"
       ]
     },
     {

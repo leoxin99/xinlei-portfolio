@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>糖宠照护 Web MVP | 产品进展 | Xin Lei / 雷鑫</title>
-    <meta name="description" content="糖宠照护 Web MVP v0.3：面向首次长期照护糖尿病小狗的宠物家长，提供今日计划、快速记录、趋势和复诊报告。">
+    <meta name="description" content="糖宠照护 Web Alpha v0.7：面向糖尿病犬猫家长，提供本地记录、分析、复诊报告，并探索专业资料、互助社区和微信小程序。">
     <link rel="canonical" href="https://leoxin99.github.io/xinlei-portfolio/pet-diabetes.html">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -35,9 +35,9 @@
       <main>
         <section class="detail-hero">
           <div class="container">
-            <p class="eyebrow">Product Case Study · v0.3</p>
+            <p class="eyebrow">Product Case Study · v0.7 Alpha</p>
             <h1>糖宠照护：从照护焦虑到可运行的记录闭环</h1>
-            <p>面向首次长期照护糖尿病小狗的宠物家长，用 local-first Web App 组织今日安排、已经发生的照护事实、趋势回顾和复诊沟通材料。</p>
+            <p>面向糖尿病犬猫家长，用 local-first Web App 组织今日安排、已经发生的照护事实、趋势回顾和复诊沟通材料；资料、社区和小程序仍处于门禁原型阶段。</p>
             <div class="detail-actions">
               <a class="button button-primary" href="pet-diabetes-care-log/index.html">打开在线 Demo</a>
               <a class="button" href="index.html#projects">返回项目列表</a>
@@ -58,12 +58,12 @@
 
         <section class="section" id="progress">
           <div class="container">
-            <div class="section-head"><p class="eyebrow">Product Progress</p><h2>产品进展</h2><p>把“PRD / 待开发”推进为可操作、可打印、可自动验证的 v0.3 MVP。</p></div>
+            <div class="section-head"><p class="eyebrow">Product Progress</p><h2>产品进展</h2><p>从犬类 Web MVP 推进到犬猫多宠 v0.7 alpha，并为资料审核、社区治理和微信小程序建立可验证原型。</p></div>
             <div class="progress-grid">
-              <article class="detail-section"><h2>01 用户闭环</h2><p>首次建档后，用户可以查看自己设置的今日计划，通过四类快捷入口记录进食与已执行注射、血糖、体重和今日状态，再回看当天时间线。</p></article>
-              <article class="detail-section"><h2>02 趋势与报告</h2><p>支持 7/30/90 天与自定义范围，血糖和体重图只展示原始值；复诊报告包含记录覆盖、趋势图、事实时间线和用户自己填写的问题。</p></article>
-              <article class="detail-section"><h2>03 数据可靠性</h2><p>使用 Zod schema v0.3、重复 ID 检查和版本化 localStorage。导入先校验和预览，再备份现有数据并替换；存储失败时保留表单。</p></article>
-              <article class="detail-section"><h2>04 医疗安全边界</h2><p>注射必须确认已经实际完成，剂量字段不自动填充；界面不使用医学风险颜色，不解释数值，不生成诊断、治疗或剂量结论。</p></article>
+              <article class="detail-section"><h2>01 犬猫记录闭环</h2><p>支持犬猫多宠建档与切换，所有计划、记录、趋势、分析和报告按宠物隔离；治疗只记录用户确认已经执行的事实。</p></article>
+              <article class="detail-section"><h2>02 分析与报告</h2><p>支持 7/30/90 天记录覆盖、类型/时段分布、字段完整性、单位一致性和按单位描述性统计，并可导出 CSV；复诊报告只呈现原始记录、趋势和用户问题。</p></article>
+              <article class="detail-section"><h2>03 数据可靠性</h2><p>使用 Zod schema v0.5、引用与重复 ID 检查和版本化 localStorage。旧版数据先校验再迁移，新旧存储键分离并保留回滚入口。</p></article>
+              <article class="detail-section"><h2>04 资料与社区原型</h2><p>资料只有在来源、审核人与复审日期均有效时才可公开；社区新帖默认待审，高风险医学表达先隐藏。两者都不读取本地照护记录。</p></article>
             </div>
           </div>
         </section>
@@ -71,8 +71,8 @@
         <section class="section section-alt" id="validation">
           <div class="container detail-shell">
             <div class="detail-sections">
-              <article class="detail-section"><h2>验证证据</h2><ul class="check-list"><li>Vitest：3 个文件、12 个单元用例通过</li><li>Playwright：375px、768px、1440px 三档共 9 个 E2E 用例通过</li><li>检查首次使用、刷新恢复、趋势与报告、注射确认和横向溢出</li><li>安全文案扫描、ESLint、TypeScript 与生产构建通过</li><li>A4 示例报告逐页渲染检查，无重叠、截断和中文缺字</li></ul></article>
-              <article class="detail-section"><h2>下一阶段</h2><p>当前用户问题仍需真实验证。下一步计划访谈 5 名照护者、邀请 2 名兽医或兽医助理审核字段与文案，并通过任务测试验证常规记录是否能在 60 秒内完成。</p></article>
+              <article class="detail-section"><h2>验证证据</h2><ul class="check-list"><li>Vitest：7 个文件、26 个单元测试通过</li><li>Playwright：5 个场景在 375px、768px、1440px 共执行 15 次并通过</li><li>Web 生产依赖审计为 0 漏洞，安全文案扫描、ESLint 和生产构建通过</li><li>Taro 小程序 TypeScript 检查与微信端编译通过</li><li>小程序依赖仍有安全告警，未进入正式发布</li></ul></article>
+              <article class="detail-section"><h2>下一阶段</h2><p>真实用户任务测试目前 0/6，兽医字段审核 0/2。下一步先完成犬猫家长测试与专业审核，再决定猫专属字段、正式资料和社区邀请测试是否进入发布。</p></article>
             </div>
             <aside class="detail-aside"><h2>技术栈</h2><ul class="tag-list"><li>React</li><li>TypeScript</li><li>Vite</li><li>Zod</li><li>Chart.js</li><li>Vitest</li><li>Playwright</li><li>GitHub Pages</li></ul><a class="button button-primary case-cta" href="pet-diabetes-care-log/index.html">体验产品</a></aside>
           </div>
