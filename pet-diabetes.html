@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>糖宠照护 Web MVP | 产品进展 | Xin Lei / 雷鑫</title>
-    <meta name="description" content="糖宠照护 Web Alpha v0.7：面向糖尿病犬猫家长，提供本地记录、分析、复诊报告，并探索专业资料、互助社区和微信小程序。">
-    <link rel="canonical" href="https://leoxin99.github.io/xinlei-portfolio/pet-diabetes.html">
+    <title>糖宠照护 | 产品案例 | Xin Lei / 雷鑫</title>
+    <meta name="description" content="糖宠照护产品案例：面向初次照护糖尿病犬猫的家长，提供本地记录、数据分析、复诊报告与明确的安全边界。">
+    <link rel="canonical" href="https://xinlei99.com/pet-diabetes.html">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:title" content="糖宠照护 Web MVP｜雷鑫">
     <meta property="og:description" content="从用户问题、产品边界到 local-first Web MVP、自动测试和复诊报告。">
-    <meta property="og:url" content="https://leoxin99.github.io/xinlei-portfolio/pet-diabetes.html">
-    <meta property="og:image" content="https://leoxin99.github.io/xinlei-portfolio/assets/pet-diabetes-preview.png">
+    <meta property="og:url" content="https://xinlei99.com/pet-diabetes.html">
+    <meta property="og:image" content="https://xinlei99.com/assets/pet-diabetes-preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" href="assets/favicon-512.png">
@@ -35,9 +35,9 @@
       <main>
         <section class="detail-hero">
           <div class="container">
-            <p class="eyebrow">Product Case Study · v0.7 Alpha</p>
+            <p class="eyebrow">Product Case Study</p>
             <h1>糖宠照护：从照护焦虑到可运行的记录闭环</h1>
-            <p>面向糖尿病犬猫家长，用 local-first Web App 组织今日安排、已经发生的照护事实、趋势回顾和复诊沟通材料；资料、社区和小程序仍处于门禁原型阶段。</p>
+            <p>面向初次面对犬猫糖尿病、需要长期照护的宠物家长，用 local-first Web App 组织今日安排、已经发生的照护事实、趋势回顾和复诊沟通材料。</p>
             <div class="detail-actions">
               <a class="button button-primary" href="pet-diabetes-care-log/index.html">打开在线 Demo</a>
               <a class="button" href="index.html#projects">返回项目列表</a>
@@ -50,7 +50,7 @@
             <figure class="case-preview"><img src="assets/pet-diabetes-preview.png" alt="糖宠照护桌面端今日页"></figure>
             <div class="case-facts">
               <article><span>当前状态</span><strong>可运行 Web MVP</strong><p>已完成核心功能、测试、截图和 GitHub Pages 构建。</p></article>
-              <article><span>产品边界</span><strong>记录与沟通辅助</strong><p>不诊断、不分级、不生成治疗或胰岛素剂量建议。</p></article>
+              <article><span>产品定位</span><strong>记录与沟通辅助</strong><p>产品整理照护事实与复诊材料，诊疗判断和治疗方案由执业兽医负责。</p></article>
               <article><span>数据策略</span><strong>Local-first</strong><p>无账号和后端，记录保存在当前浏览器并支持 JSON 备份恢复。</p></article>
             </div>
           </div>
@@ -58,12 +58,12 @@
 
         <section class="section" id="progress">
           <div class="container">
-            <div class="section-head"><p class="eyebrow">Product Progress</p><h2>产品进展</h2><p>从犬类 Web MVP 推进到犬猫多宠 v0.7 alpha，并为资料审核、社区治理和微信小程序建立可验证原型。</p></div>
+            <div class="section-head"><p class="eyebrow">Product Progress</p><h2>产品进展</h2><p>围绕犬猫多宠长期照护，已完成记录、分析、报告和本地数据可靠性闭环，并为资料审核、社区治理和微信小程序建立验证原型。</p></div>
             <div class="progress-grid">
               <article class="detail-section"><h2>01 犬猫记录闭环</h2><p>支持犬猫多宠建档与切换，所有计划、记录、趋势、分析和报告按宠物隔离；治疗只记录用户确认已经执行的事实。</p></article>
-              <article class="detail-section"><h2>02 分析与报告</h2><p>支持 7/30/90 天记录覆盖、类型/时段分布、字段完整性、单位一致性和按单位描述性统计，并可导出 CSV；复诊报告只呈现原始记录、趋势和用户问题。</p></article>
-              <article class="detail-section"><h2>03 数据可靠性</h2><p>使用 Zod schema v0.5、引用与重复 ID 检查和版本化 localStorage。旧版数据先校验再迁移，新旧存储键分离并保留回滚入口。</p></article>
-              <article class="detail-section"><h2>04 资料与社区原型</h2><p>资料只有在来源、审核人与复审日期均有效时才可公开；社区新帖默认待审，高风险医学表达先隐藏。两者都不读取本地照护记录。</p></article>
+              <article class="detail-section"><h2>02 分析与报告</h2><p>支持 7/30/90 天记录覆盖、类型/时段分布、字段完整性、单位一致性和按单位描述性统计，并可导出 CSV；复诊报告聚焦原始记录、趋势和用户问题。</p></article>
+              <article class="detail-section"><h2>03 数据可靠性</h2><p>使用版本化数据 schema、引用与重复 ID 检查和本地存储。旧数据先校验再迁移，新旧存储键分离并保留回滚入口。</p></article>
+              <article class="detail-section"><h2>04 资料与社区原型</h2><p>资料通过来源、审核人与复审日期共同管理；社区内容采用发布前审核。资料与社区模块和本地照护记录保持数据隔离。</p></article>
             </div>
           </div>
         </section>
@@ -71,8 +71,8 @@
         <section class="section section-alt" id="validation">
           <div class="container detail-shell">
             <div class="detail-sections">
-              <article class="detail-section"><h2>验证证据</h2><ul class="check-list"><li>Vitest：7 个文件、26 个单元测试通过</li><li>Playwright：5 个场景在 375px、768px、1440px 共执行 15 次并通过</li><li>Web 生产依赖审计为 0 漏洞，安全文案扫描、ESLint 和生产构建通过</li><li>Taro 小程序 TypeScript 检查与微信端编译通过</li><li>小程序依赖仍有安全告警，未进入正式发布</li></ul></article>
-              <article class="detail-section"><h2>下一阶段</h2><p>真实用户任务测试目前 0/6，兽医字段审核 0/2。下一步先完成犬猫家长测试与专业审核，再决定猫专属字段、正式资料和社区邀请测试是否进入发布。</p></article>
+              <article class="detail-section"><h2>验证证据</h2><ul class="check-list"><li>Vitest：7 个文件、26 个单元测试通过</li><li>Playwright：5 个场景在 375px、768px、1440px 共执行 15 次并通过</li><li>Web 生产依赖审计为 0 漏洞，安全文案扫描、ESLint 和生产构建通过</li><li>Taro 小程序 TypeScript 检查与微信端编译通过</li><li>小程序版本以依赖安全问题修复和真机复测为发布前置条件</li></ul></article>
+              <article class="detail-section"><h2>下一阶段</h2><p>下一步先完成犬猫家长的真实任务测试与兽医字段审核，再依据表单负担、数据理解和安全反馈决定猫专属字段、正式资料和社区邀请测试是否进入发布。</p></article>
             </div>
             <aside class="detail-aside"><h2>技术栈</h2><ul class="tag-list"><li>React</li><li>TypeScript</li><li>Vite</li><li>Zod</li><li>Chart.js</li><li>Vitest</li><li>Playwright</li><li>GitHub Pages</li></ul><a class="button button-primary case-cta" href="pet-diabetes-care-log/index.html">体验产品</a></aside>
           </div>

@@ -43,6 +43,47 @@
     return anchor;
   }
 
+  function appendExpandableDetails(parent, options) {
+    const highlights = options.highlights || [];
+    const tags = options.tags || [];
+    if (!highlights.length && !tags.length) return;
+
+    const panelId = `expandable-${options.id}`;
+    const panel = document.createElement("div");
+    panel.className = "expandable-details";
+    panel.id = panelId;
+    panel.hidden = true;
+
+    if (highlights.length) {
+      const list = document.createElement("ul");
+      list.className = "check-list";
+      highlights.forEach((highlight) => {
+        const item = document.createElement("li");
+        item.textContent = highlight;
+        list.appendChild(item);
+      });
+      panel.appendChild(list);
+    }
+    if (tags.length) panel.appendChild(createTagList(tags));
+
+    const button = document.createElement("button");
+    button.className = "expand-toggle";
+    button.type = "button";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", panelId);
+    button.innerHTML = `<span>${options.openLabel}</span><span class="expand-toggle-icon" aria-hidden="true">+</span>`;
+    button.addEventListener("click", () => {
+      const willOpen = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(willOpen));
+      button.querySelector("span:first-child").textContent = willOpen ? options.closeLabel : options.openLabel;
+      button.querySelector(".expand-toggle-icon").textContent = willOpen ? "−" : "+";
+      panel.hidden = !willOpen;
+      parent.closest("article")?.classList.toggle("is-expanded", willOpen);
+    });
+
+    parent.append(button, panel);
+  }
+
   function renderProfile() {
     setText("[data-profile-name]", content.profile.name);
     setText("[data-profile-headline]", content.profile.headline);
@@ -79,7 +120,9 @@
 
   function createProjectCard(project) {
     const article = document.createElement("article");
-    article.className = `project-card${project.featured ? " project-card-featured" : ""}`;
+    const layoutClass = project.layout ? ` project-card-${project.layout}` : "";
+    article.className = `project-card${layoutClass}`;
+    article.dataset.projectId = project.id;
 
     if (project.image) {
       const figure = document.createElement("figure");
@@ -95,7 +138,7 @@
       const flow = document.createElement("div");
       flow.className = "project-flow";
       flow.setAttribute("role", "img");
-      flow.setAttribute("aria-label", `CellSAM 流程：${project.visualFlow.join("到")}`);
+      flow.setAttribute("aria-label", `${project.title}流程：${project.visualFlow.join("到")}`);
       project.visualFlow.forEach((step, index) => {
         const node = document.createElement("span");
         node.className = "project-flow-node";
@@ -122,17 +165,13 @@
       links.forEach((link) => linkGroup.appendChild(createLink(link)));
       body.appendChild(linkGroup);
     }
-    if (project.highlights) {
-      const highlights = document.createElement("ul");
-      highlights.className = "check-list";
-      project.highlights.forEach((highlight) => {
-        const item = document.createElement("li");
-        item.textContent = highlight;
-        highlights.appendChild(item);
-      });
-      body.appendChild(highlights);
-    }
-    body.appendChild(createTagList(project.tags));
+    appendExpandableDetails(body, {
+      id: `project-${project.id}`,
+      openLabel: "展开项目",
+      closeLabel: "收起项目",
+      highlights: project.highlights,
+      tags: project.tags
+    });
     article.appendChild(body);
     return article;
   }
@@ -149,19 +188,17 @@
     const list = qs("[data-experience-list]");
     if (!list || !content.experiences) return;
     list.innerHTML = "";
-    content.experiences.forEach((experience) => {
+    content.experiences.forEach((experience, index) => {
       const article = document.createElement("article");
       article.className = "experience-card";
       article.innerHTML = `<div class="experience-meta"><span>${experience.period}</span><span>${experience.location}</span></div><p class="experience-org">${experience.organization}</p><h3>${experience.title}</h3><p class="experience-summary">${experience.summary}</p>`;
-      const highlights = document.createElement("ul");
-      highlights.className = "check-list";
-      experience.highlights.forEach((highlight) => {
-        const item = document.createElement("li");
-        item.textContent = highlight;
-        highlights.appendChild(item);
+      appendExpandableDetails(article, {
+        id: `experience-${index}`,
+        openLabel: "展开经历",
+        closeLabel: "收起经历",
+        highlights: experience.highlights,
+        tags: experience.tags
       });
-      article.appendChild(highlights);
-      article.appendChild(createTagList(experience.tags));
       list.appendChild(article);
     });
   }
@@ -175,19 +212,6 @@
       item.className = className;
       item.innerHTML = markup(entry);
       list.appendChild(item);
-    });
-  }
-
-  function renderProductNotes() {
-    const list = qs("[data-product-note-list]");
-    if (!list || !content.productNotes) return;
-    list.innerHTML = "";
-    content.productNotes.filter((note) => note.featured).forEach((note) => {
-      const article = document.createElement("article");
-      article.className = "note-card";
-      article.innerHTML = `<div class="note-card-head"><p>${note.theme}</p></div><h3>${note.title}</h3><p>${note.summary}</p>`;
-      article.appendChild(createTagList(note.tags));
-      list.appendChild(article);
     });
   }
 
@@ -245,7 +269,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    renderProfile(); renderProjects(); renderExperiences(); renderProductNotes();
+    renderProfile(); renderProjects(); renderExperiences();
     renderSimpleCards("[data-education-list]", content.education, "education-item", (entry) => `<h3>${entry.school}</h3><p class="education-program">${entry.program}</p><p>${entry.details}</p>`);
     renderSimpleCards("[data-honor-list]", content.honors, "honor-card", (honor) => `<h3>${honor.title}</h3><p>${honor.detail}</p>`);
     renderCellSamDetail(); renderCellSamAgentSystem(); bindMobileNav(); loadAnalytics();

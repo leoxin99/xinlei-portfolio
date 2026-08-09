@@ -1,17 +1,17 @@
 window.PORTFOLIO_CONTENT = {
   profile: {
-    name: "Xin Lei / 雷鑫",
-    headline: "AI 产品经理｜AI 应用与 Agent 工作流",
+    name: "雷鑫 / Xin Lei",
+    headline: "AI 产品经理 · AI 应用产品 · 产品工程实践",
     summary:
-      "人工智能硕士、计算机本科，具备 AI 项目实践、手机产品经理实习和产品协作背景。关注 AI 如何进入真实用户场景，能从用户问题、MVP 范围、评估指标与风险边界出发推进 AI 功能设计与落地。",
+      "人工智能硕士、计算机本科，具备手机产品实习、AI 科研与独立产品实践。关注 AI 如何进入真实场景，能够完成用户调研、需求拆解、原型、评估和网页交付，并在合适环节引入 Agent 工作流提升执行与协作效率。",
     location: "北京",
-    focus: "AI 产品 · AI 应用 · Agent 工作流",
+    focus: "AI 产品 · 用户研究 · Agent 应用",
     avatar: "assets/profile.jpg",
     resumeHref: "assets/files/xin-lei-ai-product-manager-resume.pdf",
     contacts: [
       { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
       { label: "GitHub", value: "github.com/leoxin99", href: "https://github.com/leoxin99" },
-      { label: "个人主页", value: "leoxin99.github.io/xinlei-portfolio", href: "https://leoxin99.github.io/xinlei-portfolio/" },
+      { label: "个人主页", value: "xinlei99.com", href: "https://xinlei99.com/" },
       { label: "微信", value: "可通过邮件或招聘平台联系后提供" }
     ]
   },
@@ -20,17 +20,23 @@ window.PORTFOLIO_CONTENT = {
       id: "pixeltravelmap",
       category: "featured",
       featured: true,
+      layout: "lead",
       type: "已发布项目",
-      title: "PixelTravelMap：离线 AI 旅行地图 Artifact 生成器",
-      role: "独立完成 · 可在线访问 Demo",
-      image: "assets/pixeltravelmap-preview.png",
-      imageAlt: "PixelTravelMap 意大利、法国和瑞士旅行路线交互地图与行程概览",
+      title: "像素旅行助手：已有行程的变化处理工具",
+      role: "独立产品与工程实现 · 公开在线产品",
+      image: "assets/pixeltravelmap-replan-preview.png",
+      imageAlt: "像素旅行助手的行程变化处理界面，展示晚点上报、固定预约保护、调整差异和确认操作",
       links: [
         {
-          label: "打开 Demo",
-          href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
+          label: "打开在线产品",
+          href: "https://leoxin99.github.io/PixelTravelMap/dist/index.html",
           external: true,
           primary: true
+        },
+        {
+          label: "查看示例",
+          href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
+          external: true
         },
         {
           label: "查看代码",
@@ -39,62 +45,45 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "面向旅行者与内容创作者，将自然语言计划转换为结构化 itinerary JSON，再生成可离线打开、修改和分享的交互地图与旅行 poster。",
+        "面向已有详细行程的自由行用户，在晚点、闭馆、天气或体力变化后保护固定预约，并低成本调整当天后续安排。产品支持差异预览、用户确认、撤销、地图同步和离线导出。",
       tags: [
-        "Python",
-        "HTML/CSS/JavaScript",
-        "SVG",
-        "JSON Schema",
-        "GitHub Pages",
-        "GitHub Actions",
-        "localStorage",
-        "Offline-first"
+        "用户问题重构",
+        "约束建模",
+        "Schema-first",
+        "Human-in-the-loop",
+        "Offline-first",
+        "网页部署"
       ],
       highlights: [
-        "问题：传统旅行 AI 输出是一段难以复用的文本，路线、地点和备注缺少稳定结构",
-        "决策：使用 schema-first 数据链路，把自然语言计划转为可验证的 itinerary JSON",
-        "交付：完成交互地图、离线 HTML、浏览器本地备注、旅行 poster、CI 校验与公开 Demo"
+        "问题：已有行程遇到临时变化后，用户需要重新梳理预约、路线和当天安排，调整成本高",
+        "取舍：先保护固定预约，只调整当天后续安排；信息不足时提示补充关键信息",
+        "交付：完成行程导入、事件上报、调整差异预览、确认与撤销、地图同步和离线导出"
       ]
     },
     {
       id: "cellsam",
       category: "featured",
       featured: true,
+      layout: "standard",
       type: "硕士毕业设计 / 研究项目",
       title: "CellSAM：hiPSC-CM 全细胞实例分割",
       role: "Leiden University 实验室 · 复杂 AI 项目实践",
-      href: "cellsam.html",
       visualFlow: ["显微图像", "候选生成", "CellSAM 分割", "Oracle / E2E 评估", "Agent 审计"],
       summary:
         "面向 hiPSC-CM 心肌细胞弱边界、粘连与多通道信息对齐问题，推进视觉 foundation model 的场景适配、候选生成、统一推理评估与实验审计。",
       tags: ["Transformer / ViT", "SAM / CellSAM", "Prompt Generation", "Evaluation", "AI Workflow"],
       highlights: [
         "问题：真实显微图像存在弱边界、细胞粘连、形态差异和标注边界差异",
-        "拆解：分别评估模型分割能力、候选生成质量与完整自动推理链路",
-        "方法：区分 GT-box Oracle 与 fully automatic E2E，定位瓶颈并沉淀 Agent-assisted research workflow"
-      ]
-    },
-    {
-      id: "vlm-game-companion",
-      category: "exploration",
-      featured: false,
-      type: "产品研究 / 原型设计",
-      title: "VLM 游戏陪伴 Agent：低打扰多模态陪伴原型",
-      role: "自驱产品研究 / 面向 AI 游戏陪伴岗位",
-      summary:
-        "围绕“能看、能听、能聊”的 AI 游戏陪伴场景，设计一个读取游戏截图或视频帧、输出结构化 game_state、再生成短句语音陪伴的 VLM Agent 原型。项目当前定位为产品研究和 MVP 方案设计，重点验证实时多模态理解、低打扰回复策略、情绪价值和用户反馈闭环。",
-      tags: ["VLM", "Multimodal Agent", "Game Companion", "TTS", "Context Engineering"],
-      highlights: [
-        "MVP：截图/视频帧 -> game_state -> 回复时机判断 -> 陪伴式短回复 -> 语音输出",
-        "边界：不自动操作游戏，不承诺复杂战术指挥，优先验证低打扰陪伴价值",
-        "评估：识别准确率、回复相关性、打扰感、负反馈率与留存意愿"
+        "工程：把研究问题拆成实验矩阵、模型适配、训练评估、结果审计和论文交接，支持多路线并行探索",
+        "质量：区分 GT-box Oracle 与 fully automatic E2E，由独立审核角色确认结论后再进入论文材料"
       ]
     },
     {
       id: "pet-diabetes",
       category: "featured",
       featured: true,
-      type: "可运行 Web Alpha · v0.7",
+      layout: "standard",
+      type: "可运行 Web 产品",
       title: "糖宠照护：犬猫糖尿病长期照护记录工具",
       role: "独立产品与工程实现 · local-first Web App",
       image: "assets/pet-diabetes-preview.png",
@@ -104,32 +93,17 @@ window.PORTFOLIO_CONTENT = {
           label: "打开在线 Demo",
           href: "pet-diabetes-care-log/index.html",
           primary: true
-        },
-        {
-          label: "查看产品进展",
-          href: "pet-diabetes.html"
         }
       ],
       summary:
-        "面向糖尿病犬猫家长，将今日计划、进食与已执行治疗、血糖、体重和状态观察组织为低负担记录闭环，并生成可打印的复诊沟通报告。",
-      tags: ["React / TypeScript", "Local-first", "Taro Prototype", "Product Safety", "GitHub Pages"],
+        "面向初次面对犬猫糖尿病、需要长期照护的宠物家长，把分散的照护行为和观察数据整理为低负担记录闭环，并生成可打印的复诊沟通材料。",
+      tags: ["用户同理心", "数据产品", "Local-first", "安全边界", "质量门禁"],
       highlights: [
-        "产品：犬猫多宠数据隔离、已执行治疗确认、记录分析与 A4 复诊报告",
-        "扩展：资料审核门禁、邀请制社区治理原型和 Taro 微信小程序四页原型",
-        "验证：26 个单元测试；5 个场景在三档视口共执行 15 次 E2E；Web 与小程序构建通过",
-        "边界：真实用户测试 0/6、兽医审核 0/2；资料、社区与小程序均未正式上线"
+        "问题：长期照护信息分散，新手家长复诊时难以完整回忆并向兽医准确说明",
+        "设计：多宠档案、结构化照护记录、趋势分析、CSV/报告导出与本地数据迁移",
+        "治理：只记录已执行行为，不提供诊断和剂量建议；混合单位、缺失字段与资料审核状态显式提示",
+        "进展：完成自动化网页测试和安全检查；下一阶段开展真实用户任务测试与兽医字段审核"
       ]
-    },
-    {
-      id: "model-optimization",
-      category: "exploration",
-      featured: false,
-      type: "技术方法实践",
-      title: "AI 模型优化与反馈学习",
-      role: "AutoML / HPO 与 REINFORCE",
-      summary:
-        "围绕模型配置优化和反馈学习链路，拆解 baseline、搜索空间、评价指标、资源约束、reward design 与训练稳定性，形成先定义评价口径、再比较方案的迭代方法。",
-      tags: ["AutoML / HPO", "Reinforcement Learning", "Reward Design", "Agent Eval"]
     }
   ],
   experiences: [
@@ -187,68 +161,6 @@ window.PORTFOLIO_CONTENT = {
       detail: "应用建模类竞赛奖项，体现问题建模、数据分析、方案表达与团队协作能力。"
     }
   ],
-  productNotes: [
-    {
-      featured: true,
-      title: "PixelTravelMap 产品复盘：从旅行计划到离线 AI artifact",
-      theme: "AI Artifact / Schema-first",
-      summary:
-        "复盘为什么旅行 AI 不应只生成文本游记，而应把路线、POI、备注、地图和 poster 组织成可修改、可离线打开、可分享的结构化 artifact。",
-      tags: ["PixelTravelMap", "AI Application", "Offline-first"],
-      takeaways: [
-        "讲清楚自然语言到 itinerary JSON 的 schema-first 设计",
-        "解释离线 artifact 对分享、复盘和长期保存的价值"
-      ]
-    },
-    {
-      featured: false,
-      title: "VLM 游戏陪伴：低打扰陪伴式 AI 的产品边界",
-      theme: "VLM / Game Companion",
-      summary:
-        "从游戏截图理解、实时上下文、语音回复、打扰感和情绪价值出发，拆解 AI 游戏陪伴为什么不能只做攻略问答。",
-      tags: ["VLM", "Multimodal Agent", "Companion"],
-      takeaways: [
-        "定义 game_state schema 和回复时机策略",
-        "用打扰感、相关性和负反馈率评估陪伴体验"
-      ]
-    },
-    {
-      featured: false,
-      title: "糖宠照护记录：长期照护场景下的信息结构",
-      theme: "C-end Product / Long-term Care",
-      summary:
-        "围绕新手宠物家长的焦虑、记录混乱和复诊沟通成本，梳理健康记录类产品如何设置功能边界和风险提示。",
-      tags: ["Pet Care", "Health Record", "Risk Boundary"],
-      takeaways: [
-        "强调记录、提醒、复盘和沟通辅助，不触碰诊断和剂量建议",
-        "把复杂照护动作转成低负担的日常记录流程"
-      ]
-    },
-    {
-      featured: true,
-      title: "Agent 辅助科研：复杂 AI 项目的规划、审计与交付",
-      theme: "Agent Workflow / Research",
-      summary:
-        "基于 CellSAM 项目复盘 Agent 如何用于实验规划、配置审查、训练监控、结果审计和论文材料交接。",
-      tags: ["Agent Workflow", "CellSAM", "Research Ops"],
-      takeaways: [
-        "展示 Agent 不是代写工具，而是复杂项目协作系统",
-        "强调证据链、交接文档和 audit-first writing"
-      ]
-    },
-    {
-      featured: true,
-      title: "AI 应用评估框架：从 Demo 到可上线系统",
-      theme: "AI Product Evaluation",
-      summary:
-        "从任务成功率、引用质量、延迟、成本、幻觉、安全边界和用户反馈闭环出发，梳理 AI 应用如何从演示效果走向可迭代、可评估的真实系统。",
-      tags: ["AI PM", "Evaluation", "RAG", "Agent"],
-      takeaways: [
-        "把模型能力、产品体验和业务指标拆开评估",
-        "用 badcase 和用户反馈驱动迭代，而不是只看 demo 效果"
-      ]
-    }
-  ],
   cellsamDetail: {
     title: "CellSAM：面向 hiPSC-CM 生物影像的实例分割项目",
     intro:
@@ -257,7 +169,7 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "问题背景",
         body:
-          "项目面向 human hiPSC-derived cardiomyocyte whole-cell instance segmentation。该场景存在弱边界、细胞粘连、形态差异和标注不完整等挑战，不能只依赖通用分割模型的直接迁移。"
+          "项目面向 human hiPSC-derived cardiomyocyte whole-cell instance segmentation。该场景存在弱边界、细胞粘连、形态差异和标注不完整等挑战，需要针对显微图像特征适配通用视觉模型。"
       },
       {
         title: "主要创新贡献",
@@ -277,7 +189,7 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "工程、训练与调优能力",
         body:
-          "项目体现了面向实际应用环境的工程能力：训练配置管理、通道策略对比、prompt source 对比、推理链路统一、后处理规则设计、结果复盘和失败案例分析。重点不是单个指标，而是如何在数据噪声、标注边界、候选质量和部署链路约束下稳定比较方案、定位瓶颈，并把科研探索沉淀为可维护流程。"
+          "项目体现了面向实际应用环境的工程能力：训练配置管理、通道策略对比、prompt source 对比、推理链路统一、后处理规则设计、结果复盘和失败案例分析。核心是结合数据噪声、标注边界、候选质量和部署链路约束稳定比较方案、定位瓶颈，并把科研探索沉淀为可维护流程。"
       },
       {
         title: "评估设计",
@@ -287,17 +199,17 @@ window.PORTFOLIO_CONTENT = {
       {
         title: "Agent 辅助科研工作流",
         body:
-          "在开发过程中，我不是简单让 AI 写代码或写论文，而是把 Agent 当作科研协作和执行系统使用：用于规划实验、审查配置、监控训练、复盘结果、整理论文材料和推进多条技术路线。下面的 workflow 展示这套方法如何把复杂科研项目组织成可执行、可审核、可交付的工程流程。"
+          "在开发过程中，我将 Agent 用于实验规划、配置审查、训练监控、结果复盘、论文材料整理和多条技术路线推进。下面的 workflow 展示这套方法如何把复杂科研项目组织成可执行、可审核、可交付的工程流程。"
       },
       {
         title: "我能展示的能力",
         body:
-          "这个项目可展示 Transformer-based 视觉模型适配、训练与调优、科研代码工程化、多阶段推理链路设计、指标体系拆解、失败案例复盘，以及使用 Agent 辅助复杂科研任务规划和协作的能力。面试中可以重点讲如何把模型放进真实问题环境，而不是只讲模型结构。"
+          "这个项目可展示 Transformer-based 视觉模型适配、训练与调优、科研代码工程化、多阶段推理链路设计、指标体系拆解、失败案例复盘，以及使用 Agent 辅助复杂科研任务规划和协作的能力。项目详情重点呈现模型进入真实问题环境后的工程取舍。"
       },
       {
-        title: "谨慎表达边界",
+        title: "项目展示重点",
         body:
-          "网站不把具体指标作为主展示；指标、baseline 和论文图表保留在本地简历/论文材料中按场景使用。对外不声称临床或生产可用，不夸大跨场景泛化，也不把内部科研协作流程包装成超出事实边界的系统成果。"
+          "网站聚焦项目问题、技术路线、工程能力与 Agent 辅助科研方法；量化指标、baseline 和论文图表在论文及面试材料中结合评估口径展开。"
       }
     ],
     stack: [
@@ -317,7 +229,7 @@ window.PORTFOLIO_CONTENT = {
       eyebrow: "Agent-assisted Research System",
       title: "Agent 辅助科研工作流",
       summary:
-        "这套 workflow 的价值不是“用 AI 代写”，而是把复杂科研项目从零散尝试变成有计划、有证据链、有审核、有交接和有决策记录的研究系统。",
+        "这套 workflow 把复杂科研项目组织成有计划、有证据链、有审核、有交接和有决策记录的研究系统。",
       resumeLine:
         "Designed an agent-assisted research workflow for CellSAM, coordinating experiment planning, implementation, training monitoring, multi-agent audit, result consolidation, and paper / portfolio handoff for a complex biomedical segmentation project.",
       flow: [
@@ -349,7 +261,7 @@ window.PORTFOLIO_CONTENT = {
       roles: [
         {
           title: "Decision Owner",
-          body: "负责研究问题定义、路线取舍、论文叙事边界、公开范围和最终判断。"
+          body: "负责研究问题定义、路线取舍、论文叙事和最终结论审核。"
         },
         {
           title: "Research Orchestrator",

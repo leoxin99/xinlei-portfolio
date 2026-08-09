@@ -22,4 +22,4 @@ git -C $RepoRoot push -u origin main
 
 Write-Host ""
 Write-Host "Next: open GitHub Settings -> Pages, choose Deploy from branch, main, /root."
-Write-Host "Public URL will be: https://leoxin99.github.io/xinlei-portfolio/"
+Write-Host "Public URL will be: https://xinlei99.com/"

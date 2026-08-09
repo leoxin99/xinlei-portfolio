@@ -1,81 +1,38 @@
-# Xin Lei / 雷鑫 Portfolio
+# 雷鑫 / Xin Lei
 
-Personal AI product and agent portfolio for Xin Lei / 雷鑫.
+AI 产品经理与 AI 应用作品集，记录我如何从真实场景出发，将需求、AI 技术与工程实现组织成可体验、可验证的产品。
 
-Live site: https://leoxin99.github.io/xinlei-portfolio/
+**[访问个人网站](https://xinlei99.com/)**
 
-## What This Is
+## 精选项目
 
-This repository hosts a static portfolio site for AI product, AI application, and agent-related opportunities. It is designed to help interviewers quickly understand:
+### [像素旅行助手](https://leoxin99.github.io/PixelTravelMap/dist/index.html)
 
-- who I am and what roles I am targeting;
-- which AI projects I have shipped, researched, or prototyped;
-- how I think about users, product scope, evaluation, and risk boundaries;
-- how my research, engineering, and product background fit together.
+面向已有详细行程的自由行用户，在晚点、闭馆、天气或体力变化后保护固定预约，并局部调整当天后续安排。
 
-## Featured Work
+- 支持 Word / 文字行程导入、事件上报、差异预览、确认和撤销。
+- 调整结果同步到时间线、城市关系地图、每日简报和离线导出内容。
+- 核心流程采用可解释的确定性规则，模糊输入和固定安排冲突交由用户确认。
 
-### PixelTravelMap
+[GitHub](https://github.com/leoxin99/PixelTravelMap) · [在线产品](https://leoxin99.github.io/PixelTravelMap/dist/index.html) · [示例行程](https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html)
 
-An offline-first AI travel artifact generator.
+### [糖宠照护](https://xinlei99.com/pet-diabetes-care-log/)
 
-- Turns natural-language travel plans into validated itinerary JSON.
-- Renders an interactive HTML atlas with projected map, POIs, city detail views, distance labels, itinerary panels, and poster tools.
-- Supports browser-local travel notes with `localStorage`.
-- Uses GitHub Actions to validate offline HTML/SVG artifacts and demo regeneration.
+面向初次照护糖尿病犬猫的家长，用较少步骤记录进食、测量、治疗执行和日常观察，并整理为复诊沟通材料。
 
-Links:
+- 支持多宠档案、结构化照护记录、趋势分析、CSV 和打印报告。
+- 健康数据默认保存在本地，混合单位、缺失字段和资料审核状态会被明确提示。
+- 产品聚焦事实记录与兽医沟通，治疗方案由执业兽医负责。
 
-- GitHub: https://github.com/leoxin99/PixelTravelMap
-- Demo: https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html
+[在线产品](https://xinlei99.com/pet-diabetes-care-log/) · [产品案例](https://xinlei99.com/pet-diabetes.html)
 
-### CellSAM
+### [CellSAM：心肌细胞显微图像实例分割](https://xinlei99.com/cellsam.html)
 
-A biomedical image segmentation research project for hiPSC-CM whole-cell instance segmentation.
+针对 hiPSC-CM 心肌细胞弱边界、粘连、形态差异和多通道信息对齐问题，推进视觉基础模型的场景适配与实验评估。
 
-- Adapts Transformer / ViT / SAM-style visual foundation models to a microscopy setting.
-- Focuses on model adaptation, prompt generation, inference pipeline design, evaluation, and research workflow management.
-- Includes an agent-assisted research workflow for experiment planning, review, training monitoring, result consolidation, and paper / portfolio handoff.
-
-Portfolio page:
-
-- https://leoxin99.github.io/xinlei-portfolio/cellsam.html
-
-### VLM Game Companion Agent
-
-A product research prototype for low-interruption multimodal game companionship.
-
-- Uses game screenshots or video frames as VLM input.
-- Converts visual context into a structured `game_state`.
-- Decides whether to speak, what tone to use, and how to avoid interrupting gameplay.
-- Explores voice companionship, emotional value, and user feedback loops.
-
-Status: product research / prototype design, not a launched product.
-
-### 糖宠照护记录
-
-A local-first Web MVP for first-time caregivers of diabetic dogs.
-
-- Supports user-defined daily plans, factual glucose / meal / administered-insulin / weight / observation records, trends, and printable vet communication reports.
-- Uses Zod schema validation, versioned localStorage, JSON backup and restore, Vitest, Playwright, and safety-copy scanning.
-- Clear boundary: record and communication support only; no diagnosis, treatment advice, or dosage recommendation.
-
-Status: runnable Web MVP v0.3. User interviews and veterinary review remain pending validation gates.
-
-Links:
-
-- Demo: https://leoxin99.github.io/xinlei-portfolio/pet-diabetes-care-log/
-- Progress: https://leoxin99.github.io/xinlei-portfolio/pet-diabetes.html
-
-## Product Notes
-
-The site includes a lightweight `Product Notes` section for project retrospectives and AI product thinking. Planned notes include:
-
-- PixelTravelMap: from travel planning to offline AI artifacts.
-- VLM game companionship: product boundaries for low-interruption AI companions.
-- 糖宠照护记录: information architecture for long-term care.
-- Agent-assisted research: planning, audit, and delivery in complex AI projects.
-- AI application evaluation: from impressive demos to deployable systems.
+- 覆盖 Transformer / ViT / SAM 模型适配、候选生成、训练调优和统一推理。
+- 通过 Oracle 与端到端评估拆分定位分割模型和自动候选链路的瓶颈。
+- 使用 Agent 辅助组织实验规划、配置审查、训练监控、结果复盘和论文交接。
 
 ## Site Structure
 
@@ -130,7 +87,7 @@ This repository is deployed through GitHub Pages from the `main` branch root.
 Public URL:
 
 ```text
-https://leoxin99.github.io/xinlei-portfolio/
+https://xinlei99.com/
 ```
 
 ## Public Resume
@@ -169,7 +126,7 @@ GitHub Pages can continue hosting this site with a custom domain; no migration t
 
 ## Content Principles
 
-- Mark project status clearly: shipped, prototype, product research, or research project.
-- Do not claim unverified metrics or launched outcomes.
-- Separate public portfolio content from private resume/interview preparation notes.
-- Describe AI projects through user problem, product scope, technical chain, evaluation, and risk boundary.
+- Project status is labeled as shipped, prototype, product research, or research project.
+- Public claims link back to project artifacts, tests, research notes, or user evidence.
+- Public pages focus on user problems, product decisions, working outputs, and evaluation.
+- Detailed risk logs, release gates, and interview preparation remain in local project documents.
