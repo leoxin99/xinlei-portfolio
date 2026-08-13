@@ -28,6 +28,7 @@
     }
   };
   let currentLanguage = languageFromStorage();
+  let projectMotionCleanup = () => {};
 
   const capitalize = (value) => value ? `${value.charAt(0).toUpperCase()}${value.slice(1)}` : value;
   const localized = (entry, key, fallback = "") => {
@@ -172,17 +173,11 @@
     return currentLanguage === "en" ? contact.enLabel || contact.label : contact.label;
   }
 
-  function contactActionCopyKey(contact) {
-    if (contact.kind === "email") return "contactOpenEmail";
-    if (contact.kind === "phone") return "contactOpenPhone";
-    return "contactOpenGithub";
-  }
-
   function renderContactItems() {
     const list = qs("[data-contact-items]");
     if (!list || !content.profile?.contacts) return;
     list.replaceChildren();
-    content.profile.contacts.filter((contact) => contact.href).forEach((contact) => {
+    content.profile.contacts.filter((contact) => contact.value).forEach((contact) => {
       const item = document.createElement("article");
       item.className = "contact-dialog-item";
 
@@ -198,18 +193,16 @@
 
       const actions = document.createElement("div");
       actions.className = "contact-dialog-actions";
-      const link = document.createElement("a");
-      link.className = "contact-dialog-link";
-      link.href = contact.href;
-      link.textContent = copy(contactActionCopyKey(contact));
-      if (contact.external || isExternal(contact.href)) {
+      if (contact.kind === "github" && contact.href) {
+        const link = document.createElement("a");
+        link.className = "contact-dialog-link";
+        link.href = contact.href;
+        link.textContent = copy("contactOpenGithub");
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         link.setAttribute("aria-label", `${contactLabel(contact)}（${copy("externalHint")}）`);
-      } else {
-        link.setAttribute("aria-label", `${contactLabel(contact)}：${contact.value}`);
+        actions.appendChild(link);
       }
-      actions.appendChild(link);
 
       if (contact.copyValue) {
         const copyButton = document.createElement("button");
@@ -237,16 +230,31 @@
     const layoutClass = project.layout ? ` project-card-${project.layout}` : "";
     article.className = `project-card${layoutClass}`;
     article.dataset.projectId = project.id;
+    article.dataset.motionCard = project.id;
 
-    if (project.image) {
+    const motionPreview = project.motionPreview || null;
+    if (project.image || motionPreview?.poster) {
       const figure = document.createElement("figure");
       figure.className = "project-media";
+      figure.dataset.motionMedia = project.id;
       const image = document.createElement("img");
-      image.src = project.image;
-      image.alt = imageAlt || "";
+      image.className = "project-poster";
+      image.src = project.image || motionPreview?.poster;
+      image.alt = project.image ? imageAlt || "" : motionPreview ? (currentLanguage === "en" ? motionPreview.enAlt || motionPreview.alt : motionPreview.alt) : "";
       image.loading = "lazy";
       image.decoding = "async";
       figure.appendChild(image);
+      if (motionPreview?.source) {
+        const motion = document.createElement("img");
+        motion.className = "project-motion";
+        motion.src = motionPreview.source;
+        motion.dataset.motionSource = motionPreview.source;
+        motion.alt = "";
+        motion.loading = "lazy";
+        motion.decoding = "async";
+        motion.setAttribute("aria-hidden", "true");
+        figure.appendChild(motion);
+      }
       article.appendChild(figure);
     } else if (visualFlow.length) {
       const flow = document.createElement("div");
@@ -324,6 +332,62 @@
     });
   }
 
+  function bindProjectMotion() {
+    projectMotionCleanup();
+    const cards = qsa("[data-motion-card]");
+    if (!cards.length) return;
+    const reducedMotion = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
+    const cleanup = [];
+    const setActive = (card, active) => {
+      if (reducedMotion.matches) {
+        card.classList.remove("is-motion-active");
+        return;
+      }
+      card.classList.toggle("is-motion-active", active);
+      const motion = qs(".project-motion", card);
+      if (!motion) return;
+      const source = motion.dataset.motionSource;
+      if (active && source) motion.src = `${source}?motionRun=${Date.now()}`;
+      if (!active && source) motion.src = source;
+    };
+
+    cards.forEach((card) => {
+      const onEnter = () => setActive(card, true);
+      const onLeave = () => setActive(card, false);
+      const onFocusIn = () => setActive(card, true);
+      const onFocusOut = (event) => {
+        if (!card.contains(event.relatedTarget)) onLeave();
+      };
+      card.addEventListener("mouseenter", onEnter);
+      card.addEventListener("mouseleave", onLeave);
+      card.addEventListener("focusin", onFocusIn);
+      card.addEventListener("focusout", onFocusOut);
+      cleanup.push(() => {
+        card.removeEventListener("mouseenter", onEnter);
+        card.removeEventListener("mouseleave", onLeave);
+        card.removeEventListener("focusin", onFocusIn);
+        card.removeEventListener("focusout", onFocusOut);
+      });
+    });
+
+    const observer = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) setActive(entry.target, false);
+      });
+    }, { threshold: 0.05 }) : null;
+    if (observer) {
+      cards.forEach((card) => observer.observe(card));
+      cleanup.push(() => observer.disconnect());
+    }
+    const onReducedMotionChange = () => cards.forEach((card) => setActive(card, false));
+    reducedMotion.addEventListener?.("change", onReducedMotionChange);
+    cleanup.push(() => reducedMotion.removeEventListener?.("change", onReducedMotionChange));
+    projectMotionCleanup = () => {
+      cleanup.forEach((dispose) => dispose());
+      projectMotionCleanup = () => {};
+    };
+  }
+
   function renderSkills() {
     const list = qs("[data-skill-list]");
     if (!list || !content.skills) return;
@@ -332,7 +396,10 @@
       const card = document.createElement("article");
       card.className = "skill-card";
       const tags = localizedArray(skill, "tags").map((tag) => `<span>${tag}</span>`).join("");
-      card.innerHTML = `<div class="skill-index">${skill.index}</div><h3>${localized(skill, "title")}</h3><p>${localized(skill, "summary")}</p><div class="skill-tags">${tags}</div>`;
+      const media = skill.media || {};
+      const mediaMarkup = media.poster ? `<div class="skill-media"><img src="${media.poster}" alt="${localized(skill, "mediaAlt")}" loading="lazy" decoding="async"></div>` : "";
+      const linkMarkup = skill.github ? `<a class="skill-link text-link" href="${skill.github}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>` : "";
+      card.innerHTML = `${mediaMarkup}<div class="skill-card-copy"><div class="skill-index">${skill.index}</div><h3>${localized(skill, "title")}</h3><p>${localized(skill, "summary")}</p><div class="skill-tags">${tags}</div><div class="skill-links">${linkMarkup}</div></div>`;
       list.appendChild(card);
     });
   }
@@ -342,6 +409,7 @@
     renderProfile();
     renderContactItems();
     renderProjects();
+    bindProjectMotion();
     renderSkills();
     renderExperiences();
     renderSimpleCards("[data-education-list]", content.education, "education-item", (entry) => `<h3>${entry.school}</h3><p class="education-program">${localized(entry, "program")}</p><p>${localized(entry, "details")}</p>`);
@@ -478,6 +546,12 @@
     dialog.addEventListener("cancel", (event) => {
       event.preventDefault();
       closeDialog();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && dialog.open) {
+        event.preventDefault();
+        closeDialog();
+      }
     });
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) closeDialog();

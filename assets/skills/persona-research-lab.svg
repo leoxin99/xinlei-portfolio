@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Persona Research Lab</title>
+  <desc id="desc">A structured user research loop connects a persona hypothesis, task, evidence, and decision.</desc>
+  <rect width="960" height="420" fill="#f3ede4"/>
+  <path d="M480 62 735 210 480 358 225 210Z" fill="#fffdf8" stroke="#2c7773" stroke-width="3"/>
+  <g fill="#184f50" font-family="Arial, sans-serif" font-weight="700" font-size="23" text-anchor="middle">
+    <text x="480" y="122">PERSONA</text><text x="650" y="218">TASK</text><text x="480" y="322">EVIDENCE</text><text x="310" y="218">DECISION</text>
+  </g>
+  <g fill="#586767" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">
+    <text x="480" y="148">hypothesis</text><text x="650" y="244">moment</text><text x="480" y="348">quote / signal</text><text x="310" y="244">next test</text>
+  </g>
+  <path d="M480 170 V278 M548 210 H412" stroke="#d26a52" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 8"/>
+  <text x="480" y="395" fill="#9a6b57" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">small structure before big assumptions</text>
+</svg>

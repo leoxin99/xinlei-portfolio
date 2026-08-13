@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Context Bridge</title>
+  <desc id="desc">A compact handoff state connects plan, decisions, progress, and next action.</desc>
+  <rect width="960" height="420" fill="#eaf1ec"/>
+  <path d="M0 340 C190 285 305 370 465 320 C625 270 760 325 960 260 V420 H0Z" fill="#d8e7df"/>
+  <g font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#184f50">
+    <text x="84" y="102">PLAN</text><text x="386" y="102">STATE</text><text x="706" y="102">NEXT</text>
+  </g>
+  <g fill="#fffdf8" stroke="#2c7773" stroke-width="3">
+    <rect x="54" y="140" width="220" height="118" rx="18"/><rect x="370" y="140" width="220" height="118" rx="18"/><rect x="686" y="140" width="220" height="118" rx="18"/>
+  </g>
+  <g fill="#586767" font-family="Arial, sans-serif" font-size="20">
+    <text x="84" y="184">goal</text><text x="84" y="220">decision</text><text x="84" y="246">owner</text>
+    <text x="400" y="184">progress</text><text x="400" y="220">evidence</text><text x="400" y="246">open point</text>
+    <text x="716" y="184">handoff</text><text x="716" y="220">next task</text><text x="716" y="246">check</text>
+  </g>
+  <g fill="none" stroke="#d26a52" stroke-width="5" stroke-linecap="round"><path d="M288 200 H350"/><path d="M604 200 H666"/></g>
+  <g fill="#d26a52"><path d="m340 187 20 13-20 13Z"/><path d="m656 187 20 13-20 13Z"/></g>
+</svg>

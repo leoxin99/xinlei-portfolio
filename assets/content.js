@@ -19,12 +19,11 @@ window.PORTFOLIO_CONTENT = {
     avatar: "assets/profile.jpg",
     contacts: [
       {
-        id: "phone",
-        kind: "phone",
-        label: "微信 / 手机",
-        enLabel: "WeChat / Phone",
+        id: "wechat",
+        kind: "wechat",
+        label: "微信",
+        enLabel: "WeChat",
         value: "18957124638",
-        href: "tel:18957124638",
         copyValue: "18957124638"
       },
       {
@@ -33,7 +32,6 @@ window.PORTFOLIO_CONTENT = {
         label: "邮箱",
         enLabel: "Email",
         value: "leixin.lx99@gmail.com",
-        href: "mailto:leixin.lx99@gmail.com",
         copyValue: "leixin.lx99@gmail.com"
       },
       {
@@ -68,8 +66,12 @@ window.PORTFOLIO_CONTENT = {
       projectsTitle: "把想法做成可使用的东西",
       projectsIntro: "从旅行变化、科研图像到长期照护，我更在意问题是否被说清楚、约束是否被看见，以及交付后能不能真的帮上忙。",
       systemEyebrow: "SKILLS / WORKING SYSTEM",
-      systemTitle: "一套让复杂工作继续向前的工作系统",
-      systemIntro: "研究、产品与网页交付并不是三条孤立的线；我会把上下文、证据、视觉和验收放在同一条链路里。",
+      systemTitle: "把常用工作方法做成可复用工具",
+      systemIntro: "这里放的是我真正用过、能继续复用的工作系统：交接、协作、信息整理与用户研究。",
+      workbenchLabel: "PERSONAL AI WORKBENCH",
+      workbenchTitle: "把信息、项目和交付放在同一张工作台上",
+      workbenchBody: "工作台把前沿信息收集、项目同步、知识沉淀和人工审核连接起来，方便我从发现问题走到做出可用产物。",
+      workbenchLink: "查看工作系统说明 ↗",
       aboutEyebrow: "ABOUT",
       aboutTitle: "经历与背景",
       aboutIntro: "我在产品、人工智能研究与独立构建之间移动，保留对真实用户、真实数据和真实交付的敏感度。",
@@ -81,10 +83,7 @@ window.PORTFOLIO_CONTENT = {
       contactOpen: "联系我",
       contactDialogEyebrow: "CONTACT",
       contactDialogTitle: "联系我",
-      contactDialogClose: "关闭",
       contactCopy: "复制",
-      contactOpenEmail: "发送邮件",
-      contactOpenPhone: "拨打电话",
       contactOpenGithub: "打开 GitHub",
       contactCopied: "已复制",
       contactCopyFailed: "复制失败，请手动复制",
@@ -116,8 +115,12 @@ window.PORTFOLIO_CONTENT = {
       projectsTitle: "Make ideas usable",
       projectsIntro: "From travel changes and biomedical research to long-term care, I care about making the problem legible, the constraints visible, and the delivery genuinely useful.",
       systemEyebrow: "SKILLS / WORKING SYSTEM",
-      systemTitle: "A working system for moving complex work forward",
-      systemIntro: "Research, product, and web delivery are not separate tracks; I connect context, evidence, visual decisions, and acceptance in one chain.",
+      systemTitle: "Reusable tools for the work I actually do",
+      systemIntro: "These are working systems I have used and can reuse: handoff, collaboration, information synthesis, and user research.",
+      workbenchLabel: "PERSONAL AI WORKBENCH",
+      workbenchTitle: "One workbench for information, projects, and delivery",
+      workbenchBody: "The workbench connects frontier research, project sync, knowledge capture, and human review so ideas can become usable outputs.",
+      workbenchLink: "Read the working-system notes ↗",
       aboutEyebrow: "ABOUT",
       aboutTitle: "Experience & background",
       aboutIntro: "I move between product work, AI research, and independent building—with attention to real users, real data, and real delivery.",
@@ -129,10 +132,7 @@ window.PORTFOLIO_CONTENT = {
       contactOpen: "Get in touch",
       contactDialogEyebrow: "CONTACT",
       contactDialogTitle: "Get in touch",
-      contactDialogClose: "Close",
       contactCopy: "Copy",
-      contactOpenEmail: "Email",
-      contactOpenPhone: "Call",
       contactOpenGithub: "Open GitHub",
       contactCopied: "Copied",
       contactCopyFailed: "Copy failed — please copy manually",
@@ -149,32 +149,70 @@ window.PORTFOLIO_CONTENT = {
     {
       id: "context",
       index: "01",
-      title: "把复杂问题交接清楚",
-      enTitle: "Make complex work handoff-ready",
-      summary: "用 Context Bridge、事实源与 handoff 把上下文保留下来，让不同窗口、角色和阶段可以继续推进。",
-      enSummary: "Use Context Bridge, a source of truth, and handoffs so different windows, roles, and phases can keep moving.",
-      tags: ["Context Bridge", "Handoff", "Decision log"],
-      enTags: ["Context Bridge", "Handoff", "Decision log"]
+      title: "Context Bridge",
+      enTitle: "Context Bridge",
+      summary: "把任务目标、当前进度、决策和下一步整理成一份可交接状态，让不同工作窗口可以直接继续。",
+      enSummary: "Turn goals, progress, decisions, and next steps into a handoff state that another work window can continue from.",
+      media: { poster: "assets/skills/context-bridge.svg" },
+      mediaAlt: "Context Bridge handoff flow from plan to state to next action",
+      enMediaAlt: "Context Bridge handoff flow from plan to state to next action",
+      link: { href: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/context-bridge-handoff", external: true },
+      github: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/context-bridge-handoff",
+      linkLabel: "查看说明",
+      enLinkLabel: "Read notes",
+      tags: ["任务状态", "决策记录", "交接"],
+      enTags: ["Task state", "Decision log", "Handoff"]
     },
     {
-      id: "evidence",
+      id: "ai-frontier-digest",
       index: "02",
-      title: "用证据推动判断",
-      enTitle: "Let evidence drive judgment",
-      summary: "把研究问题、用户反馈、实验结果与风险拆成可以核对的证据，再决定下一步做什么。",
-      enSummary: "Turn research questions, user feedback, experiments, and risks into checkable evidence before choosing the next move.",
-      tags: ["Research", "Evaluation", "AI workflow"],
-      enTags: ["Research", "Evaluation", "AI workflow"]
+      title: "AI Frontier Digest",
+      enTitle: "AI Frontier Digest",
+      summary: "从官方实验室、产品团队和研究者渠道收集 AI 动态，整理成中文主题笔记、技术脉络和可以动手验证的产品启发。",
+      enSummary: "Collect AI updates from official labs, product teams, and researchers, then turn them into themed notes and experiments worth trying.",
+      media: { poster: "assets/skills/ai-frontier-digest.svg" },
+      mediaAlt: "AI frontier digest flow from sources to notes and experiments",
+      enMediaAlt: "AI frontier digest flow from sources to notes and experiments",
+      link: { href: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/ai-frontier-digest", external: true },
+      github: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/ai-frontier-digest",
+      linkLabel: "查看说明",
+      enLinkLabel: "Read notes",
+      tags: ["来源筛选", "主题整理", "行动清单"],
+      enTags: ["Source review", "Synthesis", "Action list"]
     },
     {
-      id: "delivery",
+      id: "persona-research-lab",
       index: "03",
-      title: "从视觉到网页交付",
-      enTitle: "Carry visual decisions into delivery",
-      summary: "把信息结构、视觉语言、原型和响应式验收放进同一条链路，直到页面可以被真实使用。",
-      enSummary: "Keep information architecture, visual language, prototypes, and responsive QA in one chain until the page is genuinely usable.",
-      tags: ["Product thinking", "Web delivery", "Responsive QA"],
-      enTags: ["Product thinking", "Web delivery", "Responsive QA"]
+      title: "Persona Research Lab",
+      enTitle: "Persona Research Lab",
+      summary: "把目标用户、任务场景、访谈问题和证据记录整理成结构化研究输入，先验证用户问题，再决定产品方向。",
+      enSummary: "Structure user segments, task scenarios, interview prompts, and evidence so the problem is tested before product direction is chosen.",
+      media: { poster: "assets/skills/persona-research-lab.svg" },
+      mediaAlt: "Persona Research Lab flow from persona hypothesis to evidence and decision",
+      enMediaAlt: "Persona Research Lab flow from persona hypothesis to evidence and decision",
+      link: { href: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/persona-research-lab", external: true },
+      github: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/persona-research-lab",
+      linkLabel: "查看最小实现",
+      enLinkLabel: "View minimal build",
+      tags: ["用户画像", "任务场景", "证据记录"],
+      enTags: ["Personas", "Task scenarios", "Evidence"]
+    },
+    {
+      id: "project-motion-preview",
+      index: "04",
+      title: "Project Motion Preview",
+      enTitle: "Project Motion Preview",
+      summary: "把真实项目流程压缩成卡片内的 5–10 秒轻量预览：事实、关键画面、poster、降级与验收一起交付。",
+      enSummary: "Turn a real project flow into a lightweight 5–10 second card preview, shipping facts, key frames, poster, fallback, and QA together.",
+      media: { poster: "assets/skills/project-motion-preview.svg" },
+      mediaAlt: "Project Motion Preview flow from facts to storyboard, poster, and QA",
+      enMediaAlt: "Project Motion Preview flow from facts to storyboard, poster, and QA",
+      link: { href: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/project-motion-preview", external: true },
+      github: "https://github.com/leoxin99/ai-productivity-skills/tree/main/skills/project-motion-preview",
+      linkLabel: "查看 Skill",
+      enLinkLabel: "View skill",
+      tags: ["真实流程", "Poster + WebM", "降级验收"],
+      enTags: ["Real flow", "Poster + WebM", "Fallback QA"]
     }
   ],
   projects: [
@@ -182,16 +220,22 @@ window.PORTFOLIO_CONTENT = {
       id: "wanshanhe",
       category: "featured",
       featured: true,
-      layout: "lead",
-      type: "问山河 · 旅行调整模块",
-      enType: "问山河 · Travel adjustment module",
+      layout: "standard",
+      type: "问山河 · 旅行发现与集卡",
+      enType: "问山河 · Travel discovery and collection",
       title: "问山河",
       enTitle: "问山河",
-      role: "旅行发现与调整系统 · 像素旅行助手模块",
-      enRole: "Travel discovery and adjustment system · Pixel Travel Assistant module",
-      image: "assets/pixeltravelmap-replan-preview.png",
-      imageAlt: "问山河旅行调整模块的行程变化界面，展示晚点上报、固定预约保护、调整差异和确认操作",
-      enImageAlt: "Wanshanhe travel adjustment interface showing delay reporting, protected bookings, itinerary differences, and confirmation",
+      role: "旅行发现、摇签与收藏体验",
+      enRole: "Travel discovery, draw, and collection experience",
+      image: "assets/pixeltravelmap-preview.png",
+      imageAlt: "问山河真实首页：摇签发现、卡池主题与地点收藏入口",
+      enImageAlt: "Real Wanshanhe home screen with draw discovery, themes, and collection entry points",
+      motionPreview: {
+        poster: "assets/previews/wanshanhe-poster.svg",
+        source: "assets/previews/wanshanhe-motion-v2.svg",
+        alt: "问山河摇签、地点揭晓与卡片入册的流程预览",
+        enAlt: "Wanshanhe flow preview: draw, reveal a place, and add the card to the album"
+      },
       links: [
         {
           label: "打开像素旅行助手",
@@ -229,9 +273,9 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "问山河关注旅行中“为什么去、怎么继续”的真实变化；其中像素旅行助手负责在晚点、闭馆、天气或体力变化后保护固定预约，低成本调整当天后续安排，并支持差异预览、确认、撤销、地图同步和离线导出。",
+        "问山河从“想去哪里”出发，把地点做成可以抽取、揭晓、收藏和继续了解的旅行卡片；当前已完成摇签、地点揭晓与自动入册/收藏闭环。随行簿是后续的出发延伸。",
       enSummary:
-        "问山河 explores the real changes behind where to go and how to keep going. Its Pixel Travel Assistant module protects fixed bookings after delays, closures, weather, or fatigue, then previews, confirms, undoes, syncs, and exports the adjusted plan.",
+        "Wanshanhe starts with the question of where to go and turns places into travel cards to draw, reveal, collect, and explore. The current loop covers draw, reveal, and automatic album entry; the travel notebook is a later extension.",
       tags: [
         "用户问题重构",
         "约束建模",
@@ -241,9 +285,9 @@ window.PORTFOLIO_CONTENT = {
         "网页部署"
       ],
       highlights: [
-        "问题：已有行程遇到临时变化后，用户需要重新梳理预约、路线和当天安排，调整成本高",
-        "取舍：先保护固定预约，只调整当天后续安排；信息不足时提示补充关键信息",
-        "交付：完成行程导入、事件上报、调整差异预览、确认与撤销、地图同步和离线导出"
+        "问题：旅行灵感常停留在收藏夹里，用户缺少轻量、可持续的发现入口",
+        "设计：用摇签降低选择压力，用地点卡承载缘由、故事和收藏关系",
+        "当前闭环：抽签、揭晓、自动入册与重复保护；随行簿作为后续产品延伸"
       ],
       enTags: [
         "Problem reframing",
@@ -254,9 +298,9 @@ window.PORTFOLIO_CONTENT = {
         "Web delivery"
       ],
       enHighlights: [
-        "Problem: when a detailed itinerary changes, people must reconstruct bookings, routes, and the rest of the day",
-        "Trade-off: protect fixed bookings first and only adjust the remaining plan; ask for key missing context when needed",
-        "Delivery: itinerary import, event reporting, difference preview, confirmation and undo, map sync, and offline export"
+        "Problem: travel inspiration often stays in a saved list without a lightweight way to keep discovering",
+        "Design: use a draw to reduce choice pressure, with cards carrying the reason, story, and collection link",
+        "Current loop: draw, reveal, automatic album entry, and duplicate protection; the travel notebook is a later extension"
       ]
     },
     {
@@ -272,6 +316,15 @@ window.PORTFOLIO_CONTENT = {
       enRole: "Leiden University lab · complex AI project practice",
       visualFlow: ["显微图像", "候选生成", "CellSAM 分割", "Oracle / E2E 评估", "Agent 审计"],
       enVisualFlow: ["Microscopy", "Candidate generation", "CellSAM segmentation", "Oracle / E2E evaluation", "Agent audit"],
+      image: "assets/cellsam-preview.webp",
+      imageAlt: "CellSAM 论文项目素材：明场、细胞核与三通道显微图像缩略图",
+      enImageAlt: "CellSAM paper-project material: brightfield, nuclei, and three-channel microscopy thumbnails",
+      motionPreview: {
+        poster: "assets/previews/cellsam-poster.svg",
+        source: "assets/previews/cellsam-motion-v2.svg",
+        alt: "CellSAM 心肌细胞实例分割抽象示意：显微图像、细胞轮廓与分离结果",
+        enAlt: "Abstract CellSAM preview: microscopy input, cell contours, and separated instances"
+      },
       summary:
         "面向 hiPSC-CM 心肌细胞弱边界、粘连与多通道信息对齐问题，推进视觉 foundation model 的场景适配、候选生成、统一推理评估与实验审计。",
       enSummary:
@@ -303,6 +356,12 @@ window.PORTFOLIO_CONTENT = {
       image: "assets/pet-diabetes-preview.png",
       imageAlt: "糖宠照护今日页，包含今日计划、快捷记录和照护时间线",
       enImageAlt: "Pet Diabetes Care today view with daily plan, quick logging, and care timeline",
+      motionPreview: {
+        poster: "assets/previews/pet-care-poster.svg",
+        source: "assets/previews/pet-care-motion-v2.svg",
+        alt: "糖宠照护记录、趋势与复诊报告的产品流程预览",
+        enAlt: "Pet Diabetes Care flow preview: log, review trends, and prepare a follow-up report"
+      },
       links: [
         {
           label: "打开在线 Demo",

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">AI Frontier Digest</title>
+  <desc id="desc">Selected sources become structured notes and small experiments.</desc>
+  <rect width="960" height="420" fill="#e9f0ee"/>
+  <g fill="#fffdf8" stroke="#2c7773" stroke-width="3">
+    <rect x="68" y="120" width="192" height="152" rx="18"/><rect x="384" y="120" width="192" height="152" rx="18"/><rect x="700" y="120" width="192" height="152" rx="18"/>
+  </g>
+  <g fill="#184f50" font-family="Arial, sans-serif" font-size="23" font-weight="700" text-anchor="middle">
+    <text x="164" y="164">SOURCES</text><text x="480" y="164">NOTES</text><text x="796" y="164">TRY</text>
+  </g>
+  <g fill="#586767" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="164" y="204">lab · product · paper</text><text x="480" y="204">theme · fact · link</text><text x="796" y="204">demo · decision · next</text>
+  </g>
+  <g stroke="#d26a52" stroke-width="5" fill="none" stroke-linecap="round"><path d="M280 196 H364"/><path d="M596 196 H680"/></g>
+  <g fill="#d26a52"><path d="m350 183 20 13-20 13Z"/><path d="m666 183 20 13-20 13Z"/></g>
+  <circle cx="110" cy="345" r="7" fill="#d26a52"/><circle cx="138" cy="345" r="7" fill="#2c7773"/><circle cx="166" cy="345" r="7" fill="#e5ae51"/>
+  <text x="190" y="352" fill="#586767" font-family="Arial, sans-serif" font-size="18">动态更新，保留可追溯来源</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">问山河：摇签、揭晓、入册</title>
+  <desc id="desc">当前已完成的旅行发现与卡片收藏流程。</desc>
+  <rect width="960" height="540" fill="#eaf1ec"/><path d="M0 420c170-45 290 25 450-20 180-50 315 25 510-30v170H0z" fill="#d7e8df"/>
+  <text x="62" y="72" fill="#184f50" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">问山河 · 旅行发现与集卡</text>
+  <rect x="164" y="126" width="632" height="294" rx="26" fill="#fffdf8" stroke="#2c7773" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle"><text x="270" y="176" fill="#d26a52" font-size="18" font-weight="700">01 抽签</text><text x="480" y="176" fill="#d26a52" font-size="18" font-weight="700">02 揭晓</text><text x="690" y="176" fill="#d26a52" font-size="18" font-weight="700">03 入册</text><text x="270" y="370" fill="#184f50" font-size="22" font-weight="700">随机发现</text><text x="480" y="370" fill="#184f50" font-size="22" font-weight="700">地点卡</text><text x="690" y="370" fill="#184f50" font-size="22" font-weight="700">收藏关系</text></g>
+  <path d="M205 245h130M415 245h130M625 245h130" stroke="#d26a52" stroke-width="6" stroke-linecap="round"/><path d="m320 232 20 13-20 13m210-26 20 13-20 13m210-26 20 13-20 13" fill="#d26a52"/>
+  <circle cx="270" cy="245" r="42" fill="#f1c46b"/><path d="M245 245c14-29 38-28 50 0-19-6-31 6-50 0Z" fill="#2c7773"/><circle cx="480" cy="245" r="42" fill="#d7e8df"/><path d="M455 245c14-29 38-28 50 0-19-6-31 6-50 0Z" fill="#184f50"/><circle cx="690" cy="245" r="42" fill="#f6eee1"/><path d="M665 245c14-29 38-28 50 0-19-6-31 6-50 0Z" fill="#d26a52"/>
+</svg>

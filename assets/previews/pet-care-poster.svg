@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">糖宠照护：记录、趋势、复诊沟通</title>
+  <desc id="desc">长期照护记录工具的主要使用路径。</desc>
+  <rect width="960" height="540" fill="#f6eee1"/><text x="62" y="72" fill="#184f50" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">糖宠照护 · LONG-TERM CARE</text>
+  <rect x="160" y="122" width="640" height="300" rx="26" fill="#fffdf8" stroke="#d7c9b3" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle"><text x="270" y="184" fill="#d26a52" font-size="18" font-weight="700">记录</text><text x="480" y="184" fill="#d26a52" font-size="18" font-weight="700">趋势</text><text x="690" y="184" fill="#d26a52" font-size="18" font-weight="700">复诊</text><text x="270" y="365" fill="#184f50" font-size="21" font-weight="700">照护数据</text><text x="480" y="365" fill="#184f50" font-size="21" font-weight="700">变化轨迹</text><text x="690" y="365" fill="#184f50" font-size="21" font-weight="700">沟通材料</text></g>
+  <path d="M205 255h130M415 255h130M625 255h130" stroke="#d26a52" stroke-width="6" stroke-linecap="round"/><path d="m320 242 20 13-20 13m210-26 20 13-20 13m210-26 20 13-20 13" fill="#d26a52"/><circle cx="270" cy="255" r="43" fill="#eaf1ec"/><path d="M243 270h54M249 246h42" stroke="#2c7773" stroke-width="6" stroke-linecap="round"/><circle cx="480" cy="255" r="43" fill="#d7e8df"/><path d="M450 280c32-72 54-10 62-54" fill="none" stroke="#2c7773" stroke-width="6" stroke-linecap="round"/><circle cx="690" cy="255" r="43" fill="#f1c46b"/><path d="M673 235h34v38h-34z" fill="#fffdf8" stroke="#d26a52" stroke-width="4"/><path d="M678 244h24m-24 10h24m-24 10h16" stroke="#2c7773" stroke-width="3"/>
+</svg>

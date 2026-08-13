@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">CellSAM 心肌细胞实例分割抽象示意</title>
+  <desc id="desc">非实验数据的抽象示意图，展示显微图像到实例轮廓的过程。</desc>
+  <rect width="960" height="540" fill="#e8eef0"/><text x="62" y="72" fill="#184f50" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">CellSAM · hiPSC-CM</text><rect x="160" y="116" width="640" height="322" rx="25" fill="#1b3036"/>
+  <g fill="none" stroke="#2c9aa0" stroke-width="6"><path d="M250 237c-22-78 75-128 131-76 46 43 17 119-44 130-43 8-78-16-87-54Z"/><path d="M448 205c-7-88 122-113 155-37 28 64-31 126-92 119-37-5-60-31-63-82Z"/><path d="M574 342c-12-69 71-108 122-64 42 37 13 106-40 115-43 7-76-11-82-51Z"/><path d="M235 364c-9-59 65-91 111-52 40 34 15 91-31 101-43 9-74-10-80-49Z"/></g><text x="480" y="486" text-anchor="middle" fill="#184f50" font-family="Arial,sans-serif" font-size="19">抽象示意 · 心肌细胞实例分割链路</text>
+</svg>
