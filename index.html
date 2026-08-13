@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-language="zh">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>雷鑫｜AI 产品经理与 AI 应用作品集</title>
-    <meta name="description" content="雷鑫的 AI 产品经理与 AI 应用作品集：展示像素旅行助手、CellSAM 心肌细胞图像分割与糖宠照护。">
+    <title>Leo｜把想法做成可使用的东西</title>
+    <meta name="description" content="雷鑫的个人网站：关注 AI 如何进入真实生活、工作与研究现场，把模糊问题做成可使用的东西。">
     <link rel="canonical" href="https://xinlei99.com/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_CN">
-    <meta property="og:title" content="雷鑫｜AI 产品经理与 AI 应用作品集">
-    <meta property="og:description" content="AI 产品经理与 AI 应用作品集。代表项目：像素旅行助手、CellSAM 心肌细胞图像分割与糖宠照护。">
+    <meta property="og:title" content="Leo｜把想法做成可使用的东西">
+    <meta property="og:description" content="关注 AI 如何进入真实生活、工作与研究现场。代表项目：问山河、CellSAM 与糖宠照护。">
     <meta property="og:url" content="https://xinlei99.com/">
     <meta property="og:image" content="https://xinlei99.com/assets/og-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="雷鑫 AI 产品经理作品集，代表项目像素旅行助手、糖宠照护与 CellSAM">
+    <meta property="og:image:alt" content="雷鑫的个人网站，展示问山河、CellSAM 与糖宠照护项目">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" href="assets/favicon-512.png">
-    <link rel="stylesheet" href="assets/site.css">
+    <link rel="stylesheet" href="assets/site.css?v=20260813-home-v5">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -28,9 +28,8 @@
         "url": "https://xinlei99.com/",
         "image": "https://xinlei99.com/assets/profile.jpg",
         "email": "mailto:leixin.lx99@gmail.com",
-        "jobTitle": "AI 产品经理",
         "sameAs": ["https://github.com/leoxin99"],
-        "knowsAbout": ["AI 产品", "AI 应用", "Agent 工作流", "产品评估", "计算机视觉"]
+        "knowsAbout": ["AI systems", "product thinking", "computer vision", "agent-assisted workflows", "web delivery"]
       }
     </script>
   </head>
@@ -38,91 +37,134 @@
     <div class="site-shell">
       <header class="site-header">
         <div class="nav-wrap">
-          <a class="brand" href="index.html" aria-label="雷鑫作品集首页"><span class="brand-mark">XL</span><span>Xin Lei</span></a>
-          <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle><span></span><span></span><span></span></button>
+          <a class="brand" href="index.html" data-copy-aria="brandAria" aria-label="雷鑫的个人网站首页">
+            <span class="brand-mark">XL</span>
+            <span class="brand-name">Leo</span>
+            <span class="brand-local" data-profile-name-corner>雷鑫</span>
+          </a>
+          <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle>
+            <span></span><span></span><span></span>
+          </button>
           <nav class="nav-menu" id="site-navigation" aria-label="主导航" data-nav-menu data-open="false">
-            <a href="#projects">精选项目</a><a href="#experience">经历</a><a href="#background">背景</a><a href="#contact">联系</a>
+            <a href="#projects" data-copy="navProjects">项目</a>
+            <a href="#system" data-copy="navSystem">Skills / 工作系统</a>
+            <a href="#about" data-copy="navAbout">关于</a>
+            <a href="#contact" data-copy="navContact">联系</a>
+            <div class="language-segmented" role="group" aria-label="语言选择" data-language-control data-copy-aria="languageGroupLabel">
+              <button type="button" data-language-option="zh" aria-pressed="true">中</button>
+              <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+            </div>
           </nav>
         </div>
       </header>
 
       <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="container hero-grid">
-            <div class="hero-copy">
-              <p class="eyebrow">AI Product Portfolio · Beijing</p>
-              <h1 id="hero-title" data-profile-name>雷鑫 / Xin Lei</h1>
-              <p class="hero-statement">寻找现实与 AI 的接口，<br>用产品让技术真正落地。</p>
-              <h2 data-profile-headline>AI 产品经理 · AI 应用产品 · 产品工程实践</h2>
-              <p class="hero-summary" data-profile-summary>人工智能硕士、计算机本科，具备手机产品实习、AI 科研与独立产品实践。关注 AI 如何进入真实场景，能够完成用户调研、需求拆解、原型、评估和网页交付，并在合适环节引入 Agent 工作流提升执行与协作效率。</p>
-              <div class="hero-actions">
-                <a class="button button-primary" href="#projects">查看精选项目</a>
-                <a class="button" href="assets/files/xin-lei-ai-product-manager-resume.pdf" target="_blank" rel="noopener" aria-label="查看简历（在新标签页打开）">查看简历 <span class="external-hint" aria-hidden="true">↗</span></a>
+        <section class="hero-v4" aria-labelledby="hero-title">
+          <div class="container">
+            <div class="hero-v4-grid">
+              <div class="hero-v4-copy">
+                <p class="eyebrow" data-copy="heroEyebrow">OPEN CREATOR · BEIJING</p>
+                <h1 id="hero-title"><span class="hero-name" data-profile-display-name>Leo</span><span class="hero-name-local" data-profile-name>雷鑫</span></h1>
+                <p class="hero-v4-statement" data-profile-statement>寻找现实与 AI 之间的接口，把技术变成生活与工作中真正可用的东西。</p>
+                <p class="hero-v4-headline" data-profile-headline>把问题带进真实场景，再把答案做成可以使用的东西。</p>
+                <p class="hero-v4-english" data-profile-english>Real problems · AI systems · useful delivery.</p>
+                <div class="hero-v4-actions">
+                  <a class="button button-primary" href="#projects" data-copy="heroPrimary">查看精选项目</a>
+                  <a class="button" href="#about" data-copy="heroSecondary">了解我的背景</a>
+                </div>
+                <div class="hero-v4-meta" aria-label="个人信息">
+                  <span><b data-profile-location>北京</b></span>
+                  <span><b data-profile-focus>AI 与现实 · 产品判断 · 工作系统</b></span>
+                </div>
+              </div>
+
+              <div class="hero-v4-visual" aria-label="原创卡通航海人物主视觉">
+                <div class="portrait-v5">
+                  <img src="assets/profile.jpg" alt="雷鑫个人照片" data-profile-avatar width="640" height="800" loading="eager" decoding="async">
+                </div>
+                <figure class="character-v4">
+                  <img src="assets/hero/character-lulu-v5.webp" alt="原创卡通航海人物手持地图，露露自然坐在旅行帽上" data-character-image width="1023" height="1537" fetchpriority="high" decoding="async">
+                  <figcaption data-copy="heroCharacterCaption">时刻在路上的探险家</figcaption>
+                </figure>
               </div>
             </div>
-            <figure class="hero-visual">
-              <div class="portrait-panel"><img src="assets/profile.jpg" alt="雷鑫个人照片" data-profile-avatar></div>
-              <figcaption><span>Product × AI × Delivery</span><strong>从场景理解到产品落地</strong></figcaption>
-            </figure>
           </div>
         </section>
 
-        <section class="proof-band" aria-label="个人优势">
-          <div class="container proof-grid">
-            <article><span>01</span><strong>用户与问题</strong><p>从生活、业务与科研场景识别真实摩擦，收敛产品边界。</p></article>
-            <article><span>02</span><strong>AI 技术判断</strong><p>理解模型、规则、Agent 与人工审核各自适用的环节。</p></article>
-            <article><span>03</span><strong>交付与协作</strong><p>连接 PRD、原型、评估、工程实现与发布材料。</p></article>
-          </div>
-        </section>
-
-        <section class="section section-projects" id="projects">
+        <section class="section section-projects section-v4" id="projects">
           <div class="container">
-            <div class="section-head section-head-split">
-              <div><p class="eyebrow">Selected Work</p><h2>精选项目</h2></div>
-              <p>三个项目分别呈现旅行变化处理、高风险长期照护与复杂 AI 科研，重点展示问题判断、产品取舍和真实产物。</p>
+            <div class="section-head section-head-v4">
+              <p class="eyebrow" data-copy="projectsEyebrow">SELECTED WORK</p>
+              <h2 data-copy="projectsTitle">把想法做成可使用的东西</h2>
+              <p class="section-intro" data-copy="projectsIntro">从旅行变化、科研图像到长期照护，我更在意问题是否被说清楚、约束是否被看见，以及交付后能不能真的帮上忙。</p>
             </div>
             <div class="project-grid project-grid-featured" data-project-list data-category="featured"></div>
           </div>
         </section>
 
-        <section class="section section-experience" id="experience">
+        <section class="section section-system section-v4" id="system">
           <div class="container">
-            <div class="section-head section-head-split">
-              <div><p class="eyebrow">Experience</p><h2>实践经历</h2></div>
-              <p>从手机产品协作到跨学科 AI 科研，理解业务目标、实验约束与团队交付之间的关系。</p>
+            <div class="section-head section-head-v4">
+              <p class="eyebrow" data-copy="systemEyebrow">SKILLS / WORKING SYSTEM</p>
+              <h2 data-copy="systemTitle">一套让复杂工作继续向前的工作系统</h2>
+              <p class="section-intro" data-copy="systemIntro">研究、产品与网页交付并不是三条孤立的线；我会把上下文、证据、视觉和验收放在同一条链路里。</p>
             </div>
-            <div class="experience-grid" data-experience-list></div>
+            <div class="skills-grid" data-skill-list></div>
           </div>
         </section>
 
-        <section class="section background-section" id="background">
+        <section class="section section-about section-v4" id="about">
           <div class="container">
-            <div class="section-head"><p class="eyebrow">Background</p><h2>教育与荣誉</h2></div>
-            <div class="background-layout">
-              <div class="background-group">
-                <p class="background-label">Education</p>
+            <div class="section-head section-head-v4">
+              <p class="eyebrow" data-copy="aboutEyebrow">ABOUT</p>
+              <h2 data-copy="aboutTitle">经历与背景</h2>
+              <p class="section-intro" data-copy="aboutIntro">我在产品、人工智能研究与独立构建之间移动，保留对真实用户、真实数据和真实交付的敏感度。</p>
+            </div>
+            <div class="about-layout-v4">
+              <div class="about-column-v4">
+                <p class="about-label" data-copy="experienceLabel">Experience</p>
+                <div class="experience-grid" data-experience-list></div>
+              </div>
+              <div class="about-column-v4">
+                <p class="about-label" data-copy="educationLabel">Education</p>
                 <div class="education-grid" data-education-list></div>
               </div>
-              <div class="background-group">
-                <p class="background-label">Honors</p>
-                <div class="honors-grid" data-honor-list></div>
-              </div>
             </div>
           </div>
         </section>
 
-        <section class="contact-band" id="contact">
+        <section class="contact-band contact-band-v4" id="contact">
           <div class="container contact-grid">
-            <div><p class="eyebrow">Contact</p><h2>一起把 AI 做进真实场景。</h2><p>目前关注 AI 产品经理、AI 应用产品与产品工程相关机会。</p></div>
-            <ul class="contact-list" data-contact-list></ul>
+            <div>
+              <p class="eyebrow">CONTACT</p>
+              <h2 data-copy="contactTitle">聊聊一个真实问题</h2>
+              <p data-copy="contactBody">如果你想讨论 AI 如何连接生活与工作、如何把复杂问题做成可用原型，欢迎联系。</p>
+            </div>
+            <div class="contact-action">
+              <button class="button button-primary contact-trigger" type="button" data-contact-open data-copy="contactOpen">联系我</button>
+              <p class="contact-status" data-contact-status aria-live="polite"></p>
+            </div>
           </div>
         </section>
-      </main>
 
-      <footer class="site-footer"><div class="container"><span>© 2026 Xin Lei</span><span><a href="cellsam.html">CellSAM 项目详情</a></span></div></footer>
+        <dialog class="contact-dialog" data-contact-dialog aria-labelledby="contact-dialog-title">
+          <div class="contact-dialog-header">
+            <div>
+              <p class="eyebrow" data-copy="contactDialogEyebrow">CONTACT</p>
+              <h2 id="contact-dialog-title" data-copy="contactDialogTitle">联系我</h2>
+            </div>
+            <button class="dialog-close" type="button" data-contact-close data-copy-aria="dialogCloseLabel" aria-label="关闭联系弹层">×</button>
+          </div>
+          <div class="contact-dialog-body" data-contact-items></div>
+          <div class="contact-dialog-footer">
+            <span class="contact-dialog-status" data-contact-dialog-status aria-live="polite"></span>
+            <button class="button" type="button" data-contact-close data-copy="contactDialogClose">关闭</button>
+          </div>
+        </dialog>
+      </main>
     </div>
     <script src="assets/config.js"></script>
     <script src="assets/content.js"></script>
-    <script src="assets/site.js"></script>
+    <script src="assets/site.js?v=20260813-home-v5"></script>
   </body>
 </html>

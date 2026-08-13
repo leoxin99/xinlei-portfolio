@@ -1,40 +1,206 @@
 window.PORTFOLIO_CONTENT = {
   profile: {
     name: "雷鑫 / Xin Lei",
-    headline: "AI 产品经理 · AI 应用产品 · 产品工程实践",
-    summary:
-      "人工智能硕士、计算机本科，具备手机产品实习、AI 科研与独立产品实践。关注 AI 如何进入真实场景，能够完成用户调研、需求拆解、原型、评估和网页交付，并在合适环节引入 Agent 工作流提升执行与协作效率。",
+    cornerName: "雷鑫",
+    displayName: "Leo",
+    statement: "寻找现实与 AI 之间的接口，把技术变成生活与工作中真正可用的东西。",
+    statementLines: [
+      "寻找现实与 AI 之间的接口，",
+      "把技术变成生活与工作中真正可用的东西。"
+    ],
+    englishStatement: "I look for the interfaces between real life and AI—and make the useful parts work.",
+    englishLine: "Real problems · AI systems · useful delivery.",
+    headline: "把问题带进真实场景，再把答案做成可以使用的东西。",
+    englishHeadline: "I bring problems into real contexts, then make the answer usable.",
     location: "北京",
-    focus: "AI 产品 · 用户研究 · Agent 应用",
+    englishLocation: "Beijing",
+    focus: "AI 与现实 · 产品判断 · 工作系统",
+    englishFocus: "AI in the real world · product judgment · working systems",
     avatar: "assets/profile.jpg",
-    resumeHref: "assets/files/xin-lei-ai-product-manager-resume.pdf",
     contacts: [
-      { label: "Email", value: "leixin.lx99@gmail.com", href: "mailto:leixin.lx99@gmail.com" },
-      { label: "GitHub", value: "github.com/leoxin99", href: "https://github.com/leoxin99" },
-      { label: "个人主页", value: "xinlei99.com", href: "https://xinlei99.com/" },
-      { label: "微信", value: "可通过邮件或招聘平台联系后提供" }
+      {
+        id: "phone",
+        kind: "phone",
+        label: "微信 / 手机",
+        enLabel: "WeChat / Phone",
+        value: "18957124638",
+        href: "tel:18957124638",
+        copyValue: "18957124638"
+      },
+      {
+        id: "email",
+        kind: "email",
+        label: "邮箱",
+        enLabel: "Email",
+        value: "leixin.lx99@gmail.com",
+        href: "mailto:leixin.lx99@gmail.com",
+        copyValue: "leixin.lx99@gmail.com"
+      },
+      {
+        id: "github",
+        kind: "github",
+        label: "GitHub",
+        enLabel: "GitHub",
+        value: "github.com/leoxin99",
+        href: "https://github.com/leoxin99",
+        external: true
+      }
     ]
   },
+  copy: {
+    zh: {
+      pageTitle: "Leo｜把想法做成可使用的东西",
+      pageDescription: "雷鑫的个人网站：关注 AI 如何进入真实生活、工作与研究现场，把模糊问题做成可使用的东西。",
+      ogDescription: "关注 AI 如何进入真实生活、工作与研究现场。代表项目：问山河、CellSAM 与糖宠照护。",
+      brandAria: "雷鑫的个人网站首页",
+      navLabel: "主导航",
+      navProjects: "项目",
+      navSystem: "Skills / 工作系统",
+      navAbout: "关于",
+      navContact: "联系",
+      heroEyebrow: "OPEN CREATOR · BEIJING",
+      heroAvatarAlt: "雷鑫个人照片",
+      heroCharacterAlt: "原创卡通航海人物手持地图，露露自然坐在旅行帽上",
+      heroCharacterCaption: "时刻在路上的探险家",
+      heroPrimary: "查看精选项目",
+      heroSecondary: "了解我的背景",
+      projectsEyebrow: "SELECTED WORK",
+      projectsTitle: "把想法做成可使用的东西",
+      projectsIntro: "从旅行变化、科研图像到长期照护，我更在意问题是否被说清楚、约束是否被看见，以及交付后能不能真的帮上忙。",
+      systemEyebrow: "SKILLS / WORKING SYSTEM",
+      systemTitle: "一套让复杂工作继续向前的工作系统",
+      systemIntro: "研究、产品与网页交付并不是三条孤立的线；我会把上下文、证据、视觉和验收放在同一条链路里。",
+      aboutEyebrow: "ABOUT",
+      aboutTitle: "经历与背景",
+      aboutIntro: "我在产品、人工智能研究与独立构建之间移动，保留对真实用户、真实数据和真实交付的敏感度。",
+      experienceLabel: "Experience",
+      educationLabel: "Education",
+      contactTitle: "聊聊一个真实问题",
+      contactBody: "如果你想讨论 AI 如何连接生活与工作、如何把复杂问题做成可用原型，欢迎联系。",
+      languageGroupLabel: "语言选择",
+      contactOpen: "联系我",
+      contactDialogEyebrow: "CONTACT",
+      contactDialogTitle: "联系我",
+      contactDialogClose: "关闭",
+      contactCopy: "复制",
+      contactOpenEmail: "发送邮件",
+      contactOpenPhone: "拨打电话",
+      contactOpenGithub: "打开 GitHub",
+      contactCopied: "已复制",
+      contactCopyFailed: "复制失败，请手动复制",
+      dialogCloseLabel: "关闭联系弹层",
+      projectOpen: "查看项目",
+      projectClose: "收起项目",
+      experienceOpen: "展开经历",
+      experienceClose: "收起经历",
+      externalHint: "在新标签页打开",
+      languageLabel: "切换到英文"
+    },
+    en: {
+      pageTitle: "Leo｜Make ideas usable",
+      pageDescription: "Xin Lei's personal website: exploring how AI enters real life, work, and research, and turning ambiguous problems into usable things.",
+      ogDescription: "Exploring how AI enters real life, work, and research. Featured work: 问山河, CellSAM, and Pet Diabetes Care.",
+      brandAria: "Xin Lei's personal website home",
+      navLabel: "Primary navigation",
+      navProjects: "Work",
+      navSystem: "Skills / System",
+      navAbout: "About",
+      navContact: "Contact",
+      heroEyebrow: "OPEN CREATOR · BEIJING",
+      heroAvatarAlt: "Portrait of Xin Lei",
+      heroCharacterAlt: "Original cartoon traveler holding a map, with Lulu sitting naturally on the hat",
+      heroCharacterCaption: "An explorer, always on the road.",
+      heroPrimary: "See selected work",
+      heroSecondary: "Read my background",
+      projectsEyebrow: "SELECTED WORK",
+      projectsTitle: "Make ideas usable",
+      projectsIntro: "From travel changes and biomedical research to long-term care, I care about making the problem legible, the constraints visible, and the delivery genuinely useful.",
+      systemEyebrow: "SKILLS / WORKING SYSTEM",
+      systemTitle: "A working system for moving complex work forward",
+      systemIntro: "Research, product, and web delivery are not separate tracks; I connect context, evidence, visual decisions, and acceptance in one chain.",
+      aboutEyebrow: "ABOUT",
+      aboutTitle: "Experience & background",
+      aboutIntro: "I move between product work, AI research, and independent building—with attention to real users, real data, and real delivery.",
+      experienceLabel: "Experience",
+      educationLabel: "Education",
+      contactTitle: "Bring me a real problem",
+      contactBody: "If you want to discuss how AI can connect to life and work—or how to turn a complex problem into a usable prototype—say hello.",
+      languageGroupLabel: "Language",
+      contactOpen: "Get in touch",
+      contactDialogEyebrow: "CONTACT",
+      contactDialogTitle: "Get in touch",
+      contactDialogClose: "Close",
+      contactCopy: "Copy",
+      contactOpenEmail: "Email",
+      contactOpenPhone: "Call",
+      contactOpenGithub: "Open GitHub",
+      contactCopied: "Copied",
+      contactCopyFailed: "Copy failed — please copy manually",
+      dialogCloseLabel: "Close contact dialog",
+      projectOpen: "View project",
+      projectClose: "Collapse project",
+      experienceOpen: "Expand experience",
+      experienceClose: "Collapse experience",
+      externalHint: "Open in a new tab",
+      languageLabel: "切换到中文"
+    }
+  },
+  skills: [
+    {
+      id: "context",
+      index: "01",
+      title: "把复杂问题交接清楚",
+      enTitle: "Make complex work handoff-ready",
+      summary: "用 Context Bridge、事实源与 handoff 把上下文保留下来，让不同窗口、角色和阶段可以继续推进。",
+      enSummary: "Use Context Bridge, a source of truth, and handoffs so different windows, roles, and phases can keep moving.",
+      tags: ["Context Bridge", "Handoff", "Decision log"],
+      enTags: ["Context Bridge", "Handoff", "Decision log"]
+    },
+    {
+      id: "evidence",
+      index: "02",
+      title: "用证据推动判断",
+      enTitle: "Let evidence drive judgment",
+      summary: "把研究问题、用户反馈、实验结果与风险拆成可以核对的证据，再决定下一步做什么。",
+      enSummary: "Turn research questions, user feedback, experiments, and risks into checkable evidence before choosing the next move.",
+      tags: ["Research", "Evaluation", "AI workflow"],
+      enTags: ["Research", "Evaluation", "AI workflow"]
+    },
+    {
+      id: "delivery",
+      index: "03",
+      title: "从视觉到网页交付",
+      enTitle: "Carry visual decisions into delivery",
+      summary: "把信息结构、视觉语言、原型和响应式验收放进同一条链路，直到页面可以被真实使用。",
+      enSummary: "Keep information architecture, visual language, prototypes, and responsive QA in one chain until the page is genuinely usable.",
+      tags: ["Product thinking", "Web delivery", "Responsive QA"],
+      enTags: ["Product thinking", "Web delivery", "Responsive QA"]
+    }
+  ],
   projects: [
     {
-      id: "pixeltravelmap",
+      id: "wanshanhe",
       category: "featured",
       featured: true,
       layout: "lead",
-      type: "已发布项目",
-      title: "像素旅行助手：已有行程的变化处理工具",
-      role: "独立产品与工程实现 · 公开在线产品",
+      type: "问山河 · 旅行调整模块",
+      enType: "问山河 · Travel adjustment module",
+      title: "问山河",
+      enTitle: "问山河",
+      role: "旅行发现与调整系统 · 像素旅行助手模块",
+      enRole: "Travel discovery and adjustment system · Pixel Travel Assistant module",
       image: "assets/pixeltravelmap-replan-preview.png",
-      imageAlt: "像素旅行助手的行程变化处理界面，展示晚点上报、固定预约保护、调整差异和确认操作",
+      imageAlt: "问山河旅行调整模块的行程变化界面，展示晚点上报、固定预约保护、调整差异和确认操作",
+      enImageAlt: "Wanshanhe travel adjustment interface showing delay reporting, protected bookings, itinerary differences, and confirmation",
       links: [
         {
-          label: "打开在线产品",
+          label: "打开像素旅行助手",
           href: "https://leoxin99.github.io/PixelTravelMap/dist/index.html",
           external: true,
           primary: true
         },
         {
-          label: "查看示例",
+          label: "查看路线示例",
           href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
           external: true
         },
@@ -44,8 +210,28 @@ window.PORTFOLIO_CONTENT = {
           external: true
         }
       ],
+      enLinks: [
+        {
+          label: "Open Pixel Travel Assistant",
+          href: "https://leoxin99.github.io/PixelTravelMap/dist/index.html",
+          external: true,
+          primary: true
+        },
+        {
+          label: "View route example",
+          href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
+          external: true
+        },
+        {
+          label: "View code",
+          href: "https://github.com/leoxin99/PixelTravelMap",
+          external: true
+        }
+      ],
       summary:
-        "面向已有详细行程的自由行用户，在晚点、闭馆、天气或体力变化后保护固定预约，并低成本调整当天后续安排。产品支持差异预览、用户确认、撤销、地图同步和离线导出。",
+        "问山河关注旅行中“为什么去、怎么继续”的真实变化；其中像素旅行助手负责在晚点、闭馆、天气或体力变化后保护固定预约，低成本调整当天后续安排，并支持差异预览、确认、撤销、地图同步和离线导出。",
+      enSummary:
+        "问山河 explores the real changes behind where to go and how to keep going. Its Pixel Travel Assistant module protects fixed bookings after delays, closures, weather, or fatigue, then previews, confirms, undoes, syncs, and exports the adjusted plan.",
       tags: [
         "用户问题重构",
         "约束建模",
@@ -58,6 +244,19 @@ window.PORTFOLIO_CONTENT = {
         "问题：已有行程遇到临时变化后，用户需要重新梳理预约、路线和当天安排，调整成本高",
         "取舍：先保护固定预约，只调整当天后续安排；信息不足时提示补充关键信息",
         "交付：完成行程导入、事件上报、调整差异预览、确认与撤销、地图同步和离线导出"
+      ],
+      enTags: [
+        "Problem reframing",
+        "Constraint modeling",
+        "Schema-first",
+        "Human-in-the-loop",
+        "Offline-first",
+        "Web delivery"
+      ],
+      enHighlights: [
+        "Problem: when a detailed itinerary changes, people must reconstruct bookings, routes, and the rest of the day",
+        "Trade-off: protect fixed bookings first and only adjust the remaining plan; ask for key missing context when needed",
+        "Delivery: itinerary import, event reporting, difference preview, confirmation and undo, map sync, and offline export"
       ]
     },
     {
@@ -66,16 +265,28 @@ window.PORTFOLIO_CONTENT = {
       featured: true,
       layout: "standard",
       type: "硕士毕业设计 / 研究项目",
+      enType: "Master's thesis / research project",
       title: "CellSAM：hiPSC-CM 全细胞实例分割",
+      enTitle: "CellSAM: whole-cell instance segmentation for hiPSC-CMs",
       role: "Leiden University 实验室 · 复杂 AI 项目实践",
+      enRole: "Leiden University lab · complex AI project practice",
       visualFlow: ["显微图像", "候选生成", "CellSAM 分割", "Oracle / E2E 评估", "Agent 审计"],
+      enVisualFlow: ["Microscopy", "Candidate generation", "CellSAM segmentation", "Oracle / E2E evaluation", "Agent audit"],
       summary:
         "面向 hiPSC-CM 心肌细胞弱边界、粘连与多通道信息对齐问题，推进视觉 foundation model 的场景适配、候选生成、统一推理评估与实验审计。",
+      enSummary:
+        "A visual foundation-model adaptation project for weak boundaries, touching cells, and multi-channel alignment in hiPSC-CM microscopy, with candidate generation, unified inference evaluation, and experiment audit.",
       tags: ["Transformer / ViT", "SAM / CellSAM", "Prompt Generation", "Evaluation", "AI Workflow"],
+      enTags: ["Transformer / ViT", "SAM / CellSAM", "Prompt generation", "Evaluation", "AI workflow"],
       highlights: [
         "问题：真实显微图像存在弱边界、细胞粘连、形态差异和标注边界差异",
         "工程：把研究问题拆成实验矩阵、模型适配、训练评估、结果审计和论文交接，支持多路线并行探索",
         "质量：区分 GT-box Oracle 与 fully automatic E2E，由独立审核角色确认结论后再进入论文材料"
+      ],
+      enHighlights: [
+        "Problem: real microscopy includes weak boundaries, touching cells, morphological variation, and annotation differences",
+        "Engineering: split the research question into an experiment matrix, model adaptation, training/evaluation, audit, and paper handoff",
+        "Quality: separate GT-box Oracle from fully automatic E2E, with independent review before conclusions enter the paper material"
       ]
     },
     {
@@ -84,10 +295,14 @@ window.PORTFOLIO_CONTENT = {
       featured: true,
       layout: "standard",
       type: "可运行 Web 产品",
+      enType: "Runnable web product",
       title: "糖宠照护：犬猫糖尿病长期照护记录工具",
+      enTitle: "Pet Diabetes Care: a long-term care log for dogs and cats",
       role: "独立产品与工程实现 · local-first Web App",
+      enRole: "Independent product and engineering build · local-first web app",
       image: "assets/pet-diabetes-preview.png",
       imageAlt: "糖宠照护今日页，包含今日计划、快捷记录和照护时间线",
+      enImageAlt: "Pet Diabetes Care today view with daily plan, quick logging, and care timeline",
       links: [
         {
           label: "打开在线 Demo",
@@ -96,13 +311,22 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "面向初次面对犬猫糖尿病、需要长期照护的宠物家长，把分散的照护行为和观察数据整理为低负担记录闭环，并生成可打印的复诊沟通材料。",
+        "面向初次面对犬猫糖尿病、需要长期照护的宠物家长，集中记录血糖、饮食、用药执行和症状观察，并生成可打印的复诊沟通材料。",
+      enSummary:
+        "A local-first care log for pet parents managing canine or feline diabetes, bringing glucose, food, medication execution, and symptom observations into a printable follow-up record.",
       tags: ["用户同理心", "数据产品", "Local-first", "安全边界", "质量门禁"],
+      enTags: ["User empathy", "Data product", "Local-first", "Safety boundaries", "Quality gates"],
       highlights: [
         "问题：长期照护信息分散，新手家长复诊时难以完整回忆并向兽医准确说明",
         "设计：多宠档案、结构化照护记录、趋势分析、CSV/报告导出与本地数据迁移",
         "治理：只记录已执行行为，不提供诊断和剂量建议；混合单位、缺失字段与资料审核状态显式提示",
-        "进展：完成自动化网页测试和安全检查；下一阶段开展真实用户任务测试与兽医字段审核"
+        "进展：完成自动化网页测试、安全检查及本地数据导入导出验证"
+      ],
+      enHighlights: [
+        "Problem: long-term care data is scattered, making follow-up conversations hard to reconstruct",
+        "Design: multi-pet profiles, structured care logs, trends, CSV/report export, and local data migration",
+        "Governance: record executed actions only; show mixed units, missing fields, and review status explicitly",
+        "Progress: automated web tests, safety checks, and local import/export validation completed"
       ]
     }
   ],
@@ -110,45 +334,69 @@ window.PORTFOLIO_CONTENT = {
     {
       organization: "北京小米移动软件有限公司",
       title: "手机产品经理实习生（数据分析与上线支持方向）",
+      enTitle: "Mobile product intern (analytics and launch support)",
       period: "2022.09 - 2023.01",
       location: "北京",
+      enLocation: "Beijing",
       summary:
         "面向 Xiaomi 12 Pro 等手机产品项目，参与需求沟通与上线支持，梳理业务目标、用户/业务反馈、核心指标、分析口径和交付范围，将模糊问题转化为可执行的分析任务与推进事项。",
+      enSummary:
+        "Supported Xiaomi 12 Pro and related mobile product projects by translating goals, user/business feedback, metrics, analytical definitions, and delivery scope into executable analysis and launch tasks.",
       highlights: [
         "围绕产品效果判断和迭代讨论，输出数据分析材料与实施方案",
         "协助团队定位问题、对齐优化优先级，积累数据驱动决策、跨团队沟通和项目节奏管理经验"
       ],
-      tags: ["需求沟通", "指标口径", "数据分析", "上线支持", "跨团队协作"]
+      enHighlights: [
+        "Produced analysis materials and implementation proposals for product-effect decisions and iteration discussions",
+        "Helped locate issues and align priorities across teams, building experience in data-informed decisions and delivery cadence"
+      ],
+      tags: ["需求沟通", "指标口径", "数据分析", "上线支持", "跨团队协作"],
+      enTags: ["Requirement alignment", "Metric definitions", "Analytics", "Launch support", "Cross-team collaboration"]
     },
     {
       organization: "Leiden University 实验室",
       title: "生物图像识别与分割科研实习",
+      enTitle: "Research intern, biomedical image recognition and segmentation",
       period: "2025.09 - 2026.03",
       location: "荷兰莱顿",
+      enLocation: "Leiden, Netherlands",
       summary:
         "围绕 hiPSC-CM 显微图像识别与实例分割开展实践，理解实验数据、图像质量、标注边界和模型输出之间的关系。",
+      enSummary:
+        "Worked on hiPSC-CM microscopy recognition and instance segmentation, connecting experimental data, image quality, annotation boundaries, and model outputs.",
       highlights: [
         "参与 CellSAM / SAM 类模型适配与评估",
         "梳理数据预处理、候选生成、模型推理、结果复盘与论文材料整理链路"
       ],
-      tags: ["科研协作", "计算机视觉", "模型评估", "证据整理"]
+      enHighlights: [
+        "Contributed to CellSAM / SAM-style model adaptation and evaluation",
+        "Mapped the chain from preprocessing and candidate generation to inference, review, and paper material"
+      ],
+      tags: ["科研协作", "计算机视觉", "模型评估", "证据整理"],
+      enTags: ["Research collaboration", "Computer vision", "Model evaluation", "Evidence synthesis"]
     }
   ],
   education: [
     {
       school: "Leiden University",
       program: "人工智能硕士，2024 春季 - 2026 春季",
-      details: "重点方向包括 AI 系统、机器学习实验、评估与复杂任务建模。"
+      enProgram: "MSc Artificial Intelligence, Spring 2024 – Spring 2026",
+      details: "重点方向包括 AI 系统、机器学习实验、评估与复杂任务建模。",
+      enDetails: "Focused on AI systems, machine-learning experiments, evaluation, and complex-task modeling."
     },
     {
       school: "北京语言大学",
       program: "计算机科学与技术，本科，2018.09 - 2022.06",
-      details: "计算机基础、数据分析、算法与工程实践背景。"
+      enProgram: "BSc Computer Science and Technology, 2018.09 – 2022.06",
+      details: "计算机基础、数据分析、算法与工程实践背景。",
+      enDetails: "A foundation in computer science, data analysis, algorithms, and engineering practice."
     },
     {
       school: "北京语言大学",
       program: "国际贸易与政治，二学位，2022.09 - 2023.07",
-      details: "补充商业、国际视角与跨领域沟通能力。"
+      enProgram: "Second degree in International Trade and Politics, 2022.09 – 2023.07",
+      details: "补充商业、国际视角与跨领域沟通能力。",
+      enDetails: "Added business context, an international perspective, and cross-domain communication."
     }
   ],
   honors: [
