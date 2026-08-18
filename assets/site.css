@@ -2957,7 +2957,7 @@ ul {
   padding-top: 44px;
 }
 
-.home-page .character-v4 {
+  .home-page .character-v4 {
   position: relative;
   z-index: 1;
   width: min(100%, 380px);
@@ -3658,22 +3658,32 @@ ul {
   padding-top: 0;
 }
 
-.home-page .portrait-v5 {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  right: clamp(0px, 2vw, 24px);
-  width: clamp(104px, 10vw, 132px);
+/* Portrait dock: real photo pinned below the sticky nav, independent of the orbital stage. */
+.home-page main {
+  position: relative;
 }
 
-.home-page .portrait-v5 img {
+.home-page .portrait-dock {
+  position: absolute;
+  z-index: 12;
+  top: 16px;
+  right: max(24px, calc((100% - 1180px) / 2));
+  width: clamp(104px, 10vw, 132px);
+  pointer-events: none;
+}
+
+.home-page .portrait-dock img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 4;
+  border: 1px solid rgba(44, 119, 115, 0.18);
   border-radius: 9px;
   object-fit: cover;
   object-position: center;
+  box-shadow: 0 14px 30px rgba(31, 41, 44, 0.14);
+  transform: translate3d(calc(var(--portrait-pointer-x, 0) * 1px), calc(var(--portrait-pointer-y, 0) * 1px), 0);
+  transition: transform 260ms ease;
 }
 
 .home-page .character-v4 {
@@ -3882,9 +3892,8 @@ ul {
 }
 
 @media (max-width: 1020px) {
-  .home-page .portrait-v5 {
+  .home-page .portrait-dock {
     width: 116px;
-    right: 4px;
   }
 
   .home-page .character-v4 {
@@ -3897,12 +3906,13 @@ ul {
     padding-block: 72px 88px;
   }
 
-  .home-page .portrait-v5 {
-    right: 8%;
-    width: 108px;
+  .home-page .portrait-dock {
+    top: 12px;
+    right: 17px;
+    width: 96px;
   }
 
-.home-page .character-v4 {
+  .home-page .character-v4 {
     margin-top: 148px;
   }
 }
@@ -3917,9 +3927,8 @@ ul {
     padding-block: 72px 88px;
   }
 
-  .home-page .portrait-v5 {
-    right: 1%;
-    width: 84px;
+  .home-page .portrait-dock {
+    width: 76px;
   }
 
   .home-page .character-v4 {
@@ -3960,6 +3969,7 @@ ul {
 @media (prefers-reduced-motion: reduce) {
   .home-page .character-v4,
   .home-page .character-v4 img,
+  .home-page .portrait-dock img,
   .home-page .language-segmented button,
   .home-page .project-grid-featured .project-card {
     animation: none;
@@ -4320,7 +4330,7 @@ ul {
   }
 }
 
-/* v6 handoff corrections: mobile avatar flow and the in-card motion layer. */
+/* v6 handoff corrections: mobile hero layout and the in-card motion layer. */
 @media (max-width: 820px) {
   .home-page .hero-v4-visual {
     display: flex;
@@ -4329,13 +4339,8 @@ ul {
     align-items: flex-end;
   }
 
-  .home-page .portrait-v5 {
-    position: static;
-    top: auto;
-    right: auto;
-    align-self: flex-end;
-    width: 108px;
-    margin-right: 8%;
+  .home-page .hero-v4 {
+    padding-block: 148px 88px;
   }
 
   .home-page .character-v4 {
@@ -4344,9 +4349,8 @@ ul {
 }
 
 @media (max-width: 620px) {
-  .home-page .portrait-v5 {
-    width: 84px;
-    margin-right: 1%;
+  .home-page .hero-v4 {
+    padding-block: 120px 88px;
   }
 
   .home-page .character-v4 {

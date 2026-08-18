@@ -571,33 +571,67 @@
   function bindHeroParallax() {
     const visual = qs(".hero-v4-visual") || qs(".hero-visual");
     const stage = qs(".character-v4") || qs(".hero-stage");
+    const portrait = qs(".portrait-dock img");
     if (!visual || !stage || !window.matchMedia) return;
+    const area = qs(".hero-v4") || visual;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches) return;
+
+    // 轻量视差：只在 rAF 中写 transform 变量，避免 pointermove 直接触发布局与跳变。
+    // 扁平人物素材不叠加假眼睛图层，先用自然的整体跟随保留真实画面。
+    const followers = [
+      { el: stage, varX: "--hero-pointer-x", varY: "--hero-pointer-y", ampX: 3.5, ampY: 2.5 }
+    ];
+    if (portrait) followers.push({ el: portrait, varX: "--portrait-pointer-x", varY: "--portrait-pointer-y", ampX: 2, ampY: 1.4 });
     let frame = 0;
-    let x = 0;
-    let y = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
     const render = () => {
       frame = 0;
-      stage.style.setProperty("--hero-pointer-x", x.toFixed(2));
-      stage.style.setProperty("--hero-pointer-y", y.toFixed(2));
+      currentX += (targetX - currentX) * 0.14;
+      currentY += (targetY - currentY) * 0.14;
+      followers.forEach((follower) => {
+        follower.el.style.setProperty(follower.varX, (currentX * follower.ampX).toFixed(2));
+        follower.el.style.setProperty(follower.varY, (currentY * follower.ampY).toFixed(2));
+      });
+      if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) schedule();
     };
     const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(render);
+      if (!frame && !reducedMotion.matches) frame = requestAnimationFrame(render);
     };
-    visual.addEventListener("pointermove", (event) => {
+    const update = (x, y) => {
+      targetX = Math.max(-1, Math.min(1, Number(x) || 0));
+      targetY = Math.max(-1, Math.min(1, Number(y) || 0));
+      schedule();
+    };
+    const reset = () => update(0, 0);
+    window.luluFollow = { update, reset };
+    area.addEventListener("pointermove", (event) => {
       if (event.pointerType === "touch") return;
       if (visual.dataset.orbitalMode === "journey") return;
-      const rect = visual.getBoundingClientRect();
-      x = ((event.clientX - rect.left) / rect.width - 0.5) * 7;
-      y = ((event.clientY - rect.top) / rect.height - 0.5) * 5;
-      schedule();
+      const rect = area.getBoundingClientRect();
+      update(((event.clientX - rect.left) / rect.width) * 2 - 1, ((event.clientY - rect.top) / rect.height) * 2 - 1);
     }, { passive: true });
-    visual.addEventListener("pointerleave", () => {
-      x = 0;
-      y = 0;
-      schedule();
-    }, { passive: true });
+    area.addEventListener("pointerleave", reset, { passive: true });
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches) {
+        if (frame) {
+          cancelAnimationFrame(frame);
+          frame = 0;
+        }
+        followers.forEach((follower) => {
+          follower.el.style.removeProperty(follower.varX);
+          follower.el.style.removeProperty(follower.varY);
+        });
+        targetX = 0;
+        targetY = 0;
+        currentX = 0;
+        currentY = 0;
+      } else {
+        schedule();
+      }
+    });
   }
 
   function bindOrbitalJourney() {
