@@ -29,6 +29,7 @@
   };
   let currentLanguage = languageFromStorage();
   let projectMotionCleanup = () => {};
+  let orbitalCopyRefresh = () => {};
 
   const capitalize = (value) => value ? `${value.charAt(0).toUpperCase()}${value.slice(1)}` : value;
   const localized = (entry, key, fallback = "") => {
@@ -413,6 +414,7 @@
     renderSkills();
     renderExperiences();
     renderSimpleCards("[data-education-list]", content.education, "education-item", (entry) => `<h3>${entry.school}</h3><p class="education-program">${localized(entry, "program")}</p><p>${localized(entry, "details")}</p>`);
+    orbitalCopyRefresh();
   }
 
   function setLanguage(language) {
@@ -585,6 +587,7 @@
     };
     visual.addEventListener("pointermove", (event) => {
       if (event.pointerType === "touch") return;
+      if (visual.dataset.orbitalMode === "journey") return;
       const rect = visual.getBoundingClientRect();
       x = ((event.clientX - rect.left) / rect.width - 0.5) * 7;
       y = ((event.clientY - rect.top) / rect.height - 0.5) * 5;
@@ -595,6 +598,358 @@
       y = 0;
       schedule();
     }, { passive: true });
+  }
+
+  function bindOrbitalJourney() {
+    const root = qs("[data-orbital-root]");
+    const journey = qs("[data-orbital-journey]");
+    const scenesBox = qs("[data-orbital-scenes]");
+    const compass = qs("[data-orbital-compass]");
+    const anchorsBox = qs("[data-orbital-anchors]");
+    const actions = qs("[data-orbital-actions]");
+    const toggle = qs("[data-orbital-toggle]");
+    const status = qs("[data-orbital-status]");
+    const config = content.orbital;
+    if (!root || !journey || !scenesBox || !compass || !anchorsBox || !actions || !toggle || !status) return;
+    if (!config || !Array.isArray(config.anchors) || !config.anchors.length || !config.fallbackImage) return;
+
+    const reducedMotion = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false, addEventListener: () => {} };
+    const HOLD = 20;
+    const WINDOW = 25;
+    const FADE_EDGE = 45 + WINDOW; // 过渡窗口以相邻锚点中点(45°)为中心，半宽 25°
+    const INERTIA_DECAY = 0.94;
+    const INERTIA_STOP = 0.02;
+    const ease = (t) => t * t * (3 - 2 * t);
+    const ringDistance = (theta, anchorAngle) => Math.abs((((theta - anchorAngle) % 360) + 540) % 360 - 180);
+    const sceneWeight = (theta, anchorAngle) => {
+      const distance = ringDistance(theta, anchorAngle);
+      if (distance <= HOLD) return 1;
+      if (distance >= FADE_EDGE) return 0;
+      return ease((FADE_EDGE - distance) / (2 * WINDOW));
+    };
+    const anchorName = (anchor) => (currentLanguage === "en" ? anchor.enName || anchor.name : anchor.name);
+
+    let mode = "solo";
+    let theta = 0;
+    let velocity = 0;
+    let rafId = 0;
+    let lastFrameTime = 0;
+    let lastAppliedTheta = null;
+    let animTarget = null;
+    let animFrom = 0;
+    let animStart = 0;
+    let animDuration = 0;
+    let nearestIndex = -1;
+    let dragging = false;
+    let dragPointerId = null;
+    let dragStartTheta = 0;
+    let dragStartAngle = 0;
+    let dragCenterX = 0;
+    let dragCenterY = 0;
+    let moveSamples = [];
+    let collapseTimer = 0;
+
+    const anchors = config.anchors.map((entry, index) => ({
+      index,
+      angle: entry.angle,
+      name: entry.name,
+      enName: entry.enName,
+      src: entry.src,
+      state: "pending",
+      usedFallback: false,
+      img: null,
+      button: null
+    }));
+
+    // Compass ticks sit at -anchor.angle so tick i reaches the top marker exactly
+    // when theta === anchor.angle (the scene's full-opacity point).
+    anchors.forEach((anchor) => {
+      const tick = document.createElement("span");
+      tick.className = "orbital-tick";
+      tick.style.setProperty("--tick-angle", `${-anchor.angle}deg`);
+      compass.appendChild(tick);
+
+      const wrap = document.createElement("div");
+      wrap.className = "orbital-anchor";
+      wrap.style.setProperty("--anchor-angle", `${-anchor.angle}deg`);
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "orbital-anchor-button";
+      button.style.setProperty("--anchor-counter", `${anchor.angle}deg`);
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("pointerdown", (event) => event.stopPropagation());
+      button.addEventListener("click", () => {
+        loadScene(anchor.index);
+        goToAnchor(anchor);
+      });
+      wrap.appendChild(button);
+      anchorsBox.appendChild(wrap);
+      anchor.button = button;
+    });
+
+    const marker = document.createElement("div");
+    marker.className = "orbital-marker";
+    marker.setAttribute("aria-hidden", "true");
+    journey.insertBefore(marker, anchorsBox);
+
+    function updateSceneStyle(anchor) {
+      if (!anchor.img) return;
+      const weight = sceneWeight(theta, anchor.angle);
+      const depth = Math.min(ringDistance(theta, anchor.angle) / (HOLD + WINDOW), 1);
+      const farScale = anchor.angle === 180 ? 0.96 : 1;
+      anchor.img.style.opacity = weight.toFixed(3);
+      anchor.img.style.transform = `translateY(${(12 * depth).toFixed(2)}px) scale(${((1 - 0.05 * depth) * farScale).toFixed(4)})`;
+    }
+
+    function applyTheta() {
+      if (theta === lastAppliedTheta) return;
+      lastAppliedTheta = theta;
+      journey.style.setProperty("--ring-angle", `${theta.toFixed(2)}deg`);
+      let nearest = 0;
+      let nearestDistance = Infinity;
+      anchors.forEach((anchor) => {
+        if (ringDistance(theta, anchor.angle) <= HOLD + WINDOW) loadScene(anchor.index);
+        updateSceneStyle(anchor);
+        const distance = ringDistance(theta, anchor.angle);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = anchor.index;
+        }
+      });
+      if (nearest !== nearestIndex) {
+        nearestIndex = nearest;
+        anchors.forEach((anchor) => anchor.button.setAttribute("aria-pressed", String(anchor.index === nearest)));
+        if (mode === "journey") status.textContent = `${copy("orbitalStatusCurrent")}${anchorName(anchors[nearest])}`;
+      }
+    }
+
+    function wake() {
+      if (!rafId) rafId = requestAnimationFrame(frame);
+    }
+
+    function frame(now) {
+      rafId = 0;
+      const dt = lastFrameTime ? Math.min(now - lastFrameTime, 64) : 16.7;
+      lastFrameTime = now;
+      let active = false;
+      if (animTarget !== null) {
+        const t = animDuration > 0 ? Math.min((now - animStart) / animDuration, 1) : 1;
+        theta = animFrom + (animTarget - animFrom) * ease(t);
+        if (t >= 1) animTarget = null;
+        else active = true;
+      } else if (!dragging && Math.abs(velocity) > INERTIA_STOP && !reducedMotion.matches) {
+        theta += velocity * dt;
+        velocity *= Math.pow(INERTIA_DECAY, dt / 16.7);
+        active = true;
+      } else {
+        velocity = 0;
+      }
+      applyTheta();
+      if (active) wake();
+      else lastFrameTime = 0;
+    }
+
+    function animateTo(target, duration) {
+      animFrom = theta;
+      animTarget = target;
+      animStart = performance.now();
+      animDuration = reducedMotion.matches ? 0 : duration;
+      velocity = 0;
+      wake();
+    }
+
+    function goToAnchor(anchor) {
+      const current = ((theta % 360) + 360) % 360;
+      const delta = (((anchor.angle - current) % 360) + 540) % 360 - 180;
+      animateTo(theta + delta, Math.min(160 + Math.abs(delta) * 3, 520));
+    }
+
+    function loadScene(index) {
+      const anchor = anchors[index];
+      if (!anchor || anchor.state !== "pending") return;
+      anchor.state = "loading";
+      const img = document.createElement("img");
+      img.className = "orbital-scene";
+      img.alt = "";
+      img.width = 1023;
+      img.height = 1537;
+      img.decoding = "async";
+      img.draggable = false;
+      img.addEventListener("load", () => {
+        anchor.state = "ready";
+        scenesBox.classList.remove("is-loading");
+      });
+      img.addEventListener("error", () => {
+        if (!anchor.usedFallback) {
+          anchor.usedFallback = true;
+          img.src = config.fallbackImage;
+          return;
+        }
+        anchor.state = "dead";
+        if (anchor.img) anchor.img.remove();
+        anchor.img = null;
+        if (anchors.every((entry) => entry.state === "dead")) {
+          scenesBox.classList.remove("is-loading");
+          actions.hidden = true;
+          if (mode === "journey") setMode("solo");
+        }
+      });
+      anchor.img = img;
+      scenesBox.appendChild(img);
+      updateSceneStyle(anchor);
+      img.src = anchor.src;
+    }
+
+    function preloadPrimaryScenes() {
+      anchors.forEach((anchor) => {
+        if (anchor.angle !== 180) loadScene(anchor.index);
+      });
+    }
+
+    function idleLoadRemaining() {
+      const schedule = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 900));
+      schedule(() => anchors.forEach((anchor) => loadScene(anchor.index)));
+    }
+
+    function setMode(next, options = {}) {
+      if (mode === next) return;
+      mode = next;
+      root.dataset.orbitalMode = next;
+      toggle.setAttribute("aria-expanded", String(next === "journey"));
+      toggle.textContent = next === "journey" ? copy("orbitalExit") : copy("orbitalEnter");
+      window.clearTimeout(collapseTimer);
+      if (next === "journey") {
+        journey.hidden = false;
+        journey.tabIndex = 0;
+        void journey.offsetWidth;
+        journey.classList.add("is-open");
+        lastAppliedTheta = null;
+        applyTheta();
+        idleLoadRemaining();
+        status.textContent = copy("orbitalStatusEnter");
+      } else {
+        journey.classList.remove("is-open");
+        journey.classList.remove("is-dragging");
+        dragging = false;
+        velocity = 0;
+        animTarget = null;
+        status.textContent = copy("orbitalStatusExit");
+        const finish = () => {
+          if (mode !== "solo") return;
+          journey.hidden = true;
+          journey.removeAttribute("tabindex");
+        };
+        if (reducedMotion.matches) finish();
+        else collapseTimer = window.setTimeout(finish, 420);
+        if (options.focusToggle && toggle.isConnected) toggle.focus();
+      }
+    }
+
+    toggle.addEventListener("click", () => setMode(mode === "solo" ? "journey" : "solo"));
+    toggle.addEventListener("pointerenter", preloadPrimaryScenes, { once: true });
+    toggle.addEventListener("focus", preloadPrimaryScenes, { once: true });
+
+    journey.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const step = (event.shiftKey ? 45 : 5) * (event.key === "ArrowRight" ? 1 : -1);
+      animateTo(theta + step, Math.min(160 + Math.abs(step) * 4, 420));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || mode !== "journey") return;
+      if (qs("dialog[open]")) return;
+      setMode("solo", { focusToggle: true });
+    });
+
+    const polarAngle = (event) => (Math.atan2(event.clientY - dragCenterY, event.clientX - dragCenterX) * 180) / Math.PI;
+
+    journey.addEventListener("pointerdown", (event) => {
+      if (mode !== "journey" || dragging) return;
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      const rect = journey.getBoundingClientRect();
+      dragCenterX = rect.left + rect.width / 2;
+      dragCenterY = rect.top + rect.height / 2;
+      dragging = true;
+      dragPointerId = event.pointerId;
+      dragStartTheta = theta;
+      dragStartAngle = polarAngle(event);
+      moveSamples = [{ time: performance.now(), theta }];
+      velocity = 0;
+      animTarget = null;
+      journey.classList.add("is-dragging");
+      try {
+        journey.setPointerCapture(event.pointerId);
+      } catch (error) {
+        // Pointer capture can fail for synthetic events; dragging still works without it.
+      }
+      if (event.pointerType === "mouse") event.preventDefault();
+    });
+
+    journey.addEventListener("pointermove", (event) => {
+      if (!dragging || event.pointerId !== dragPointerId) return;
+      const delta = (((polarAngle(event) - dragStartAngle) % 360) + 540) % 360 - 180;
+      theta = dragStartTheta + delta;
+      const now = performance.now();
+      moveSamples.push({ time: now, theta });
+      moveSamples = moveSamples.filter((sample) => now - sample.time <= 120);
+      wake();
+    });
+
+    const endDrag = (event) => {
+      if (!dragging || (event.pointerId !== undefined && event.pointerId !== dragPointerId)) return;
+      dragging = false;
+      dragPointerId = null;
+      journey.classList.remove("is-dragging");
+      const now = performance.now();
+      const windowSamples = moveSamples.filter((sample) => now - sample.time <= 120);
+      if (windowSamples.length >= 2) {
+        const first = windowSamples[0];
+        const last = windowSamples[windowSamples.length - 1];
+        const span = last.time - first.time;
+        velocity = span > 0 ? (last.theta - first.theta) / span : 0;
+      } else {
+        velocity = 0;
+      }
+      if (reducedMotion.matches) velocity = 0;
+      moveSamples = [];
+      wake();
+    };
+    journey.addEventListener("pointerup", endDrag);
+    journey.addEventListener("pointercancel", endDrag);
+
+    if ("IntersectionObserver" in window) {
+      const hero = qs(".hero-v4");
+      if (hero) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting && mode === "journey") setMode("solo");
+          });
+        }, { threshold: 0.1 });
+        observer.observe(hero);
+      }
+    }
+
+    reducedMotion.addEventListener?.("change", () => {
+      velocity = 0;
+      if (reducedMotion.matches && animTarget !== null) {
+        theta = animTarget;
+        animTarget = null;
+        applyTheta();
+      }
+    });
+
+    orbitalCopyRefresh = () => {
+      toggle.textContent = mode === "journey" ? copy("orbitalExit") : copy("orbitalEnter");
+      journey.setAttribute("aria-label", copy("orbitalAnchorsLabel"));
+      anchorsBox.setAttribute("aria-label", copy("orbitalAnchorsLabel"));
+      anchors.forEach((anchor) => {
+        const name = anchorName(anchor);
+        anchor.button.textContent = name;
+        anchor.button.setAttribute("aria-label", `${copy("orbitalAnchorGo")} ${name}`);
+      });
+    };
+    orbitalCopyRefresh();
   }
 
   function loadAnalytics() {
@@ -610,6 +965,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     renderLocalizedHome();
     renderSimpleCards("[data-honor-list]", content.honors, "honor-card", (honor) => `<h3>${honor.title}</h3><p>${honor.detail}</p>`);
-    renderCellSamDetail(); renderCellSamAgentSystem(); bindMobileNav(); bindLanguageControl(); bindImageFallbacks(); bindContactDialog(); bindHeroParallax(); loadAnalytics();
+    renderCellSamDetail(); renderCellSamAgentSystem(); bindMobileNav(); bindLanguageControl(); bindImageFallbacks(); bindContactDialog(); bindHeroParallax(); bindOrbitalJourney(); loadAnalytics();
   });
 })();

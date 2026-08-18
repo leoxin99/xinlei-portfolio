@@ -62,6 +62,13 @@ window.PORTFOLIO_CONTENT = {
       heroCharacterCaption: "时刻在路上的探险家",
       heroPrimary: "查看精选项目",
       heroSecondary: "了解我的背景",
+      orbitalEnter: "探索旅程",
+      orbitalExit: "收起旅程",
+      orbitalAnchorsLabel: "旅程锚点",
+      orbitalAnchorGo: "转向",
+      orbitalStatusEnter: "已进入旅程视图：拖动圆环或用方向键旋转，查看四个场景。",
+      orbitalStatusExit: "已回到人物主视觉。",
+      orbitalStatusCurrent: "当前：",
       projectsEyebrow: "SELECTED WORK",
       projectsTitle: "把想法做成可使用的东西",
       projectsIntro: "从旅行变化、科研图像到长期照护，我更在意问题是否被说清楚、约束是否被看见，以及交付后能不能真的帮上忙。",
@@ -111,6 +118,13 @@ window.PORTFOLIO_CONTENT = {
       heroCharacterCaption: "An explorer, always on the road.",
       heroPrimary: "See selected work",
       heroSecondary: "Read my background",
+      orbitalEnter: "Explore the journey",
+      orbitalExit: "Back to portrait",
+      orbitalAnchorsLabel: "Journey anchors",
+      orbitalAnchorGo: "Turn to",
+      orbitalStatusEnter: "Journey view open: drag the ring or use arrow keys to rotate through four scenes.",
+      orbitalStatusExit: "Back to the main portrait.",
+      orbitalStatusCurrent: "Now at: ",
       projectsEyebrow: "SELECTED WORK",
       projectsTitle: "Make ideas usable",
       projectsIntro: "From travel changes and biomedical research to long-term care, I care about making the problem legible, the constraints visible, and the delivery genuinely useful.",
@@ -144,6 +158,39 @@ window.PORTFOLIO_CONTENT = {
       externalHint: "Open in a new tab",
       languageLabel: "切换到中文"
     }
+  },
+  orbital: {
+    fallbackImage: "assets/hero/character-lulu-v5.webp",
+    anchors: [
+      {
+        id: "front",
+        angle: 0,
+        name: "出发",
+        enName: "Departure",
+        src: "assets/hero/scenes/scene-0-front.webp"
+      },
+      {
+        id: "seaside",
+        angle: 90,
+        name: "海边",
+        enName: "Seaside",
+        src: "assets/hero/scenes/scene-90-seaside.webp"
+      },
+      {
+        id: "horizon",
+        angle: 180,
+        name: "地平线",
+        enName: "Horizon",
+        src: "assets/hero/scenes/scene-180-horizon.webp"
+      },
+      {
+        id: "ascent",
+        angle: 270,
+        name: "攀登",
+        enName: "Ascent",
+        src: "assets/hero/scenes/scene-270-ascent.webp"
+      }
+    ]
   },
   skills: [
     {

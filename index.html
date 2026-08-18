@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" href="assets/favicon-512.png">
-    <link rel="stylesheet" href="assets/site.css?v=20260814-home-v6">
+    <link rel="stylesheet" href="assets/site.css?v=20260818-orbital-p0">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,14 +78,25 @@
                 </div>
               </div>
 
-              <div class="hero-v4-visual" aria-label="原创卡通航海人物主视觉">
+              <div class="hero-v4-visual" aria-label="原创卡通航海人物主视觉" data-orbital-root data-orbital-mode="solo">
                 <div class="portrait-v5">
                   <img src="assets/profile.jpg" alt="雷鑫个人照片" data-profile-avatar width="640" height="800" loading="eager" decoding="async">
                 </div>
-                <figure class="character-v4">
-                  <img src="assets/hero/character-lulu-v5.webp" alt="原创卡通航海人物手持地图，露露自然坐在旅行帽上" data-character-image width="1023" height="1537" fetchpriority="high" decoding="async">
-                  <figcaption data-copy="heroCharacterCaption">时刻在路上的探险家</figcaption>
-                </figure>
+                <div class="orbital" data-orbital>
+                  <figure class="character-v4" data-orbital-solo>
+                    <img src="assets/hero/character-lulu-v5.webp" alt="原创卡通航海人物手持地图，露露自然坐在旅行帽上" data-character-image width="1023" height="1537" fetchpriority="high" decoding="async">
+                    <figcaption data-copy="heroCharacterCaption">时刻在路上的探险家</figcaption>
+                  </figure>
+                  <div class="orbital-journey" id="orbital-journey" data-orbital-journey role="group" aria-label="旅程锚点" hidden>
+                    <div class="orbital-scenes is-loading" data-orbital-scenes aria-hidden="true"></div>
+                    <div class="orbital-compass" data-orbital-compass aria-hidden="true"></div>
+                    <div class="orbital-anchors" data-orbital-anchors role="group"></div>
+                  </div>
+                  <p class="orbital-status" data-orbital-status aria-live="polite"></p>
+                  <div class="orbital-actions" data-orbital-actions>
+                    <button class="button orbital-toggle" type="button" data-orbital-toggle aria-expanded="false" aria-controls="orbital-journey" data-copy="orbitalEnter">探索旅程</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -172,7 +183,7 @@
       </main>
     </div>
     <script src="assets/config.js"></script>
-    <script src="assets/content.js?v=20260814-home-v6"></script>
-    <script src="assets/site.js?v=20260814-home-v6"></script>
+    <script src="assets/content.js?v=20260818-orbital-p0"></script>
+    <script src="assets/site.js?v=20260818-orbital-p0"></script>
   </body>
 </html>
