@@ -272,11 +272,11 @@ window.PORTFOLIO_CONTENT = {
       enType: "问山河 · Travel discovery and collection",
       title: "问山河",
       enTitle: "问山河",
-      role: "旅行发现、摇签与收藏体验",
-      enRole: "Travel discovery, draw, and collection experience",
-      image: "assets/pixeltravelmap-preview.png",
-      imageAlt: "问山河真实首页：摇签发现、卡池主题与地点收藏入口",
-      enImageAlt: "Real Wanshanhe home screen with draw discovery, themes, and collection entry points",
+      role: "旅行发现、摇签、收藏与随行记录",
+      enRole: "Travel discovery, draw, collection, and itinerary notes",
+      image: "assets/wanshanhe-preview.png",
+      imageAlt: "问山河真实首页：摇签发现、山河卡片与收藏入口",
+      enImageAlt: "Real Wanshanhe home screen with draw discovery, travel cards, and collection entry points",
       motionPreview: {
         poster: "assets/previews/wanshanhe-poster.svg",
         source: "assets/previews/wanshanhe-motion-v2.svg",
@@ -285,13 +285,13 @@ window.PORTFOLIO_CONTENT = {
       },
       links: [
         {
-          label: "打开像素旅行助手",
-          href: "https://leoxin99.github.io/PixelTravelMap/dist/index.html",
+          label: "打开问山河",
+          href: "https://wenshanhe.xinlei99.com/",
           external: true,
           primary: true
         },
         {
-          label: "查看路线示例",
+          label: "打开像素旅行助手模块",
           href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
           external: true
         },
@@ -303,13 +303,13 @@ window.PORTFOLIO_CONTENT = {
       ],
       enLinks: [
         {
-          label: "Open Pixel Travel Assistant",
-          href: "https://leoxin99.github.io/PixelTravelMap/dist/index.html",
+          label: "Open Wanshanhe",
+          href: "https://wenshanhe.xinlei99.com/",
           external: true,
           primary: true
         },
         {
-          label: "View route example",
+          label: "Open the Pixel Travel Assistant module",
           href: "https://leoxin99.github.io/PixelTravelMap/dist/italy_france_switzerland_demo.html",
           external: true
         },
@@ -320,9 +320,9 @@ window.PORTFOLIO_CONTENT = {
         }
       ],
       summary:
-        "问山河从“想去哪里”出发，把地点做成可以抽取、揭晓、收藏和继续了解的旅行卡片；当前已完成摇签、地点揭晓与自动入册/收藏闭环。随行簿是后续的出发延伸。",
+        "问山河从“想去哪里”出发，把地点做成可以抽取、揭晓、收藏和继续了解的旅行卡片；确定目的地后，可进入随行簿记录与整理行程。",
       enSummary:
-        "Wanshanhe starts with the question of where to go and turns places into travel cards to draw, reveal, collect, and explore. The current loop covers draw, reveal, and automatic album entry; the travel notebook is a later extension.",
+        "Wanshanhe starts with the question of where to go and turns places into travel cards to draw, reveal, collect, and explore. After choosing a destination, travelers can continue in the travel notebook to record and organize the trip.",
       tags: [
         "用户问题重构",
         "约束建模",
@@ -334,7 +334,7 @@ window.PORTFOLIO_CONTENT = {
       highlights: [
         "问题：旅行灵感常停留在收藏夹里，用户缺少轻量、可持续的发现入口",
         "设计：用摇签降低选择压力，用地点卡承载缘由、故事和收藏关系",
-        "当前闭环：抽签、揭晓、自动入册与重复保护；随行簿作为后续产品延伸"
+        "当前闭环：抽签、揭晓、自动入册与重复保护；确定目的地后进入随行簿记录行程"
       ],
       enTags: [
         "Problem reframing",
@@ -347,7 +347,7 @@ window.PORTFOLIO_CONTENT = {
       enHighlights: [
         "Problem: travel inspiration often stays in a saved list without a lightweight way to keep discovering",
         "Design: use a draw to reduce choice pressure, with cards carrying the reason, story, and collection link",
-        "Current loop: draw, reveal, automatic album entry, and duplicate protection; the travel notebook is a later extension"
+        "Current loop: draw, reveal, automatic album entry, and duplicate protection; the travel notebook records the trip after a destination is chosen"
       ]
     },
     {
