@@ -81,9 +81,11 @@
                 </div>
               </div>
 
-              <div class="hero-v4-visual" aria-label="原创卡通航海人物主视觉" data-orbital-root data-orbital-mode="solo">
+              <div class="hero-v4-visual" aria-label="原创卡通航海人物主视觉" data-orbital-root data-orbital-mode="solo" data-gaze-root>
                 <div class="orbital" data-orbital>
-                  <figure class="character-v4" data-orbital-solo>
+                  <!-- 视线跟随：当前主图是角色与露露合成的一张透明 WebP，暂无独立头部/眼睛图层；
+                       未来拆图后在 figure 内追加 data-gaze-layer="head" / "eyes" 图层，即可复用 --gaze-x/--gaze-y。 -->
+                  <figure class="character-v4" data-orbital-solo data-gaze-layer="character">
                     <img src="assets/hero/character-lulu-v5.webp" alt="原创卡通航海人物手持地图，露露自然坐在旅行帽上" data-character-image width="1023" height="1537" fetchpriority="high" decoding="async">
                     <figcaption data-copy="heroCharacterCaption">时刻在路上的探险家</figcaption>
                   </figure>
@@ -117,8 +119,8 @@
           <div class="container">
             <div class="section-head section-head-v4">
               <p class="eyebrow" data-copy="systemEyebrow">SKILLS / WORKING SYSTEM</p>
-              <h2 data-copy="systemTitle">一套让复杂工作继续向前的工作系统</h2>
-              <p class="section-intro" data-copy="systemIntro">研究、产品与网页交付并不是三条孤立的线；我会把上下文、证据、视觉和验收放在同一条链路里。</p>
+              <h2 data-copy="systemTitle">把常用工作方法做成可复用工具</h2>
+              <p class="section-intro" data-copy="systemIntro">这里放的是我真正用过、能继续复用的工作系统：交接、协作、信息整理与用户研究。</p>
             </div>
             <div class="skills-grid" data-skill-list></div>
             <div class="workbench-feature">

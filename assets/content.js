@@ -372,6 +372,20 @@ window.PORTFOLIO_CONTENT = {
         alt: "CellSAM 心肌细胞实例分割抽象示意：显微图像、细胞轮廓与分离结果",
         enAlt: "Abstract CellSAM preview: microscopy input, cell contours, and separated instances"
       },
+      links: [
+        {
+          label: "查看项目详情",
+          href: "cellsam.html",
+          primary: true
+        }
+      ],
+      enLinks: [
+        {
+          label: "Project details",
+          href: "cellsam.html",
+          primary: true
+        }
+      ],
       summary:
         "面向 hiPSC-CM 心肌细胞弱边界、粘连与多通道信息对齐问题，推进视觉 foundation model 的场景适配、候选生成、统一推理评估与实验审计。",
       enSummary:
@@ -414,6 +428,21 @@ window.PORTFOLIO_CONTENT = {
           label: "打开在线 Demo",
           href: "pet-diabetes-care-log/index.html",
           primary: true
+        },
+        {
+          label: "查看项目详情",
+          href: "pet-diabetes.html"
+        }
+      ],
+      enLinks: [
+        {
+          label: "Open demo",
+          href: "pet-diabetes-care-log/index.html",
+          primary: true
+        },
+        {
+          label: "Project details",
+          href: "pet-diabetes.html"
         }
       ],
       summary:

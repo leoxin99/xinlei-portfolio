@@ -348,8 +348,7 @@
       const motion = qs(".project-motion", card);
       if (!motion) return;
       const source = motion.dataset.motionSource;
-      if (active && source) motion.src = `${source}?motionRun=${Date.now()}`;
-      if (!active && source) motion.src = source;
+      if (active && source) motion.src = source;
     };
 
     cards.forEach((card) => {
@@ -399,7 +398,11 @@
       const tags = localizedArray(skill, "tags").map((tag) => `<span>${tag}</span>`).join("");
       const media = skill.media || {};
       const mediaMarkup = media.poster ? `<div class="skill-media"><img src="${media.poster}" alt="${localized(skill, "mediaAlt")}" loading="lazy" decoding="async"></div>` : "";
-      const linkMarkup = skill.github ? `<a class="skill-link text-link" href="${skill.github}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>` : "";
+      const skillLink = skill.link || (skill.github ? { href: skill.github, external: true } : null);
+      const linkText = skillLink ? localized(skill, "linkLabel", skill.github ? "GitHub" : "链接") : "";
+      const linkMarkup = skillLink
+        ? `<a class="skill-link text-link" href="${skillLink.href}"${skillLink.external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${linkText}${skillLink.external ? " ↗" : ""}</a>`
+        : "";
       card.innerHTML = `${mediaMarkup}<div class="skill-card-copy"><div class="skill-index">${skill.index}</div><h3>${localized(skill, "title")}</h3><p>${localized(skill, "summary")}</p><div class="skill-tags">${tags}</div><div class="skill-links">${linkMarkup}</div></div>`;
       list.appendChild(card);
     });
@@ -569,8 +572,8 @@
   }
 
   function bindHeroParallax() {
-    const visual = qs(".hero-v4-visual") || qs(".hero-visual");
-    const stage = qs(".character-v4") || qs(".hero-stage");
+    const visual = qs("[data-gaze-root]") || qs(".hero-v4-visual") || qs(".hero-visual");
+    const stage = qs("[data-gaze-layer='character']") || qs(".character-v4") || qs(".hero-stage");
     const portrait = qs(".portrait-dock img");
     if (!visual || !stage || !window.matchMedia) return;
     const area = qs(".hero-v4") || visual;
@@ -595,6 +598,10 @@
         follower.el.style.setProperty(follower.varX, (currentX * follower.ampX).toFixed(2));
         follower.el.style.setProperty(follower.varY, (currentY * follower.ampY).toFixed(2));
       });
+      // 归一化视线变量（-1..1）写在 data-gaze-root 上，未来独立的头部/眼睛图层
+      // （data-gaze-layer="head" / "eyes"）直接在 CSS calc 中读取，无需再改 JS。
+      visual.style.setProperty("--gaze-x", currentX.toFixed(3));
+      visual.style.setProperty("--gaze-y", currentY.toFixed(3));
       if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) schedule();
     };
     const schedule = () => {
@@ -624,6 +631,8 @@
           follower.el.style.removeProperty(follower.varX);
           follower.el.style.removeProperty(follower.varY);
         });
+        visual.style.removeProperty("--gaze-x");
+        visual.style.removeProperty("--gaze-y");
         targetX = 0;
         targetY = 0;
         currentX = 0;
