@@ -470,7 +470,7 @@ window.PORTFOLIO_CONTENT = {
       organization: "北京小米移动软件有限公司",
       title: "手机产品经理实习生（数据分析与上线支持方向）",
       enTitle: "Mobile product intern (analytics and launch support)",
-      period: "2022.09 - 2023.01",
+      period: "2022.09 - 2022.11",
       location: "北京",
       enLocation: "Beijing",
       summary:
