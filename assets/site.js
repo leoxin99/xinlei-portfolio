@@ -1005,9 +1005,42 @@
     document.head.appendChild(script);
   }
 
+  function bindJourneyNav() {
+    const nav = qs("[data-journey-nav]");
+    if (!nav || !("IntersectionObserver" in window)) return;
+    const links = qsa("[data-journey-section]", nav);
+    if (!links.length) return;
+    const bySection = new Map();
+    links.forEach((link) => {
+      const section = document.getElementById(link.dataset.journeySection);
+      if (section) bySection.set(section, link);
+    });
+    if (!bySection.size) return;
+    const setCurrent = (active) => {
+      bySection.forEach((link) => {
+        if (link === active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    };
+    const visible = new Map();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.set(entry.target, entry.intersectionRatio);
+        else visible.delete(entry.target);
+      });
+      let best = null;
+      let bestRatio = 0;
+      visible.forEach((ratio, section) => {
+        if (ratio > bestRatio) { best = section; bestRatio = ratio; }
+      });
+      setCurrent(best ? bySection.get(best) : null);
+    }, { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.1, 0.35, 0.6] });
+    bySection.forEach((link, section) => observer.observe(section));
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     renderLocalizedHome();
     renderSimpleCards("[data-honor-list]", content.honors, "honor-card", (honor) => `<h3>${honor.title}</h3><p>${honor.detail}</p>`);
-    renderCellSamDetail(); renderCellSamAgentSystem(); bindMobileNav(); bindLanguageControl(); bindImageFallbacks(); bindContactDialog(); bindHeroParallax(); bindOrbitalJourney(); loadAnalytics();
+    renderCellSamDetail(); renderCellSamAgentSystem(); bindMobileNav(); bindLanguageControl(); bindImageFallbacks(); bindContactDialog(); bindHeroParallax(); bindOrbitalJourney(); bindJourneyNav(); loadAnalytics();
   });
 })();
